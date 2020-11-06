@@ -17,12 +17,15 @@ const userSchema = new Schema({
       },
       email: {
           type: String,
-
       },
+      articles: [{
+        type: Schema.Types.ObjectId,
+        ref: "Article",
+      }],
       // using imageData as a placeholder for the image url 
       user_image: {
         type: String,
-        data: imageData
+        data: Buffer
       }
 });
 
