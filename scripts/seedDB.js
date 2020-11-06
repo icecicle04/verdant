@@ -1,5 +1,6 @@
 const User = require("../models/user")
 const mongoose = require("mongoose");
+let db = require("../models")
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/verdant", {
   useNewUrlParser: true,
@@ -27,6 +28,13 @@ const userData = [
     })
 ];
 
-for (let i = 0; i < userData.length; i++){
-    userData[i].save();
-}
+db.User.deleteMany({})
+  .then(() => db.User.collection.insertMany(userData))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
