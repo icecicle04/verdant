@@ -1,7 +1,8 @@
-const User = require("../models/user")
+const User = require("../models/user");
 const mongoose = require("mongoose");
-let db = require("../models")
+let db = require("../models/index");
 
+// connect to the db
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/verdant", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
