@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-// article schema for the mongoDB
+// plant schema for the mongoDB
 const plantSchema = new Schema({
   plant_name: {
     type: String,

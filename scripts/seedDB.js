@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/verdant", {
   useFindAndModify: false,
 });
 
-// setup seed data for the user model
+// setup dumdum data for the user model
 const userData = [
     new User({
         first_name: "Bobby",
@@ -29,6 +29,7 @@ const userData = [
     })
 ];
 
+// delete, then insert summy data into the User collection of verdant db
 db.User.deleteMany({})
   .then(() => db.User.collection.insertMany(userData))
   .then(data => {
