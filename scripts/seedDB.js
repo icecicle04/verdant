@@ -2,6 +2,10 @@ const User = require("../models/user");
 const mongoose = require("mongoose");
 let db = require("../models/index");
 
+//=======================
+// run 'node seedDB.js' from in the scripts file to add seed data and connect to db
+//=======================
+
 // connect to the db
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/verdant", {
   useNewUrlParser: true,
