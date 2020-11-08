@@ -7,6 +7,10 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+const userController = require("./controllers/userController");
+
+app.use("/api/users", userController);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("client/build"));
