@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import axios from "axios";
-import Landing from "./pages/landing";
+import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Account from "./pages/userAccount";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -19,7 +19,7 @@ function App() {
           <Route exact path={["/", "/Verdant"]}>
             <Landing />
           </Route>
-          <Route exact path={["/signUp"]}>
+          <Route exact path={["/Register"]}>
             <Register />
           </Route>
           <Route exact path={["/account"]}>

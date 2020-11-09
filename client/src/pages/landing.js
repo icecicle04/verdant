@@ -1,6 +1,6 @@
 import React from "react";
 // import { Col, Row, Container } from "../components/Grid";
-import SignUp from "../components/SignUpBtn";
+import Register from "../components/Register";
 import SignIn from "../components/SignInBtn"
 
 
@@ -12,7 +12,7 @@ function Landing(props) {
       <div className="row">
         <div className ="col-md-12 text-center">
           <h1> Welcome to Verdant-Green Thumbs</h1>
-                  <SignUp />
+                  <Register />
                   <SignIn />                  
         </div>
       </div>
