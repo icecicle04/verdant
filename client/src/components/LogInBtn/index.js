@@ -4,7 +4,7 @@ import React from "react";
 function logIn() {
     return (   
       <button className="btn btn-danger">
-              <a className="login-btn" href="/logIn"> log In</a>
+              <a className="login-btn" href="/logIn">Log In</a>
       </button>
     );
   }
