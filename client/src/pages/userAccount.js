@@ -1,5 +1,6 @@
 import React from "react";
 import TestImage from "../Images/nickCage.jpg";
+import EditBtn from "../components/EditBtn"
 
 const userAccount = (props) => {
   return (
@@ -26,6 +27,7 @@ const userAccount = (props) => {
                 electronic typesetting, remaining essentially unchanged. It was
                 popularised in the 1960s with the 
               </p>
+              <EditBtn/>
             </div>
           </div>
           <div className="row">
@@ -35,6 +37,7 @@ const userAccount = (props) => {
               <p>
                 past a variety of plant pictures/profiles here
               </p>
+              <EditBtn/>
             </div>
           </div>
         </div>
