@@ -15,6 +15,7 @@ router.get("/api/users", (req,res) =>{
     })
 });
 
+// delete and find use this var, make sure to swap out when using dynamic data
 let userID = "5fa5e3246017de4309aa0ed8";
 
 // find user by ID
@@ -39,5 +40,15 @@ router.post("/api/users", jsonParser, (req, res) => {
         if(err) throw err;
     });
 });
+
+// delete user by id
+router.delete("/api/users/:id", (req, res) => {
+    db.User.findByIdAndDelete({_id: userId}).then(deletedUser => {
+        console.log("Deleted user");
+        console.log(deletedUser);
+    }).catch((err) => {
+        if (err) throw err;
+    })
+})
 
 module.exports = router;
