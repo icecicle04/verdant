@@ -1,9 +1,9 @@
-const express = require("express");
-let router = express.Router();
-const db = require("../models");
+// const express = require("express");
+// let router = express.Router();
+// const db = require("../models");
 
-router.get("/api/users", (req,res) =>{
-    console.log("Clicked to retrieve users");
-});
+// router.get("/api/users", (req,res) =>{
+//     console.log("Clicked to retrieve users");
+// });
 
-module.exports = router;
+// module.exports = router;
