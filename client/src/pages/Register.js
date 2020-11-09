@@ -1,22 +1,19 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
-import SignUp from "../components/SignUpBtn";
+// import SignUp from "../components/SignUpBtn";
 import Nav from "../components/Nav"
-import SignIn from "../components/SignInBtn"
+// import SignIn from "../components/SignInBtn"
 
+import Form from "../components/Form"
 
-
-
-function Landing(props) {
+function Register(props) {
   return (
     <Container fluid>
       <Row>
         <Col size="md-12">
           <Nav />
-          <h1> Welcome to Verdant-Green Thumbs</h1>
-                  <SignUp />
-                  <SignIn />
-                  
+          <h1> Register an account</h1>
+          <Form />
         </Col>
       </Row>
       </Container> 
@@ -25,4 +22,4 @@ function Landing(props) {
 }
 
 
-export default Landing;
+export default Register;

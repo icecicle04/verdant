@@ -1,15 +1,27 @@
 import "./App.css";
 import { useEffect } from "react";
 import axios from "axios";
+import Landing from "./pages/landing";
+import Register from "./pages/Register";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   useEffect(() => {
     axios.get("/api/config").then((response) => console.log(response.data));
   }, []);
   return (
-    <div className="App">
-      Hello World
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path={["/", "/Verdant"]}>
+            <Landing />
+          </Route>
+          <Route exact path={["/signUp"]}>
+            <Register />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
