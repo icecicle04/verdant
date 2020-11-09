@@ -23,13 +23,11 @@ function App() {
           <Route exact path={["/Register"]}>
             <Register />
           </Route>
-<<<<<<< HEAD
           <Route exact path={["/Login"]}>
-            <LogInForm />
-=======
+            <LogInForm/>
+          </Route>
           <Route exact path={["/account"]}>
             <Account />
->>>>>>> 14884e2661bf893d329f9b81cad3c7d9a839a8cd
           </Route>
         </Switch>
       </div>

@@ -12,7 +12,7 @@ function Nav() {
   </button>
   <div className="dropdown-menu">
     <a className="dropdown-item" href="/">Home Page</a>
-    <a className="dropdown-item" href="/">Login</a>
+    <a className="dropdown-item" href="/Login">Login</a>
     <a className="dropdown-item" href="/Register">Sign Up</a>
   </div>
 </div>
