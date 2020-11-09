@@ -8,12 +8,12 @@ const userSchema = new Schema({
     first_name: {
         type: String,
         trim: true,
-        required: "Enter a  first name for transaction"
+        required: "Enter a first name"
       },
       last_name: {
         type: String,
         trim: true,
-        required: "Enter a last name for transaction"
+        required: "Enter a last name"
       },
       email: {
           type: String,

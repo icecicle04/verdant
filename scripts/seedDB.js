@@ -1,6 +1,13 @@
 const User = require("../models/user");
+const Article = require("../models/article");
+const Plant = require("../models/plant");
 const mongoose = require("mongoose");
 let db = require("../models/index");
+
+// can we add all models to one large seed file?
+//=======================
+// run 'node seedDB.js' from in the scripts file to add seed data and connect to db
+//=======================
 
 // connect to the db
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/verdant", {
@@ -40,3 +47,5 @@ db.User.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+  
