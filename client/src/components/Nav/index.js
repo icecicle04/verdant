@@ -13,7 +13,7 @@ function Nav() {
   <div className="dropdown-menu">
     <a className="dropdown-item" href="/">Home Page</a>
     <a className="dropdown-item" href="/">Login</a>
-    <a className="dropdown-item" href="/">Sign Up</a>
+    <a className="dropdown-item" href="/signUp">Sign Up</a>
   </div>
 </div>
     </nav>
