@@ -9,12 +9,12 @@ function handleSignInBtn(event) {
 
 
 //Create an onClick event listener for the sign-in btn
-function SignUp() {
+function SignIn() {
     return (   
         <button className="btn btn-danger" onClick={handleSignInBtn} >
-        Sign Up
+        Sign in
       </button>
     );
   }
    
-  export default SignUp;
+  export default SignIn;
