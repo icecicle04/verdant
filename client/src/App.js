@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import axios from "axios";
+import Landing from "./pages/landing";
 
 function App() {
   useEffect(() => {
@@ -8,7 +9,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      Hello World
+      <Landing />
     </div>
   );
 }
