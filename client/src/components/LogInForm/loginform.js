@@ -24,7 +24,7 @@ class LogInForm extends Component {
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    if (!this.state.firstName || !this.state.lastName) {
+    if (!this.state.email || !this.state.password) {
       alert("Please enter your email and password!");
     }
 
@@ -38,7 +38,7 @@ class LogInForm extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <form className="form">
+        <form className="loginform">
           <input
             value={this.state.email}
             name="email"
