@@ -1,5 +1,6 @@
 import React from "react";
-import PlantCard from "../components/PlantPage/PlantCard";
+// import PlantCard from "../components/PlantPage/PlantCard";
+import PlantSearch from "../components/PlantPage/PlantSearch";
 // import placeHolderImage from "../Images/plant-icon.png";
 // import API from "../utils/API";
 
@@ -7,13 +8,16 @@ const Plant = () => {
   return (
     <div className="container fluid">
       <div className="row">
-        <div className="col-sm-12">
-          <h2>This will hold the trefle.io informaiton</h2>
+        <div className="col-sm-3"/>
+        <div className="col-sm-6 text-center">
+          <h2>Trefle.io Plants</h2>
+          <hr/>
         </div>
       </div>
       <div className="row">
         {/* <div className="col-sm-3" /> */}
-        <PlantCard />
+        <PlantSearch/>
+        {/* <PlantCard /> */}
       </div>
     </div>
   );

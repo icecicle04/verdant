@@ -1,31 +1,48 @@
-import React, { useEffect, useState } from "react";
-// import placeHolderImage from "../Images/plant-icon.png";
+import React, { useState, useEffect } from "react";
 import plantStyle from "../PlantPage/plantCard.css";
 import API from "../../utils/API";
 
-const PlantCard = () => {
-  const [plant, setPlant] = useState([]);
+// a search page for the trefle.io API
+const PlantSearch = () => {
+  const [search, setSearch] = useState([]);
 
-  // similar to componentDid Mount
   useEffect(() => {
-    API.load()
+    // API.search("Philodendron")
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     setSearch(response.data.data);
+    //   })
+    //   .catch((err) => {
+    //     if (err) throw err;
+    //   });
+  }, []);
+
+  function handleSearch(e) {
+    console.log(e);
+    // e.preventDefault();
+    API.search(e)
       .then((response) => {
-        console.log("hit trefle.io ===");
-        // console.log(response.data.data);
-        setPlant(response.data.data);
+        console.log(response.data);
+        setSearch(response.data.data);
       })
       .catch((err) => {
         if (err) throw err;
       });
-  }, []);
-
-  console.log(plant);
+  }
 
   return (
     <>
-      {plant.map((type) => {
+      <input
+        className="form-control nav-search"
+        type="text"
+        placeholder="e.g. Philodendron"
+        name="search"
+        onChange={(e) => handleSearch(e.target.value)}
+      />
+
+      {search.map((type) => {
         return (
-          <div  key={type.id} style={plantStyle} className="col-sm-6">
+          <div key={type.id} style={plantStyle} className="col-sm-6">
             <div className="card plant-card">
               <div
                 className="practice image"
@@ -38,7 +55,7 @@ const PlantCard = () => {
                   backgroundRepeat: "no-repeat",
                 }}
               ></div>
-            
+
               <div className="card-body">
                 <h5 className="card-title">{type.common_name}</h5>
                 <p className="card-text">
@@ -69,4 +86,4 @@ const PlantCard = () => {
   );
 };
 
-export default PlantCard;
+export default PlantSearch;
