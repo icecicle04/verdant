@@ -4,8 +4,9 @@ import axios from "axios";
 import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Account from "./pages/userAccount";
+import Plant from "./pages/Plant";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "../src/components/Nav"
+import Nav from "../src/components/Nav";
 // import LogInForm from "./components/Form";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-      <Nav />
+        <Nav />
         <Switch>
           <Route exact path={["/", "/Verdant"]}>
             <Landing />
@@ -28,6 +29,9 @@ function App() {
           </Route> */}
           <Route exact path={["/account"]}>
             <Account />
+          </Route>
+          <Route exact path={["/plant"]}>
+            <Plant />
           </Route>
         </Switch>
       </div>
