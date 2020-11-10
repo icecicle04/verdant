@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 import LogInForm from "../components/Form/logInForm.js";
+=======
+import LogInForm from "../components/Form/loginform.js";
+>>>>>>> parent of e226f79... created loginform
 
 function Login(props) {
   return (
