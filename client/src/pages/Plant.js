@@ -12,7 +12,7 @@ const Plant = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-sm-3" />
+        {/* <div className="col-sm-3" /> */}
         <PlantCard />
       </div>
     </div>
