@@ -1,7 +1,9 @@
 import React from "react";
 // import { Col, Row, Container } from "../components/Grid";
 import Register from "../components/Register";
-import LogIn from "../components/LogInBtn/index";
+import SignIn from "../components/SignInBtn"
+
+
 
 
 function Landing(props) {
@@ -11,7 +13,7 @@ function Landing(props) {
         <div className ="col-md-12 text-center">
           <h1> Welcome to Verdant-Green Thumbs</h1>
                   <Register />
-                  <LogIn />                  
+                  <SignIn />                  
         </div>
       </div>
       </div> 
