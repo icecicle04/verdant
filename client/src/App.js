@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Account from "./pages/userAccount";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "../src/components/Nav"
-import LogInForm from "./components/Form/logInForm";
+import LogInForm from "./components/Form/loginform";
 
 function App() {
   useEffect(() => {
