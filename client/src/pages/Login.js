@@ -1,5 +1,5 @@
 import React from "react";
-import LogInForm from "../components/Form/logInForm.js";
+import LogInForm from "../components/Form/loginform";
 
 function Login(props) {
   return (
