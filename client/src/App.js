@@ -4,10 +4,10 @@ import axios from "axios";
 import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Account from "./pages/userAccount";
-import Plant from "./pages/Plant";
+import Articles from "./pages/Articles"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "../src/components/Nav";
-// import LogInForm from "./components/Form";
+import Nav from "../src/components/Nav"
+import Login from "./pages/Login";
 
 function App() {
   useEffect(() => {
@@ -24,14 +24,17 @@ function App() {
           <Route exact path={["/Register"]}>
             <Register />
           </Route>
-          {/* <Route exact path={["/Login"]}>
-            <LogInForm/>
-          </Route> */}
+          <Route exact path={["/Login"]}>
+            <Login/>
+          </Route>
           <Route exact path={["/account"]}>
             <Account />
           </Route>
           <Route exact path={["/plant"]}>
             <Plant />
+            </Route>
+          <Route exact path={["/Articles"]}>
+            <Articles />
           </Route>
         </Switch>
       </div>
