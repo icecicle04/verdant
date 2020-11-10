@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-      <Nav />
+        <Nav />
         <Switch>
           <Route exact path={["/", "/Verdant"]}>
             <Landing />
@@ -30,6 +30,9 @@ function App() {
           <Route exact path={["/account"]}>
             <Account />
           </Route>
+          <Route exact path={["/plant"]}>
+            <Plant />
+            </Route>
           <Route exact path={["/Articles"]}>
             <Articles />
           </Route>

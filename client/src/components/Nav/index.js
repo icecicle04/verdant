@@ -14,6 +14,8 @@ function Nav() {
     <a className="dropdown-item" href="/">Home Page</a>
     <a className="dropdown-item" href="/Login">Login</a>
     <a className="dropdown-item" href="/Register">Sign Up</a>
+    <a className="dropdown-item" href="/plant">Plants</a>
+
   </div>
 </div>
     </nav>
