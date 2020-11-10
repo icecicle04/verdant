@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Account from "./pages/userAccount";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "../src/components/Nav"
-import LogInForm from "./components/Form/loginform";
+// import LogInForm from "./components/Form";
 
 function App() {
   useEffect(() => {
@@ -23,9 +23,9 @@ function App() {
           <Route exact path={["/Register"]}>
             <Register />
           </Route>
-          <Route exact path={["/Login"]}>
+          {/* <Route exact path={["/Login"]}>
             <LogInForm/>
-          </Route>
+          </Route> */}
           <Route exact path={["/account"]}>
             <Account />
           </Route>
