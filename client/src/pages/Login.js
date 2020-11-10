@@ -1,6 +1,10 @@
 import React from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import LogInForm from "../components/Form/logInForm.js";
+=======
+import LogInForm from "../components/Form/loginform.js";
+>>>>>>> parent of e226f79... created loginform
 =======
 import LogInForm from "../components/Form/loginform.js";
 >>>>>>> parent of e226f79... created loginform
