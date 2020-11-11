@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 
 class LogInForm extends Component {
   // Setting the component's initial state
@@ -27,6 +28,8 @@ class LogInForm extends Component {
     if (!this.state.email || !this.state.password) {
       alert("Please enter your email and password!");
     }
+
+    // API.logInUser()
 
     this.setState({
       email: "",

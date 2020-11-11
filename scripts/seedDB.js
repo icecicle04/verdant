@@ -22,17 +22,20 @@ const userData = [
     new User({
         first_name: "Bobby",
         last_name: "Herman",
-        email: "bobby@gmail.com"
+        email: "bobby@gmail.com",
+        password: "12345",
     }),
     new User({
         first_name: "Dillon",
         last_name: "Chancellor",
-        email: "dillpickle3@gmail.com"
+        email: "dillpickle3@gmail.com",
+        password: "password123",
     }),
     new User({
         first_name: "Kim",
         last_name: "Shala",
-        email: "kimmy@gmail.com"
+        email: "kimmy@gmail.com",
+        password: "testing1234",
     })
 ];
 

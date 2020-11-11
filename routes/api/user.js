@@ -32,19 +32,26 @@ router.get("/api/users/:id", (req, res) => {
     });
 });
 
-// create user route
-router.post("/api/users", jsonParser, (req, res) => {
-  console.log(req.body);
-  db.User.insertMany(req.body)
-    .then((newUser) => {
-      console.log("Successfully created a new user");
-      console.log(req.body);
+// find user by email address 
+router.get("/api/users/register", (req, res) => {
+  db.User.findOne({email}).then((foundUser) =>{
+    res.json(foundUser);
+  }).catch((err) => {
+    if (err) throw err;
+  })
+})
 
-      res.json(newUser);
-    })
-    .catch((err) => {
-      if (err) throw err;
-    });
+// create user route
+router.post("/api/users/register", jsonParser, (req, res) => {
+  db.User.findOne({email: req.body.email})
+  .then((foundUser)=>{
+    if(foundUser){
+      res.json({msg: "email address already in use"});
+      // console.log(foundUser);
+    } else {
+      db.User.create(req.body)
+    }
+  })
 });
 
 // update user by id

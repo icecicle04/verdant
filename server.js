@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/verdant", {
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING || "mongodb://localhost/verdant", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
