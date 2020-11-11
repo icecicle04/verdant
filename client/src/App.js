@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import axios from "axios";
 import Landing from "./pages/landing";
 import Register from "./pages/Register";
+import Account from "./pages/userAccount";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "../src/components/Nav";
-import logo from "./src/components/logo1.svg";
+import Login from "./pages/Login";
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,12 @@ function App() {
           </Route>
           <Route exact path={["/signUp"]}>
             <Register />
+          </Route>
+          <Route exact path={["/Login"]}>
+            <Login />
+          </Route>
+          <Route exact path={["/account"]}>
+            <Account />
           </Route>
         </Switch>
       </div>
