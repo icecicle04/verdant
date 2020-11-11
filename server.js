@@ -6,8 +6,9 @@ const mongoose = require("mongoose");
 const routes = require("./routes/api/user");
 const path = require("path");
 
-const PORT = process.env.PORT || 3001;
+const router = require("./routes/api");
 
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Add routes, both API and view
@@ -35,11 +36,12 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-app.get("/api/config", (req, res) => {
-  res.json({
-    success: true,
-  });
-});
+app.use(router);
+// app.get("/api/config", (req, res) => {
+//   res.json({
+//     success: true,
+//   });
+// });
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
