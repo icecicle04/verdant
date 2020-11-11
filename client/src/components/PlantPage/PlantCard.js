@@ -11,7 +11,7 @@ const PlantCard = () => {
     API.load()
       .then((response) => {
         console.log("hit trefle.io ===");
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setPlant(response.data.data);
       })
       .catch((err) => {
@@ -25,8 +25,8 @@ const PlantCard = () => {
     <>
       {plant.map((type) => {
         return (
-          <div style={plantStyle} className="col-sm-6">
-            <div key={type.id} className="card plant-card">
+          <div  key={type.id} style={plantStyle} className="col-sm-6">
+            <div className="card plant-card">
               <div
                 className="practice image"
                 style={{
