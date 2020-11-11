@@ -2,6 +2,8 @@ import React from "react";
 import { Component } from "react";
 import logo from "./logo.png";
 import { menuItems } from "./menuItems";
+import "./Navbar.css";
+import { Button } from "./Button";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -14,7 +16,7 @@ class Navbar extends Component {
     return (
       <nav className="navbarItems navbar navbar-expand-lg navbar-dark bg-success">
         <h1 className="navbar-logo">
-          Verdant<i className="fab fa-react"></i>
+          Verdant<i class="fas fa-leaf"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i
@@ -32,6 +34,7 @@ class Navbar extends Component {
             );
           })}
         </ul>
+        <Button>Login</Button>
       </nav>
     );
   }
