@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import logo from "./logo.png";
 import { menuItems } from "./menuItems";
 import "./Navbar.css";
 import { Button } from "./Button";
@@ -14,9 +13,9 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbarItems navbar navbar-expand-lg navbar-dark bg-success">
+      <nav className="navbarItems navbar navbar-expand-lg ">
         <h1 className="navbar-logo">
-          Verdant<i class="fas fa-leaf"></i>
+          Verdant &nbsp;<i class="fas fa-leaf"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i
@@ -34,7 +33,7 @@ class Navbar extends Component {
             );
           })}
         </ul>
-        <Button>Login</Button>
+        <div className="loginButton">{/* <Button>Login</Button> */}</div>
       </nav>
     );
   }

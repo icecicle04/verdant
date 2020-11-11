@@ -19,9 +19,10 @@ export const menuItems = [
     url: "/plant",
     cName: "nav-links",
   },
-  {
-    title: "home",
-    url: "/",
-    cName: "nav-links-mobile",
-  },
+
+  //   {
+  //     title: "home",
+  //     url: "/",
+  //     cName: "nav-links-mobile",
+  //   },
 ];
