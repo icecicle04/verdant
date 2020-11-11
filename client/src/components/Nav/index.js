@@ -4,14 +4,24 @@ import logo from "./logo.png";
 import { menuItems } from "./menuItems";
 
 class Navbar extends Component {
+  state = { clicked: false };
+
+  handleClick = () => {
+    this.setState({ clicked: !this.state.clicked });
+  };
+
   render() {
     return (
       <nav className="navbarItems navbar navbar-expand-lg navbar-dark bg-success">
         <h1 className="navbar-logo">
           Verdant<i className={logo}></i>
         </h1>
-        <div className="menu-icon"></div>
-        <ul>
+        <div className="menu-icon" onClick={this.handleClick}>
+          <i
+            className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
+          ></i>
+        </div>
+        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
           {menuItems.map((item, index) => {
             return (
               <li key={index}>
