@@ -7,15 +7,24 @@ const CORS = "https://serene-badlands-79714.herokuapp.com/";
 
 // trefle.io API calls using axios
 export default {
+    // load all plants
     load: function() {
         return axios.get(CORS + BASEURL + APIKEY);
     },
-
+    // search for plants
     search: function(query) {
         return axios.get(CORS + SEARCHURL + APIKEY + "&q=" + query)
     },
-
+    // create new user 
     createUser: function(userData){
-        return axios.post("/api/users", userData);
+        return axios.post("/api/users/register", userData);
+    },
+    // find all user by email
+    findUser: function(foundUserEmail){
+        return axios.get("/api/users/register", foundUserEmail)
+    },
+    //find a user by ID
+    logInUser: function(){
+        return axios.get("/api/users" )
     }
 };
