@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import axios from "axios";
-import Landing from "./pages/landing";
+import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Account from "./pages/userAccount";
 import Articles from "./pages/Articles";
@@ -33,7 +33,7 @@ function App() {
           </Route>
           <Route exact path={["/plant"]}>
             <Plant />
-            </Route>
+          </Route>
           <Route exact path={["/Articles"]}>
             <Articles />
           </Route>
