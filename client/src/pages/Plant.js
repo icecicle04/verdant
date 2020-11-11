@@ -2,7 +2,6 @@ import React from "react";
 // import PlantCard from "../components/PlantPage/PlantCard";
 import PlantSearch from "../components/PlantPage/PlantSearch";
 // import placeHolderImage from "../Images/plant-icon.png";
-// import API from "../utils/API";
 
 const Plant = () => {
   return (
