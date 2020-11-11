@@ -1,17 +1,13 @@
 import React from "react";
-// import { Col, Row, Container } from "../components/Grid";
-// import SignUp from "../components/SignUpBtn";
-// import Nav from "../components/Nav"
-// import SignIn from "../components/SignInBtn"
-
-import Form from "../components/Form"
+import Form from "../../components/Form/index";
+import "./Register.css";
 
 function Register(props) {
   return (
-    <div className="container fluid">
-      <div className ="row">
-        <div className ="col-md-12">
-          <h1> Register an account</h1>
+    <div className="container fluid text-center">
+      <div className ="row text-center">
+        <div className ="col-md-12 text-center">
+          <h1> Register a New Account</h1>
           <Form />
         </div>
       </div>

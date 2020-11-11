@@ -9,7 +9,7 @@ const Plant = () => {
       <div className="row">
         <div className="col-sm-3"/>
         <div className="col-sm-6 text-center">
-          <h2>Trefle.io Plants</h2>
+          <h1><strong>Trefle.io Plants</strong></h1>
           <hr/>
         </div>
       </div>
