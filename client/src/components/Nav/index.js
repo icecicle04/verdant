@@ -14,7 +14,7 @@ class Navbar extends Component {
     return (
       <nav className="navbarItems navbar navbar-expand-lg navbar-dark bg-success">
         <h1 className="navbar-logo">
-          Verdant<i className={logo}></i>
+          Verdant<i className="fab fa-react"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i
