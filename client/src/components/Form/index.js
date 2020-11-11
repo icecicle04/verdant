@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 
 class Form extends Component {
   // Setting the component's initial state
@@ -30,6 +31,17 @@ class Form extends Component {
     } else {
       alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
     }
+
+    API.createUser({
+      first_name: this.state.firstName, 
+      last_name: this.state.lastName,
+      email: this.state.email
+    }).then((res) =>{
+      console.log(res);
+    }).catch((err) =>{
+      if(err) throw err;
+    }) 
+
 
     this.setState({
       firstName: "",

@@ -13,5 +13,9 @@ export default {
 
     search: function(query) {
         return axios.get(CORS + SEARCHURL + APIKEY + "&q=" + query)
+    },
+
+    createUser: function(userData){
+        return axios.post("/api/users", userData);
     }
 };

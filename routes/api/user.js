@@ -39,7 +39,6 @@ router.post("/api/users", jsonParser, (req, res) => {
     .then((newUser) => {
       console.log("Successfully created a new user");
       console.log(req.body);
-
       res.json(newUser);
     })
     .catch((err) => {
