@@ -17,6 +17,13 @@ const userSchema = new Schema({
       },
       email: {
           type: String,
+          unique: true,
+      },
+      password: {
+        type: String,
+        trim: true,
+        minlength: 5,
+        required: "Enter a password"
       },
       articles: [{
         type: Schema.Types.ObjectId,
