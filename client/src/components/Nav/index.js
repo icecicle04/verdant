@@ -43,9 +43,12 @@ function Nav() {
               <a className="dropdown-item" href="/Register">
                 Sign Up
               </a>
+              <a className="dropdown-item" href="/plant">
+                Plants
+              </a>
             </div>
-          </div>{" "}
-        </div>{" "}
+          </div>
+        </div>
       </div>
     </nav>
   );
