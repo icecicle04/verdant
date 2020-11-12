@@ -77,7 +77,7 @@ router.post("/api/users/login", jsonParser, (req, res) => {
   db.User.findOne({ email: email })
     .then((foundUser) => {
       console.log("USER FOUND WITH:", foundUser);
-      if (!foundUser) {
+      if (foundUser === null) {
         return res.status(400).json("No matching user in existing database");
       } else {
         // compare user input with existing hashed password
@@ -107,6 +107,12 @@ router.post("/api/users/login", jsonParser, (req, res) => {
                 lastName: foundUser.last_name,
                 email: foundUser.email,
               },
+            });
+          } else {
+            res.status(401).json({
+              error: true,
+              data: null,
+              message: "Credentials did not match",
             });
           }
         });
