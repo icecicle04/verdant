@@ -1,4 +1,5 @@
 import React, { Component, useContext, useState } from "react";
+import AlertContext from "../../context/AlertContext";
 import { useHistory } from "react-router-dom";
 import "./loginform.css";
 import API from "../../utils/API";
@@ -6,6 +7,7 @@ import API from "../../utils/API";
 const LoginForm = () => {
   const [jwt, setJwt] = useState("");
   const [formObject, setFormObject] = useState({});
+  const { setAlert } = useContext(AlertContext);
 
   let history = useHistory();
 
@@ -27,12 +29,13 @@ const LoginForm = () => {
       password: formObject.password,
     })
       .then((res) => {
-        console.log(res.data);
-        setJwt(res.data.token)
+        setAlert({message: `Welcome back ${res.data.user.firstName} !`, type: "success"})
+        // console.log(res.data)
+        setJwt(res.data);
         history.push("/account");
       })
       .catch((err) => {
-        console.log(err.response.data);
+        setAlert({message: "Failed to log you in.", type: "danger"})
       });
   };
 
