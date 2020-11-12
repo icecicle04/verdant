@@ -18,12 +18,10 @@ function Landing(props) {
             <div className="col-md-8">
               <div className="card-body">
                 <h1 classNameName="landingHeading">
-                  <strong>Verdant</strong>
+                  Verdant
                 </h1>
                 <p className="card-text text-right" style={{width: "70%", justifyContent:"right"}}>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  Adipisicing non pariatur tempor duis sint excepteur velit excepteur eiusmod voluptate voluptate ea. Veniam est ea est magna ipsum ad ad in aliquip. Eiusmod in voluptate deserunt incididunt nisi laboris proident. Irure tempor in officia aute veniam deserunt dolor fugiat sint tempor irure nisi adipisicing
                 </p>
               </div>
             </div>
