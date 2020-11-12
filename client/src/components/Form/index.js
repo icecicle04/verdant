@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 
 class Form extends Component {
   // Setting the component's initial state
   state = {
     firstName: "",
     lastName: "",
-    email: ""
+    email: "",
+    password: "",
   };
 
   handleInputChange = event => {
@@ -14,7 +16,7 @@ class Form extends Component {
     const name = event.target.name;
 
     if (name === "email") {
-      value = value.substring(0, 15);
+      value = value.substring(0, 25);
     }
     // Updating the input's state
     this.setState({
@@ -27,14 +29,26 @@ class Form extends Component {
     event.preventDefault();
     if (!this.state.firstName || !this.state.lastName) {
       alert("Fill out your first and last name please!");
-    } else {
-      alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-    }
+    } 
+
+
+    API.createUser({
+      first_name: this.state.firstName, 
+      last_name: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password
+    }).then((res) =>{
+      console.log(res);
+    }).catch((err) =>{
+      if(err) throw err;
+    }) 
+
 
     this.setState({
       firstName: "",
       lastName: "",
-      email: ""
+      email: "",
+      password: ""
     });
   };
 
@@ -63,6 +77,13 @@ class Form extends Component {
             onChange={this.handleInputChange}
             type="email"
             placeholder="Email"
+          />
+           <input
+            value={this.state.password}
+            name="password"
+            onChange={this.handleInputChange}
+            type="password"
+            placeholder="Password"
           />
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
