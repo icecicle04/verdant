@@ -1,0 +1,12 @@
+h1 {
+    font-family: 'Poiret One', cursive;
+    font-size: 60px;
+}
+
+.container-fluid {
+    margin-top: 10vh;
+}
+
+.landingHeading {
+    margin-bottom: 5vh;
+}

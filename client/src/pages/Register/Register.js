@@ -1,12 +1,13 @@
 import React from "react";
-import Form from "../../src/components/Form";
+import Form from "../../components/Form/index";
+import "./Register.css";
 
 function Register(props) {
   return (
-    <div className="container-fluid">
-      <div className ="row">
+    <div className="container-fluid text-center">
+      <div className ="row text-center">
         <div className ="col-md-12 text-center">
-          <h2> Register a New Account</h2>
+          <h1> Register a New Account</h1>
           <Form />
         </div>
       </div>

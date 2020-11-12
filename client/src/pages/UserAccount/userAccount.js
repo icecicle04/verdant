@@ -1,6 +1,6 @@
 import React from "react";
-import TestImage from "../Images/nickCage.jpg";
-import EditBtn from "../components/EditBtn"
+import TestImage from "../../Images/nickCage.jpg";
+import EditBtn from "../../components/EditBtn/index";
 
 const userAccount = (props) => {
   return (
