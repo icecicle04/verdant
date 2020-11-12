@@ -15,16 +15,13 @@ export default {
     search: function(query) {
         return axios.get(CORS + SEARCHURL + APIKEY + "&q=" + query)
     },
-    // create new user 
+    // create and register new user 
     createUser: function(userData){
         return axios.post("/api/users/register", userData);
     },
-    // find all user by email
-    findUser: function(foundUserEmail){
-        return axios.get("/api/users/register", foundUserEmail)
+    // login existing user 
+    logInUser: function(userData){
+        return axios.post("/api/users/login", userData)
     },
-    //find a user by ID
-    logInUser: function(){
-        return axios.get("/api/users" )
-    }
+   
 };

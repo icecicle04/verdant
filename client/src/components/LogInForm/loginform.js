@@ -14,7 +14,7 @@ class LogInForm extends Component {
     const name = event.target.name;
 
     if (name === "email") {
-      value = value.substring(0, 15);
+      value = value.substring(0, 25);
     }
     // Updating the input's state
     this.setState({
@@ -29,7 +29,14 @@ class LogInForm extends Component {
       alert("Please enter your email and password!");
     }
 
-    // API.logInUser()
+    API.logInUser({
+      email: this.state.email,
+      password: this.state.password,
+    }).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      if (err) throw err;
+    })
 
     this.setState({
       email: "",
