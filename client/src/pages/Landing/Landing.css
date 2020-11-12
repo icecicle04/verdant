@@ -1,14 +1,36 @@
 h1 {
     font-family: 'Poiret One', cursive;
-    font-size: 60px;
+    font-size: 70px;
 }
-
-/* .container-fluid {
-    margin-top: 10vh;
-} */
-
-/* TODO: Convert this to a id if needed. */
 
 .landingHeading {
     margin-bottom: 5vh;
+    margin-top: 8vh;
+    color: rgb(27, 66, 32);
 }
+
+#landingPage {
+    background-color: white;
+    height: 89.8vh;
+    margin-top: 8vh;
+}
+
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 8vh; */
+}
+
+.card-text {
+    float: right;
+}
+
+.landingBackground {
+    background-image: url("../../Images/pexels-garrett-morrow-1638073.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 89.8vh;
+
+}
+
