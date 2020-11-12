@@ -13,7 +13,7 @@ class ArticleContainer extends Component {
         const url = "https://newsapi.org/v2/everything?q=plant&apiKey=e84ad28e61fb42a39ee301879b3bbc5e"
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data.articles[0])
+        // console.log(data.articles)
         this.setState({result:data.articles[0], loading:false})
     }
 
@@ -22,8 +22,8 @@ class ArticleContainer extends Component {
             <div> 
                 <h1>{this.state.result.title}</h1>
                 <h3>Article by: {this.state.result.author}</h3>
-               <a> Link to article: {this.state.result.url}</a>
-                <p><img src={this.state.result.urlToImage} ></img></p>
+               <a href="{this.state.result.url}"> Click to read more </a>
+                <p><img src={this.state.result.urlToImage} alt="text" ></img></p>
                 <p> {this.state.result.description}</p>
             </div>
         )

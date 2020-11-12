@@ -1,6 +1,6 @@
 import React from "react";
 import ArticleContainer from "../components/ArticleSearch";
-
+import ArticleSearch from "../components/ArticleSearch/ArticleSearch"
 
 
 function Articles(props) {
@@ -12,7 +12,8 @@ function Articles(props) {
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Name of Article Here</h5>
-                <ArticleContainer />
+              <ArticleContainer />
+              <ArticleSearch />
             </div>
           </div>
         </div>
