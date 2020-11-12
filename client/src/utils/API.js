@@ -6,12 +6,11 @@ const APIKEY = "qUuOo7ykLxiI50Mr36MtH1RrYMQSKtfNSPljdwDf618";
 const CORS = "https://serene-badlands-79714.herokuapp.com/";
 
 // trefle.io API calls using axios
+// eslint-disable-next-line
 export default {
-    // load all plants
-    load: function() {
+    load: function () {
         return axios.get(CORS + BASEURL + APIKEY);
     },
-    // search for plants
     search: function(query) {
         return axios.get(CORS + SEARCHURL + APIKEY + "&q=" + query)
     },
@@ -27,4 +26,4 @@ export default {
     logInUser: function(){
         return axios.get("/api/users" )
     }
-};
+}; 
