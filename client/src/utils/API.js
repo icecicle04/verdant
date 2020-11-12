@@ -22,13 +22,5 @@ export default {
     logInUser: function(userData){
         return axios.post("/api/users/login", userData)
     },
-<<<<<<< HEAD
    
 };
-=======
-    //find a user by ID
-    logInUser: function(){
-        return axios.get("/api/users" )
-    }
-}; 
->>>>>>> 731219453d1aca7142021648660f9e4004eb3525

@@ -18,10 +18,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@fortawesome/fontawesome-free": "^5.15.1",
->>>>>>> 731219453d1aca7142021648660f9e4004eb3525
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
