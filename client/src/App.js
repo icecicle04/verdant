@@ -22,7 +22,7 @@ function App() {
   }, []);
   return (
     <Router>
-      <div className="App">
+      <div>
         <Nav />
         <Switch>
           <Route exact path={["/", "/Verdant"]}>

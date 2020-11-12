@@ -3,6 +3,14 @@ h2 {
     font-size: 40px;
 }
 
-.container-fluid {
+#loginContainer {
+    background-image: url("../../Images/pexels-scott-webb-1931143.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 87vh
+}
+
+#login-title{
     margin-top: 10vh;
 }
