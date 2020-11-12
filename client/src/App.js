@@ -8,7 +8,7 @@ import Account from "./pages/UserAccount/userAccount";
 import Articles from "./pages/Articles/Articles";
 import Plant from "./pages/Plant/Plant";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "../src/components/Nav"
+import Nav from "../src/components/Nav";
 import Login from "./pages/Login/Login";
 import { setAxiosDefaults } from "./utils/axiosDefaults";
 // import ReactDOM from "react-dom";
@@ -40,31 +40,31 @@ function App() {
   }, [jwt]);
   return (
     <Router>
-      <div className="App">
       <AuthContext.Provider value={{ jwt, setJwt }}>
-        <Nav />
-        <Switch>
-          <Route exact path={["/", "/Verdant"]}>
-            <Landing />
-          </Route>
-          <Route exact path={["/signUp"]}>
-            <Register />
-          </Route>
-          <Route exact path={["/Login"]}>
-            <Login />
-          </Route>
-          <Route exact path={["/account"]}>
-            <Account />
-          </Route>
-          <Route exact path={["/plant"]}>
-            <Plant />
-          </Route>
-          <Route exact path={["/Articles"]}>
-            <Articles />
-          </Route>
-        </Switch>
-        </AuthContext.Provider>
-      </div>
+        <div className="App">
+          <Nav />
+          <Switch>
+            <Route exact path={["/", "/Verdant"]}>
+              <Landing />
+            </Route>
+            <Route exact path={["/signUp"]}>
+              <Register />
+            </Route>
+            <Route exact path={["/Login"]}>
+              <Login />
+            </Route>
+            <Route exact path={["/account"]}>
+              <Account />
+            </Route>
+            <Route exact path={["/plant"]}>
+              <Plant />
+            </Route>
+            <Route exact path={["/Articles"]}>
+              <Articles />
+            </Route>
+          </Switch>
+        </div>
+      </AuthContext.Provider>
     </Router>
   );
 }
