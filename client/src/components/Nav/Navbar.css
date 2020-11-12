@@ -27,12 +27,15 @@
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: x-large;
 }
 
 .nav-links:hover {
-  background-color: #a9ada9;
+  background-color: rgb(173,217,175);
   border-radius: 4px;
   transition: all 0.2s ease-out;
+  color: rgb(59,56,80);
 }
 
 .fa-bars {

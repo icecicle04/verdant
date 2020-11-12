@@ -9,8 +9,6 @@ import Plant from "./pages/Plant/Plant";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "../src/components/Nav"
 import Login from "./pages/Login/Login";
-import Nav from "../src/components/Nav";
-import Login from "./pages/Login";
 import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import { fab } from "@fortawesome/free-brands-svg-icons";

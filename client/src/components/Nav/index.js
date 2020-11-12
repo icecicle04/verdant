@@ -2,23 +2,8 @@ import React from "react";
 import { Component } from "react";
 import { menuItems } from "./menuItems";
 import "./Navbar.css";
-import { Button } from "./Button";
+// import { Button } from "./Button";
 
-function Nav() {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <a className="navbar-brand" href="/">
-        <h1><strong>Verdant</strong></h1>
-          </a>
-          <div className="btn-group">
-  <button type="button" className="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span className="sr-only">Toggle Dropdown</span>
-  </button>
-  <div className="dropdown-menu">
-    <a className="dropdown-item" href="/">Home Page</a>
-    <a className="dropdown-item" href="/Login">Login</a>
-    <a className="dropdown-item" href="/Register">Sign Up</a>
-    <a className="dropdown-item" href="/plant">Plants</a>
 class Navbar extends Component {
   state = { clicked: false };
 
@@ -29,8 +14,8 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbarItems navbar navbar-expand-lg ">
-        <h1 className="navbar-logo">
-          Verdant &nbsp;<i class="fas fa-leaf"></i>
+        <h1 className="navbar-logo"><strong>
+          Verdant</strong>&nbsp;<i class="fas fa-leaf"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i
