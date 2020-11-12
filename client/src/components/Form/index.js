@@ -38,7 +38,7 @@ class Form extends Component {
       email: this.state.email,
       password: this.state.password
     }).then((res) =>{
-      console.log(res);
+      console.log(res.data);
     }).catch((err) =>{
       if(err) throw err;
     }) 

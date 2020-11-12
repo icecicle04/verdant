@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
+
 
 // create application/json parser
 const jsonParser = bodyParser.json();
@@ -72,11 +74,26 @@ router.post("/api/users/register", jsonParser, (req, res) => {
 router.post("/api/users/login", jsonParser, (req, res) => {
   // destructure the req.body object to grab variables
   const { email, password } = req.body;
-  console.log("USER SUBMITTED EMAIL:", email);
-  console.log("USER SUBMITTED PASSW:", password);
-
+  // find user in database that matches the user input
   db.User.findOne({ email: email }).then((foundUser) => {
     console.log("USER FOUND WITH:", foundUser);
+    if (!foundUser){
+      return res
+      .status(400).json("No matching user in existing database");
+    } else {
+      // compare user input with existing hashed password
+    bcrypt.compare(password, foundUser.password, (err, result) => {
+      if (err) throw err;
+      console.log(result);
+
+      if (!result){
+        return res
+      .status(400).json("Invalid credentials");
+      } else {
+        res.json("SUCCESS LOGGED IN!")
+      }
+    })
+    }
   }).catch((err) => {
     if (err) throw err;
   })
