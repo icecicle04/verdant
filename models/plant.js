@@ -16,6 +16,16 @@ const plantSchema = new Schema({
     type: String,
     data: Buffer,
   },
+  family: {
+    type: String,
+    trim: true,
+    required: false,
+  },
+  bibliography: {
+    type: String,
+    trim: true,
+    required: false,
+  },
 });
 
 const Plant = mongoose.model("Plant", plantSchema);
