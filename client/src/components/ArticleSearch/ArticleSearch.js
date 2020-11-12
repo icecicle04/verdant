@@ -1,6 +1,5 @@
 import API from "./searchApi";
-// import SearchForm from "./SearchForm"
-// import SearchResults from "./SearchResults"
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 

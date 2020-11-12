@@ -1,17 +1,18 @@
 import React from "react";
-import Form from "../../src/components/Form";
+import LogInForm from "../../components/LogInForm/loginform";
+import "./Login.css";
 
-function Register(props) {
+function Login(props) {
   return (
     <div className="container-fluid">
       <div className ="row">
         <div className ="col-md-12 text-center">
-          <h2> Register a New Account</h2>
-          <Form />
+          <h2> Log Into an Existing Account</h2>
+          <LogInForm />
         </div>
       </div>
       </div>       
   );
 }
 
-export default Register;
+export default Login;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "./Form.css";
 
 class Form extends Component {
   // Setting the component's initial state
@@ -56,7 +57,7 @@ class Form extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <form className="form">
+        <form className="form text-center">
           <input
             value={this.state.firstName}
             name="firstName"

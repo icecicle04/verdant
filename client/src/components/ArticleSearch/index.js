@@ -1,6 +1,5 @@
 import { Component } from "react";
 
-
 class ArticleContainer extends Component {
 
     state = {

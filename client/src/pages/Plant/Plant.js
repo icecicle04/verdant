@@ -1,6 +1,6 @@
 import React from "react";
 // import PlantCard from "../components/PlantPage/PlantCard";
-import PlantSearch from "../components/PlantPage/PlantSearch";
+import PlantSearch from "../../components/PlantPage/PlantSearch";
 // import placeHolderImage from "../Images/plant-icon.png";
 
 const Plant = () => {
@@ -9,7 +9,7 @@ const Plant = () => {
       <div className="row">
         <div className="col-sm-3"/>
         <div className="col-sm-6 text-center">
-          <h2>Trefle.io Plants</h2>
+          <h1><strong>Trefle.io Plants</strong></h1>
           <hr/>
         </div>
       </div>

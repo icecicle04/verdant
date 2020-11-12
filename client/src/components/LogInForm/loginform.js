@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import "./loginform.css";
 import API from "../../utils/API";
 
 class LogInForm extends Component {
   // Setting the component's initial state
   state = {
     email: "",
-    password: ""
+    password: "",
   };
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
@@ -18,11 +19,11 @@ class LogInForm extends Component {
     }
     // Updating the input's state
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     if (!this.state.email || !this.state.password) {
@@ -33,7 +34,7 @@ class LogInForm extends Component {
 
     this.setState({
       email: "",
-      password: ""
+      password: "",
     });
   };
 
@@ -42,21 +43,26 @@ class LogInForm extends Component {
     return (
       <div>
         <form className="loginform">
-          <input
-            value={this.state.email}
-            name="email"
-            onChange={this.handleInputChange}
-            type="email"
-            placeholder="Email"
-          />
+          <div>
             <input
-            value={this.state.password}
-            name="password"
-            onChange={this.handleInputChange}
-            type="password"
-            placeholder="Password"
-          />
-          <button onClick={this.handleFormSubmit}>Log In</button>
+              value={this.state.email}
+              name="email"
+              onChange={this.handleInputChange}
+              type="email"
+              placeholder="Email"
+              id="loginEmail"
+            />
+          </div>
+          <div>
+            <input
+              value={this.state.password}
+              name="password"
+              onChange={this.handleInputChange}
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          <button className="loginBtn" onClick={this.handleFormSubmit}>Log In</button>
         </form>
       </div>
     );

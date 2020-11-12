@@ -1,6 +1,6 @@
 import React from "react";
-import ArticleContainer from "../components/ArticleSearch";
-import ArticleSearch from "../components/ArticleSearch/ArticleSearch"
+import ArticleContainer from "../../components/ArticleSearch/index";
+import ArticleSearch from "../../components/ArticleSearch/ArticleSearch"
 
 
 function Articles(props) {
