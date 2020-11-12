@@ -1,14 +1,14 @@
 import "./App.css";
 import { useEffect } from "react";
 import axios from "axios";
-import Landing from "./pages/Landing";
+import Landing from "./pages/Landing/Landing";
 import Register from "./pages/Register";
-import Account from "./pages/userAccount";
-import Articles from "./pages/Articles";
-import Plant from "./pages/Plant";
+import Account from "./pages/UserAccount/userAccount";
+import Articles from "./pages/Articles/Articles";
+import Plant from "./pages/Plant/Plant";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "../src/components/Nav";
-import Login from "./pages/Login";
+import Nav from "../src/components/Nav"
+import Login from "./pages/Login/Login";
 import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import { fab } from "@fortawesome/free-brands-svg-icons";
