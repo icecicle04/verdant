@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
 
-
 // create application/json parser
 const jsonParser = bodyParser.json();
 
@@ -75,28 +74,47 @@ router.post("/api/users/login", jsonParser, (req, res) => {
   // destructure the req.body object to grab variables
   const { email, password } = req.body;
   // find user in database that matches the user input
-  db.User.findOne({ email: email }).then((foundUser) => {
-    console.log("USER FOUND WITH:", foundUser);
-    if (!foundUser){
-      return res
-      .status(400).json("No matching user in existing database");
-    } else {
-      // compare user input with existing hashed password
-    bcrypt.compare(password, foundUser.password, (err, result) => {
-      if (err) throw err;
-      console.log(result);
-
-      if (!result){
-        return res
-      .status(400).json("Invalid credentials");
+  db.User.findOne({ email: email })
+    .then((foundUser) => {
+      console.log("USER FOUND WITH:", foundUser);
+      if (!foundUser) {
+        return res.status(400).json("No matching user in existing database");
       } else {
-        res.json("SUCCESS LOGGED IN!")
+        // compare user input with existing hashed password
+        bcrypt.compare(password, foundUser.password, (err, result) => {
+          if (err) throw err;
+          console.log(result);
+
+          if (result) {
+            // res.json("The passwords match");
+            // create a web token to store logged user information
+            const token = jwt.sign(
+              {
+                id: foundUser._id,
+                firstName: foundUser.first_name,
+                lastname: foundUser.last_name,
+                emailAddress: foundUser.email,
+              },
+              process.env.JWT_SECRET
+            );
+
+            // send back an object with token and user information
+            res.json({
+              token,
+              user: {
+                id: foundUser._id,
+                firstName: foundUser.first_name,
+                lastName: foundUser.last_name,
+                email: foundUser.email,
+              },
+            });
+          }
+        });
       }
     })
-    }
-  }).catch((err) => {
-    if (err) throw err;
-  })
+    .catch((err) => {
+      if (err) throw err;
+    });
 });
 
 // update user by id
