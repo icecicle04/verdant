@@ -3,15 +3,10 @@ h1 {
     font-size: 70px;
 }
 
-.landingHeading {
-    /* margin-bottom: 5vh; */
-    /* margin-top: 8vh; */
-}
-
 #landingPage {
-    /* background-color: white; */
     height: 89.8vh;
     margin-top: 8vh;
+    padding-top: 3vh;
 }
 
 .card {
@@ -20,11 +15,13 @@ h1 {
     background-color: transparent;
     color: white;
     border: none;
+    padding-top: 8vh;
 }
 
 .card-text {
     float: right;
     font-family: "Raleway", sans-serif;
+    padding-top: 2vh;
 }
 
 .landingBackground {
