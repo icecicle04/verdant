@@ -1,0 +1,16 @@
+.loginform {
+    margin-top: 5vh;
+}
+
+#loginEmail {
+    margin-bottom: 5vh;
+}
+
+.loginBtn {
+    margin-top: 5vh;
+    color: white;
+    background-color: rgb(27, 66, 32);
+    font-family: "Raleway", sans-serif;
+
+}
+

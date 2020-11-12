@@ -1,4 +1,5 @@
 import React from "react";
+// import "./register.css";
 
 //Create an onClick event listener for the sign-in btn
 function Register() {

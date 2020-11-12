@@ -4,7 +4,7 @@ import "./Register.css";
 
 function Register(props) {
   return (
-    <div className="container fluid text-center">
+    <div className="container-fluid text-center">
       <div className ="row text-center">
         <div className ="col-md-12 text-center">
           <h1> Register a New Account</h1>

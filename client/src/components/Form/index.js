@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "./Form.css";
 
 class Form extends Component {
   // Setting the component's initial state

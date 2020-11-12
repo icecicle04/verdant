@@ -1,10 +1,5 @@
 import React from "react";
-// import { Col, Row, Container } from "../components/Grid";
-// import Register from "../../components/Register";
-// import Login from "../../components/LogInBtn";
 import "./Landing.css";
-// import Register from "../components/Register";
-// import Login from "../components/LogInBtn";
 import Gardening from "../../Images/gardening.png";
 
 function Landing(props) {
