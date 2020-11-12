@@ -6,3 +6,7 @@ h1 {
 .container-fluid {
     margin-top: 10vh;
 }
+
+.landingHeading {
+    margin-bottom: 5vh;
+}
