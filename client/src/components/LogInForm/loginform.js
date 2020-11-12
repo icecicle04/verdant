@@ -36,7 +36,7 @@ class LogInForm extends Component {
     }).then((res) => {
       console.log(res.data)
     }).catch((err) => {
-      if (err) throw err;
+      console.log(err.response.data);
     })
 
     this.setState({
