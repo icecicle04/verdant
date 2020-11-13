@@ -8,7 +8,7 @@ const Alert = () => {
     if(message.length){
         setTimeout(() =>{
             setAlert({message: "", type: ""})
-        }, 3000)
+        }, 2000)
     }
   },[message]) // this checks to see if there's a change in message [], then it runs the useEffect and setTimeout
   return (
