@@ -1,12 +1,14 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import AlertContext from "../../context/AlertContext";
+import userContext from "../../context/userContext";
 import API from "../../utils/API";
 import "./Form.css";
 
 const Form = () => {
   const [formObject, setFormObject] = useState({});
   const { setAlert } = useContext(AlertContext);
+  const {setJwt} = useContext(userContext);
 
   let history = useHistory();
 
@@ -35,12 +37,13 @@ const Form = () => {
       })
         .then((res) => {
           console.log(res.data);
-          if(res.data.result === "complete"){
+          if (res.data.result === "complete") {
             setAlert({
               message: `Successfully signed up! Welcome to Verdant, ${res.data.firstName}`,
               type: "success",
             });
-            history.push("/account");
+            setJwt(res.data.data);
+            // history.push("/account");
           }
         })
         .catch((err) => {
@@ -50,8 +53,6 @@ const Form = () => {
           }
         });
     }
-
-    
   };
   return (
     <div>
