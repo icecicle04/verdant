@@ -31,6 +31,7 @@
     "newsapi": "^2.4.1",
     "nodemon": "^2.0.6",
     "path": "^0.12.7",
+    "react-bootstrap": "^1.4.0",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {

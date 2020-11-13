@@ -23,7 +23,7 @@
   text-align: center;
   width: 70vw;
   justify-content: center;
-  margin-left: 3rem;
+  margin-left: 5rem;
   margin-top: auto;
 }
 
@@ -94,7 +94,6 @@
     display: table;
     color: whitesmoke;
     line-height: 1.18;
-    
   }
 
   .nav-links:hover {
@@ -132,7 +131,6 @@
     padding: 1.5rem;
     margin: 2rem auto;
     border-radius: 4px;
-    /* width: 80%; */
     background: whitesmoke;
     text-decoration: none;
     color: rgb(27, 66, 32);
