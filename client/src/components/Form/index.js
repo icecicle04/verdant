@@ -1,96 +1,91 @@
-import React, { Component } from "react";
+import React, { useContext, useState} from "react";
+import { useHistory } from "react-router-dom";
+import AlertContext from "../../context/AlertContext";
 import API from "../../utils/API";
 import "./Form.css";
 
-class Form extends Component {
-  // Setting the component's initial state
-  state = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  };
+const Form = () => {
+  const [formObject, setFormObject] = useState({});
+  const { setAlert } = useContext(AlertContext);
 
-  handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
+  let history = useHistory();
 
-    if (name === "email") {
-      value = value.substring(0, 25);
-    }
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
-  };
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
+  }
 
-  handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
+  const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (!this.state.firstName || !this.state.lastName) {
-      alert("Fill out your first and last name please!");
-    } 
 
+    if (
+      !formObject.firstName ||
+      !formObject.lastName ||
+      !formObject.email ||
+      !formObject.password
+    ) {
+      alert("Please fill out all fields to sign up");
+      return;
+    } else {
+      API.createUser({
+        first_name: formObject.firstName,
+        last_name: formObject.lastName,
+        email: formObject.email,
+        password: formObject.password,
+      })
+        .then((res) => {
+          console.log(res.data);
+          if(res.data.result === "complete"){
+            setAlert({
+              message: `Successfully signed up! Welcome to Verdant, ${res.data.firstName}`,
+              type: "success",
+            });
+            history.push("/account");
+          }
+        })
+        .catch((err) => {
+          if (err) {
+            console.log("Something went wrong");
+            setAlert({ message: "Failed to sign you up.", type: "danger" });
+          }
+        });
+    }
 
-    API.createUser({
-      first_name: this.state.firstName, 
-      last_name: this.state.lastName,
-      email: this.state.email,
-      password: this.state.password
-    }).then((res) =>{
-      console.log(res.data);
-    }).catch((err) =>{
-      if(err) throw err;
-    }) 
-
-
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: ""
-    });
+    
   };
-
-  render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
-    return (
+  return (
+    <div>
       <div>
         <form className="form text-center">
           <input
-            value={this.state.firstName}
             name="firstName"
-            onChange={this.handleInputChange}
+            onChange={handleInputChange}
             type="text"
             placeholder="First Name"
           />
           <input
-            value={this.state.lastName}
             name="lastName"
-            onChange={this.handleInputChange}
+            onChange={handleInputChange}
             type="text"
             placeholder="Last Name"
           />
           <input
-            value={this.state.email}
             name="email"
-            onChange={this.handleInputChange}
+            onChange={handleInputChange}
             type="email"
             placeholder="Email"
           />
-           <input
-            value={this.state.password}
+          <input
             name="password"
-            onChange={this.handleInputChange}
+            onChange={handleInputChange}
             type="password"
             placeholder="Password"
           />
-          <button onClick={this.handleFormSubmit}>Submit</button>
+          <button onClick={handleFormSubmit}>Submit</button>
         </form>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Form;

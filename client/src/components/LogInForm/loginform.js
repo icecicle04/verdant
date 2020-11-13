@@ -1,60 +1,52 @@
-import React, { Component } from "react";
+import React, { Component, useContext, useState } from "react";
+import AlertContext from "../../context/AlertContext";
+import { useHistory } from "react-router-dom";
 import "./loginform.css";
 import API from "../../utils/API";
 
-class LogInForm extends Component {
-  // Setting the component's initial state
-  state = {
-    email: "",
-    password: "",
-  };
+const LoginForm = () => {
+  const [jwt, setJwt] = useState("");
+  const [formObject, setFormObject] = useState({});
+  const { setAlert } = useContext(AlertContext);
 
-  handleInputChange = (event) => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
+  let history = useHistory();
 
-    if (name === "email") {
-      value = value.substring(0, 25);
-    }
-    // Updating the input's state
-    this.setState({
-      [name]: value,
-    });
-  };
+  // Handles updating component state when the user types into the input field
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
+  }
 
-  handleFormSubmit = (event) => {
+  const handleFormSubmit = (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    if (!this.state.email || !this.state.password) {
-      alert("Please enter your email and password!");
-    }
+    // if (!this.state.email || !this.state.password) {
+    //   alert("Please enter your email and password!");
+    // }
 
     API.logInUser({
-      email: this.state.email,
-      password: this.state.password,
-    }).then((res) => {
-      console.log(res.data)
-    }).catch((err) => {
-      if (err) throw err;
+      email: formObject.email,
+      password: formObject.password,
     })
-
-    this.setState({
-      email: "",
-      password: "",
-    });
+      .then((res) => {
+        setAlert({message: `Welcome back ${res.data.user.firstName} !`, type: "success"})
+        // console.log(res.data)
+        setJwt(res.data);
+        history.push("/account");
+      })
+      .catch((err) => {
+        setAlert({message: "Failed to log you in.", type: "danger"})
+      });
   };
 
-  render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
-    return (
+  return (
+    <div>
       <div>
         <form className="loginform">
           <div>
             <input
-              value={this.state.email}
               name="email"
-              onChange={this.handleInputChange}
+              onChange={handleInputChange}
               type="email"
               placeholder="Email"
               id="loginEmail"
@@ -62,18 +54,19 @@ class LogInForm extends Component {
           </div>
           <div>
             <input
-              value={this.state.password}
               name="password"
-              onChange={this.handleInputChange}
+              onChange={handleInputChange}
               type="password"
               placeholder="Password"
             />
           </div>
-          <button className="loginBtn" onClick={this.handleFormSubmit}>Log In</button>
+          <button className="loginBtn" onClick={handleFormSubmit}>
+            Log In
+          </button>
         </form>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default LogInForm;
+export default LoginForm;
