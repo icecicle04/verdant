@@ -2,7 +2,6 @@ import React from "react";
 import { Component } from "react";
 import { menuItems } from "./menuItems";
 import "./Navbar.css";
-// import { Button } from "./Button";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -15,7 +14,7 @@ class Navbar extends Component {
     return (
       <nav className="navbarItems navbar navbar-expand-lg ">
         <div className="navbar-logo"><strong>
-          Verdant</strong><i class="fas fa-leaf"></i>
+          Verdant&nbsp;</strong><i class="fas fa-leaf"></i>
         </div>
         <div className="menu-icon" onClick={this.handleClick}>
           <i

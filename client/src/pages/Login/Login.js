@@ -4,14 +4,16 @@ import "./Login.css";
 
 function Login(props) {
   return (
+    <div id="loginContainer">
     <div className="container-fluid">
       <div className ="row">
         <div className ="col-md-12 text-center">
-          <h2> Log Into an Existing Account</h2>
+          <h2 id="login-title"> Log Into an Existing Account</h2>
           <LogInForm />
         </div>
       </div>
-      </div>       
+      </div>  
+      </div>     
   );
 }
 

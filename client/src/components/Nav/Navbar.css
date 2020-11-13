@@ -1,16 +1,15 @@
 .navbarItems {
-  /* background: linear-gradient(90deg, rgb(110, 94, 254, 0%) rgba(73,63,252,100%); */
   height: 80px;
   display: flex;
   justify-content: left;
   align-items: center;
   font-size: 1.2rem;
-  background: rgb(27, 66, 32);
+  background: whitesmoke;
 }
 
 .navbar-logo {
   display: flex;
-  color: white;
+  color: rgb(27, 66, 32);
   font-family: "Poiret One", cursive;
   font-size: xx-large;
   margin-top: 0;
@@ -29,7 +28,7 @@
 }
 
 .nav-links {
-  color: white;
+  color: rgb(27, 66, 32);
   text-decoration: none;
   padding: 0.5rem 1rem;
   font-family: "Raleway", sans-serif;
@@ -44,9 +43,8 @@
 }
 
 .fa-leaf {
-  /* width: 50px;
-  height: 50px; */
-  color: white;
+ margin-top: 5px;
+ color: rgb(27, 66, 32);
 }
 
 .fa-bars {
