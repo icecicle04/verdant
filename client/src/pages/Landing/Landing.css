@@ -4,7 +4,7 @@ h1 {
 }
 
 #landingPage {
-    height: 89.8vh;
+    height: 100%;
     margin-top: 8vh;
     padding-top: 3vh;
 }
@@ -12,16 +12,19 @@ h1 {
 .card {
     margin-left: auto;
     margin-right: auto;
-    background-color: transparent;
+    background: rgba(26, 29, 27, 0.6);    
     color: white;
     border: none;
     padding-top: 8vh;
+    border-radius: 50%;
 }
 
 .card-text {
-    float: right;
+    float: left;
     font-family: "Raleway", sans-serif;
     padding-top: 2vh;
+    margin-left: 2vw;
+    font-size: 16px;
 }
 
 .landingBackground {
@@ -29,7 +32,7 @@ h1 {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 89.8vh;
-
+    height: 100%;
+    padding-top: 8vh;
 }
 
