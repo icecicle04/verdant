@@ -1,4 +1,5 @@
-import React, { useContext, useState, Component } from "react";
+import React, { useContext, useState} from "react";
+import { useHistory } from "react-router-dom";
 import AlertContext from "../../context/AlertContext";
 import API from "../../utils/API";
 import "./Form.css";
@@ -6,6 +7,8 @@ import "./Form.css";
 const Form = () => {
   const [formObject, setFormObject] = useState({});
   const { setAlert } = useContext(AlertContext);
+
+  let history = useHistory();
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -15,22 +18,40 @@ const Form = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    API.createUser({
-      first_name: formObject.firstName,
-      last_name: formObject.lastName,
-      email: formObject.email,
-      password: formObject.password,
-    })
-      .then((res) => {
-        console.log(res.data);
-        setAlert({
-          message: `Successfully signed up! Welcome to Verdant ${res.data.user.firstName}`,
-          type: "success",
-        });
+    if (
+      !formObject.firstName ||
+      !formObject.lastName ||
+      !formObject.email ||
+      !formObject.password
+    ) {
+      alert("Please fill out all fields to sign up");
+      return;
+    } else {
+      API.createUser({
+        first_name: formObject.firstName,
+        last_name: formObject.lastName,
+        email: formObject.email,
+        password: formObject.password,
       })
-      .catch((err) => {
-        setAlert({message: "Failed to lsign you up", type: "danger"})
-      });
+        .then((res) => {
+          console.log(res.data);
+          if(res.data.result === "complete"){
+            setAlert({
+              message: `Successfully signed up! Welcome to Verdant, ${res.data.firstName}`,
+              type: "success",
+            });
+            history.push("/account");
+          }
+        })
+        .catch((err) => {
+          if (err) {
+            console.log("Something went wrong");
+            setAlert({ message: "Failed to sign you up.", type: "danger" });
+          }
+        });
+    }
+
+    
   };
   return (
     <div>
