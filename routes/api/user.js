@@ -24,11 +24,10 @@ router.get("/api/users", (req, res) => {
 // find user by ID
 router.get("/api/account/:id", (req, res) => {
   let userID = req.params.id;
-  console.log("Clicked to retrieve a single user by ID");
-  console.log(req.params.id);
+  console.log("THIS IS PARAMS", req.params);
   db.User.findById({ _id: userID })
     .then((foundUser) => {
-      console.log(foundUser);
+      // console.log(foundUser);
       res.json(foundUser);
     })
     .catch((err) => {

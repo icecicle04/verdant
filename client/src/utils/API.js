@@ -22,5 +22,10 @@ export default {
     logInUser: function(userData){
         return axios.post("/api/users/login", userData)
     },
+     // get user from database
+     getUser: function(userData){
+         let userID = userData.id;
+        return axios.get(`/api/account/${userID}`)
+    },
    
 };
