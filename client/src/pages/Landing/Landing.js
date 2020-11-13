@@ -17,7 +17,7 @@ function Landing(props) {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h1 classNameName="landingHeading">
+                <h1 className="landingHeading">
                   Verdant
                 </h1>
                 <p className="card-text text-right" style={{width: "70%", justifyContent:"right"}}>

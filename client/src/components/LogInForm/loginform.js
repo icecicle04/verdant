@@ -30,9 +30,11 @@ const LoginForm = () => {
     })
       .then((res) => {
         setAlert({message: `Welcome back ${res.data.user.firstName} !`, type: "success"})
-        // console.log(res.data)
-        setJwt(res.data);
-        history.push("/account");
+        console.log(res.data.user.id)
+        let userId = res.data.user.id;
+        // setJwt("");
+        setJwt(res.data.data);
+        history.push(`/api/account/` + userId);
       })
       .catch((err) => {
         setAlert({message: "Failed to log you in.", type: "danger"})

@@ -19,14 +19,16 @@ router.get("/api/users", (req, res) => {
     });
 });
 
-// delete and find use this var, make sure to swap out when using dynamic data
-let userID = "5fa5e3246017de4309aa0ed8";
+
 
 // find user by ID
-router.get("/api/users/:id", (req, res) => {
+router.get("/api/account/:id", (req, res) => {
+  let userID = req.params.id;
   console.log("Clicked to retrieve a single user by ID");
-  db.User.find({ _id: userID })
+  console.log(req.params.id);
+  db.User.findById({ _id: userID })
     .then((foundUser) => {
+      console.log(foundUser);
       res.json(foundUser);
     })
     .catch((err) => {
@@ -116,7 +118,7 @@ router.post("/api/users/login", jsonParser, (req, res) => {
 
             // send back an object with token and user information
             res.json({
-              token,
+              data: token,
               user: {
                 id: foundUser._id,
                 firstName: foundUser.first_name,
