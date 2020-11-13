@@ -36,7 +36,7 @@ const ArticleSearch = () => {
 
 
   function handleFormSubmit(event) {
-
+    event.preventDefault();
       API.saveArticle({
         title: type.title,
         author: type.author,
@@ -46,7 +46,6 @@ const ArticleSearch = () => {
           author: "",
         }))
     }
-
 
 
   return (
@@ -79,10 +78,10 @@ const ArticleSearch = () => {
                 }}
                 ></div>
                 <p> <Link to={type.url}>Read More Here:</Link></p>
-                <p 
+                <button 
                   onClick={handleFormSubmit}
                 > Save this article to your Profile    
-              </p>
+              </button>
             </div>
           </div>
           </div>
