@@ -1,12 +1,35 @@
 h1 {
     font-family: 'Poiret One', cursive;
-    font-size: 60px;
+    font-size: 70px;
 }
 
-.container-fluid {
-    margin-top: 10vh;
+#landingPage {
+    height: 89.8vh;
+    margin-top: 8vh;
+    padding-top: 3vh;
 }
 
-.landingHeading {
-    margin-bottom: 5vh;
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding-top: 8vh;
 }
+
+.card-text {
+    float: right;
+    font-family: "Raleway", sans-serif;
+    padding-top: 2vh;
+}
+
+.landingBackground {
+    background-image: url("../../Images/pexels-garrett-morrow-1638073.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 89.8vh;
+
+}
+
