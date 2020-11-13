@@ -34,32 +34,55 @@ router.get("/api/users/:id", (req, res) => {
     });
 });
 
-
 // CREATE AND REGISTER USER ROUTE
 router.post("/api/users/register", jsonParser, (req, res) => {
   // destructure the req.body object to grab variables
   const { email, password, first_name, last_name } = req.body;
 
-  db.User.findOne({ email: email }).then((foundExistingUser) => {
-    if (foundExistingUser) {
-      return res.status(400).json("Email address already in use.");
-      // console.log(foundUser);
-    } else {
-      // hashing user password by using bcrypt and salt
-      // then setting password to the new hashed password
-      bcrypt.hash(password, 10, (err, hash) => {
-        // if (err) throw err;
-        let password = hash;
-        db.User.create({ email, password, first_name, last_name });
-        res.json({
-          result: "complete",
-          firstName: first_name
+  db.User.findOne({ email: email })
+    .then((foundExistingUser) => {
+      if (foundExistingUser) {
+        return res.status(400).json("Email address already in use.");
+        // console.log(foundUser);
+      } else {
+        // hashing user password by using bcrypt and salt
+        // then setting password to the new hashed password
+        bcrypt.hash(password, 10, (err, hash) => {
+          // if (err) throw err;
+          let password = hash;
+          db.User.create({ email, password, first_name, last_name })
+            .then((newUser) => {
+              const token = jwt.sign(
+                {
+                  id: newUser._id,
+                  firstName: newUser.first_name,
+                  lastname: newUser.last_name,
+                  emailAddress: newUser.email,
+                },
+                process.env.JWT_SECRET
+              );
+              res.json({
+                error: false,
+                data: token,
+                firstName: newUser.first_name,
+                result: "complete",
+                message: "Successfully signed up new user",
+              });
+            })
+            .catch((err) => {
+              console.log(err);
+              res.status(500).json({
+                error: true,
+                data: null,
+                message: "unable to sign up",
+              });
+            });
         });
-      });
-    }
-  }).catch((err) => {
-    if (err) throw err;
-  })
+      }
+    })
+    .catch((err) => {
+      if (err) throw err;
+    });
 });
 
 // USER LOGIN ROUTE
