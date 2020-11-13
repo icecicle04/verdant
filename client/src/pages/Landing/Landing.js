@@ -6,7 +6,7 @@ function Landing(props) {
   return (
     <div className="landingBackground">
       <div className="container">
-        <div className="card mb-3" style={{ width: "50%"}}>
+        <div className="card mb-3" id="landingCard" style={{ width: "50%"}}>
           <div className="row no-gutters">
             <div
               className="col-md-4"

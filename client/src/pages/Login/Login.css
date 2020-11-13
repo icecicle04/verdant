@@ -1,10 +1,11 @@
 h2 {
     font-family: 'Poiret One', cursive;
     font-size: 40px;
+    color: whitesmoke;
 }
 
 #loginContainer {
-    background-image: url("../../Images/pexels-scott-webb-1931143.jpg");
+    background-image: url("../../Images/pexels-pixabay-269255.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,5 +13,5 @@ h2 {
 }
 
 #login-title{
-    margin-top: 8vh;
+    margin-top: 5vh;
 }
