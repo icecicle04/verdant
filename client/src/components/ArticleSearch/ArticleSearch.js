@@ -34,13 +34,6 @@ const ArticleSearch = () => {
       });
   }
 
-  function loadArticles() {
-    API.getArticles()
-      .then(res => 
-        setSearch(res.data)
-      )
-      .catch(err => console.log(err));
-  };
 
   function handleFormSubmit(event) {
 
@@ -52,8 +45,6 @@ const ArticleSearch = () => {
           title: "",
           author: "",
         }))
-        .then(() => loadArticles())
-        .catch(err => console.log(err));
     }
 
 

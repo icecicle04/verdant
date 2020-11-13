@@ -1,19 +1,19 @@
 .loginform {
-    margin-top: 5vh;
+    margin-top: 3vh;
 }
 
 #loginEmail {
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
 }
 
 .loginBtn {
-    margin-top: 5vh;
-    color: white;
-    background-color: rgb(27, 66, 32);
+    margin-top: 2vh;
+    color:  rgb(27, 66, 32);
+    background-color: whitesmoke;
     font-family: "Raleway", sans-serif;
     border-radius: 4px;
-    font-size: 22px;
-    border: rgb(27, 66, 32);
+    font-size: 20px;
+    border: whitesmoke;
 }
 
 .loginBtn:hover {
