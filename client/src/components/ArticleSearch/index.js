@@ -9,7 +9,7 @@ class ArticleContainer extends Component {
     };
     
     async componentDidMount() {
-        const url = "https://newsapi.org/v2/everything?q=plant&apiKey=e84ad28e61fb42a39ee301879b3bbc5e"
+        const url = "https://newsapi.org/v2/everything?q=plant&apiKey=2bdd9ba65e244c398dfcfe644ef1c1be"
         const response = await fetch(url);
         const data = await response.json();
         // console.log(data.articles)

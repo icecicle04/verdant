@@ -1,10 +1,15 @@
 import API from "./searchApi";
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
+
+  const [type, setType] = useState({
+    title: "",
+    author: "",
+  });
+
 
   useEffect(() => {
     API.search("Flowers")
@@ -28,6 +33,20 @@ const ArticleSearch = () => {
         if (err) throw err;
       });
   }
+
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+      API.saveArticle({
+        title: type.title,
+        author: type.author,
+      })
+        .then(() => setType({
+          title: "",
+          author: "",
+        }))
+    }
+
 
   return (
     <>
@@ -59,6 +78,10 @@ const ArticleSearch = () => {
                 }}
                 ></div>
                 <p> <Link to={type.url}>Read More Here:</Link></p>
+                <button 
+                  onClick={handleFormSubmit}
+                > Save this article to your Profile    
+              </button>
             </div>
           </div>
           </div>
