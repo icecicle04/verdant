@@ -157,6 +157,8 @@ router.delete("/api/users/:id", (req, res) => {
     });
 });
 
+//Routes for Articles 
+
 router.get("/api/Articles", (req, res) => {
   console.log("Clicked to retrieve users");
   db.Article.find({})
@@ -180,6 +182,41 @@ router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
         error: true,
         data: null,
         message: "unable to sign up",
+      });
+    });
+});
+
+
+//Routes for Plants 
+
+router.get("/api/plant", (req, res) => {
+  console.log("Clicked to retrieve users");
+  db.Plant.find({})
+    .then((foundPlant) => {
+      res.json(foundPlant);
+    })
+    .catch((err) => {
+      if (err) throw err;
+    });
+});
+
+router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
+  var { common_name, image_url, bibliography, family, genus, scientific_name } = req.body;
+  db.Plant.create({ common_name, image_url, bibliography, family, genus, scientific_name })
+    .then((newPlant) => {
+      (common_name = newPlant.common_name),
+        (image_url = newPlant.image_url),
+        (bibliography = newPlant.bibliography),
+        (family = newPlant.family),
+        (genus = newPlant.genus),
+        (scientific_name = newPlant.scientific_name);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to save plant",
       });
     });
 });

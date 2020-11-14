@@ -7,12 +7,12 @@ const Schema = mongoose.Schema;
 
 // plant schema for the mongoDB
 const plantSchema = new Schema({
-  plant_name: {
+  common_name: {
     type: String,
     trim: true,
     required: true,
   },
-  plant_image: {
+  image_url: {
     type: String,
     data: Buffer,
   },
@@ -22,6 +22,16 @@ const plantSchema = new Schema({
     required: false,
   },
   bibliography: {
+    type: String,
+    trim: true,
+    required: false,
+  },
+  genus: {
+    type: String,
+    trim: true,
+    required: false,
+  },
+  scientific_name: {
     type: String,
     trim: true,
     required: false,
