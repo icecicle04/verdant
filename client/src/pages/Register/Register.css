@@ -9,7 +9,8 @@ h2 {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 89.4vh;
+    width: 100%;
+    height: 88.4vh;
 }
 
 #registerHeader{
