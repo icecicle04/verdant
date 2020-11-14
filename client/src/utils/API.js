@@ -15,12 +15,27 @@ export default {
         return axios.get(CORS + SEARCHURL + APIKEY + "&q=" + query)
     },
     // create and register new user 
-    createUser: function(userData){
+    createUser: function (userData) {
+        console.log(userData);
         return axios.post("/api/users/register", userData);
     },
     // login existing user 
     logInUser: function(userData){
         return axios.post("/api/users/login", userData)
+    },
+     // get user from database
+     getUser: function(userId){
+         console.log("USER", userId)      
+        return axios.get("/api/account/" +  userId)
+    },
+     
+    savePlant: function (savedPlant) {
+        console.log(savedPlant);
+        return axios.post("/api/plant/SavedPlant", savedPlant);
+    },
+
+    getPlant: function () {
+        return axios.get("/api/plant/SavedPlant");
     },
    
 };

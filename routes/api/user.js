@@ -7,26 +7,15 @@ const bcrypt = require("bcryptjs");
 // create application/json parser
 const jsonParser = bodyParser.json();
 
-// create a GET route for testing (getting all users)
-router.get("/api/users", (req, res) => {
-  console.log("Clicked to retrieve users");
-  db.User.find({})
-    .then((foundUser) => {
-      res.json(foundUser);
-    })
-    .catch((err) => {
-      if (err) throw err;
-    });
-});
-
-// delete and find use this var, make sure to swap out when using dynamic data
-let userID = "5fa5e3246017de4309aa0ed8";
 
 // find user by ID
-router.get("/api/users/:id", (req, res) => {
-  console.log("Clicked to retrieve a single user by ID");
-  db.User.find({ _id: userID })
+router.get("/api/account/:user", jsonParser, (req, res) => {
+  let userID = req.params.user;
+  console.log(userID);
+
+  db.User.findById({ _id: userID })
     .then((foundUser) => {
+      // console.log(foundUser);
       res.json(foundUser);
     })
     .catch((err) => {
@@ -64,6 +53,7 @@ router.post("/api/users/register", jsonParser, (req, res) => {
               res.json({
                 error: false,
                 data: token,
+                id: newUser._id,
                 firstName: newUser.first_name,
                 result: "complete",
                 message: "Successfully signed up new user",
@@ -116,7 +106,7 @@ router.post("/api/users/login", jsonParser, (req, res) => {
 
             // send back an object with token and user information
             res.json({
-              token,
+              data: token,
               user: {
                 id: foundUser._id,
                 firstName: foundUser.first_name,
@@ -157,4 +147,67 @@ router.delete("/api/users/:id", (req, res) => {
     });
 });
 
+//Routes for Articles 
+
+router.get("/api/Articles", (req, res) => {
+  console.log("Clicked to retrieve users");
+  db.Article.find({})
+    .then((foundArticle) => {
+      res.json(foundArticle);
+    })
+    .catch((err) => {
+      if (err) throw err;
+    });
+});
+
+router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
+  var { title, author } = req.body;
+  db.Article.create({ title, author })
+    .then((newArticle) => {
+      (title = newArticle.title), (author = newArticle.author);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to sign up",
+      });
+    });
+});
+
+
+//Routes for Plants 
+
+router.get("/api/plant", (req, res) => {
+  console.log("Clicked to retrieve users");
+  db.Plant.find({})
+    .then((foundPlant) => {
+      res.json(foundPlant);
+    })
+    .catch((err) => {
+      if (err) throw err;
+    });
+});
+
+router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
+  var { common_name, image_url, bibliography, family, genus, scientific_name } = req.body;
+  db.Plant.create({ common_name, image_url, bibliography, family, genus, scientific_name })
+    .then((newPlant) => {
+      (common_name = newPlant.common_name),
+        (image_url = newPlant.image_url),
+        (bibliography = newPlant.bibliography),
+        (family = newPlant.family),
+        (genus = newPlant.genus),
+        (scientific_name = newPlant.scientific_name);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to save plant",
+      });
+    });
+});
 module.exports = router;

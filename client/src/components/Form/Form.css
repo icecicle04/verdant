@@ -1,5 +1,26 @@
-/* .container-fluid {
-    margin-top: 10vh;
-} */
+#registerForm {
+  margin-top: 3vh;
+}
 
-/* TODO: Add id if this is needed. */
+.registerInput {
+  margin-bottom: 2vh;
+  font-family: "Raleway", sans-serif;
+}
+
+#registerBtn {
+  margin-top: 2vh;
+  color: rgb(27, 66, 32);
+  background-color: whitesmoke;
+  font-family: "Raleway", sans-serif;
+  border-radius: 4px;
+  font-size: 20px;
+  border: whitesmoke;
+}
+
+#registerBtn:hover {
+  background-color: rgb(173, 217, 175);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+  color: rgb(59, 56, 80);
+  text-decoration: underline;
+}

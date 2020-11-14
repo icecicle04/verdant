@@ -1,11 +1,12 @@
 import React, { Component, useContext, useState } from "react";
 import AlertContext from "../../context/AlertContext";
+import userContext from "../../context/userContext";
 import { useHistory } from "react-router-dom";
 import "./loginform.css";
 import API from "../../utils/API";
 
 const LoginForm = () => {
-  const [jwt, setJwt] = useState("");
+  const {setJwt} = useContext(userContext);
   const [formObject, setFormObject] = useState({});
   const { setAlert } = useContext(AlertContext);
 
@@ -29,10 +30,11 @@ const LoginForm = () => {
       password: formObject.password,
     })
       .then((res) => {
-        setAlert({message: `Welcome back ${res.data.user.firstName} !`, type: "success"})
-        // console.log(res.data)
-        setJwt(res.data);
-        history.push("/account");
+        console.log(res.data.user.id)
+        let userId = res.data.user.id;
+        // setJwt("");
+        setJwt(res.data.data);
+        history.push(`/api/account/` + userId);
       })
       .catch((err) => {
         setAlert({message: "Failed to log you in.", type: "danger"})

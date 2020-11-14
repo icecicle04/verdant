@@ -55,6 +55,7 @@ connection.on("error", (err) => {
 });
 
 app.use(router);
+
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,

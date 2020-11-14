@@ -39,8 +39,8 @@ const PlantCard = () => {
                 }}
               ></div>
             
-              <div className="card-body">
-                <h5 className="card-title">{type.common_name}</h5>
+              <div className="card-body text-center">
+                <h5 className="card-title text-center">{type.common_name}</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -53,7 +53,7 @@ const PlantCard = () => {
                   Scientific name: {type.scientific_name}
                 </li>
               </ul>
-              <div className="card-body">
+              <div className="card-body text-center">
                 <a href="#" className="card-link">
                   Save Plant
                 </a>

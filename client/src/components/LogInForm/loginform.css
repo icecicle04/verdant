@@ -1,25 +1,26 @@
 .loginform {
-    margin-top: 3vh;
+  margin-top: 3vh;
+  font-family: "Raleway", sans-serif;
 }
 
 #loginEmail {
-    margin-bottom: 2vh;
+  margin-bottom: 2vh;
 }
 
 .loginBtn {
-    margin-top: 2vh;
-    color:  rgb(27, 66, 32);
-    background-color: whitesmoke;
-    font-family: "Raleway", sans-serif;
-    border-radius: 4px;
-    font-size: 20px;
-    border: whitesmoke;
+  margin-top: 2vh;
+  color: rgb(27, 66, 32);
+  background-color: whitesmoke;
+  font-family: "Raleway", sans-serif;
+  border-radius: 4px;
+  font-size: 20px;
+  border: whitesmoke;
 }
 
 .loginBtn:hover {
-    background-color: rgb(173, 217, 175);
-    border-radius: 4px;
-    transition: all 0.2s ease-out;
-    color: rgb(59, 56, 80);
-}    
-
+  background-color: rgb(173, 217, 175);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+  color: rgb(59, 56, 80);
+  text-decoration: underline;
+}

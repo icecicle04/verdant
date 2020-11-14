@@ -5,7 +5,14 @@ import API from "../../utils/API";
 // a search page for the trefle.io API
 const PlantSearch = () => {
   const [search, setSearch] = useState([]);
-
+  const [plantType, setplantType] = useState({
+    common_name:"",
+    image_url:"",
+    bibliography:"",
+    family:"",
+    genus:"",
+    scientific_name:"",
+  });
   useEffect(() => {
     API.search("Philodendron")
       .then((response) => {
@@ -20,16 +27,38 @@ const PlantSearch = () => {
   function handleSearch(e) {
     API.search(e)
       .then((response) => {
-          // how to get this error working?
-          if(response.data.data.length <= 0){
-              console.log("no results found");
-          }
+        // how to get this error working?
+        if (response.data.data.length <= 0) {
+          console.log("no results found");
+        }
         console.log(response.data);
         setSearch(response.data.data);
       })
       .catch((err) => {
         if (err) throw err;
       });
+  }
+
+  function handleFormSubmit(common_name, image_url, bibliography, family, genus, scientific_name)
+    {
+    console.log(common_name);
+    console.log(bibliography)
+    setplantType({
+      common_name: common_name,
+      image_url: image_url,
+      bibliography: bibliography,
+      family: family,
+      genus: genus,
+      scientific_name: scientific_name,
+    });
+      API.savePlant({
+        common_name: common_name,
+        image_url: image_url,
+        bibliography: bibliography,
+        family: family,
+        genus: genus,
+        scientific_name: scientific_name,
+      })
   }
 
   return (
@@ -78,12 +107,22 @@ const PlantSearch = () => {
                 </li>
               </ul>
               <div className="card-body">
-                <a href="#" className="card-link">
+                <a
+                  onClick={() =>
+                    handleFormSubmit(
+                      type.common_name,
+                      type.image_url,
+                      type.bibliography,
+                      type.family,
+                      type.genus,
+                      type.scientific_name
+                    )
+                  }
+                  className="card-link"
+                >
                   Save Plant
                 </a>
-                <a href="#" className="card-link">
-                  Another link
-                </a>
+                <a className="card-link">Another link</a>
               </div>
             </div>
           </div>

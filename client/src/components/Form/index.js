@@ -8,7 +8,7 @@ import "./Form.css";
 const Form = () => {
   const [formObject, setFormObject] = useState({});
   const { setAlert } = useContext(AlertContext);
-  const {setJwt} = useContext(userContext);
+  const { setJwt } = useContext(userContext);
 
   let history = useHistory();
 
@@ -36,14 +36,24 @@ const Form = () => {
         password: formObject.password,
       })
         .then((res) => {
-          console.log(res.data);
+          // console.log("SIGNED UP INFO", res.data);
           if (res.data.result === "complete") {
             setAlert({
               message: `Successfully signed up! Welcome to Verdant, ${res.data.firstName}`,
               type: "success",
             });
-            setJwt(res.data.data);
-            // history.push("/account");
+            // when the user is signed up and the data is retrieved,
+            // send the infromation into the login route to automatically sign in
+            API.logInUser({
+              email: formObject.email,
+              password: formObject.password,
+            }).then((res) => {
+              console.log(res.data.user.id);
+              let userId = res.data.user.id;
+              // setJwt("");
+              setJwt(res.data.data);
+              history.push(`/api/account/` + userId);
+            });
           }
         })
         .catch((err) => {
@@ -57,32 +67,42 @@ const Form = () => {
   return (
     <div>
       <div>
-        <form className="form text-center">
-          <input
-            name="firstName"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="First Name"
-          />
-          <input
-            name="lastName"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Last Name"
-          />
-          <input
-            name="email"
-            onChange={handleInputChange}
-            type="email"
-            placeholder="Email"
-          />
-          <input
-            name="password"
-            onChange={handleInputChange}
-            type="password"
-            placeholder="Password"
-          />
-          <button onClick={handleFormSubmit}>Submit</button>
+        <form className="form text-center" id="registerForm">
+          <div className="registerInput">
+            <input
+              name="firstName"
+              onChange={handleInputChange}
+              type="text"
+              placeholder="First Name"
+            />
+          </div>
+          <div className="registerInput">
+            <input
+              name="lastName"
+              onChange={handleInputChange}
+              type="text"
+              placeholder="Last Name"
+            />
+          </div>
+          <div className="registerInput">
+            <input
+              name="email"
+              onChange={handleInputChange}
+              type="email"
+              placeholder="Email"
+            />
+          </div>
+          <div className="registerInput">
+            <input
+              name="password"
+              onChange={handleInputChange}
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          <button id="registerBtn" onClick={handleFormSubmit}>
+            Submit
+          </button>
         </form>
       </div>
     </div>

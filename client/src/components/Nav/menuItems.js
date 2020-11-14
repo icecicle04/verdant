@@ -16,7 +16,7 @@ export const menuItems = [
   },
   {
     title: "account",
-    url: "/account",
+    url: "/api/account/:banana",
     cName: "nav-links",
   },
   {
