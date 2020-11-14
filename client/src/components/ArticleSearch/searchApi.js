@@ -14,7 +14,10 @@ export default {
     },
 
     getArticles: function () {
-        return axios.get("/api/Articles/savedArticles");
+        return axios.get("/api/Articles");
     },
+    deleteArticles: function(id) {
+        return axios.delete("/api/Articles/" + id);
+      },
 
 };

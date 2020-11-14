@@ -176,6 +176,18 @@ router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
     });
 });
 
+router.delete("api/Articles/:id", function (req, res) {
+  console.log(req.params.id);
+  db.Article.destroy({
+    where: {
+        id: req.params.id
+      }
+  })
+  .then(function(dbArticle) {
+    res.json(dbArticle);
+  });
+});
+
 
 //Routes for Plants 
 
@@ -210,4 +222,10 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
       });
     });
 });
+
+
+
+
+router.delete("api/Articles/:id")
+
 module.exports = router;

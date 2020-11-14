@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import TestImage from "../../Images/nickCage.jpg";
 import AlertContext from "../../context/AlertContext";
-import EditBtn from "../EditBtn/index";
 import jwt from "jsonwebtoken";
 import userContext from "../../context/userContext";
 import API from "../../utils/API";
@@ -70,15 +69,7 @@ const AccountPage = () => {
                       remaining essentially unchanged. It was popularised in the
                       1960s with the
                     </p>
-                    <EditBtn />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-3" />
-                  <div className="col-sm-6">
-                    <h3>plant profile section</h3>
-                    <p>past a variety of plant pictures/profiles here</p>
-                    <EditBtn />
+                    {/* <EditBtn /> */}
                   </div>
                 </div>
               </div>
