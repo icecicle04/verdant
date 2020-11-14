@@ -19,6 +19,7 @@ body {
   font-size: 16px;
   background: var(--light-color);
   margin: 20px;
+  justify-self: center;
 }
 
 ul {
@@ -41,6 +42,7 @@ a {
 /* Chat Page */
 
 .chat-container {
+  justify-self: center;
   max-width: 1100px;
   background: #fff;
   margin: 30px auto;
