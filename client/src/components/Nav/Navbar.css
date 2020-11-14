@@ -1,5 +1,5 @@
 .navbarItems {
-  height: 80px;
+  height: 90px;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -20,7 +20,7 @@
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
-  text-align: center;
+  text-align: left;
   width: 70vw;
   justify-content: center;
   margin-left: 5rem;
@@ -43,8 +43,8 @@
 }
 
 .fa-leaf {
- margin-top: 5px;
- color: rgb(27, 66, 32);
+  margin-top: 5px;
+  color: rgb(27, 66, 32);
 }
 
 .fa-bars {
@@ -72,16 +72,17 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 500px;
-    position: absolute;
-    top: 80px;
+    height: 600px;
+    position: relative;
+    top: 90px;
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
+    margin-right: 20px;
   }
 
   .nav-menu.active {
-    background: rgba(26, 29, 27, 1);    
+    background: rgba(26, 29, 27, 1);
     left: 0;
     transition: all 0.5s ease;
     z-index: 1;
@@ -97,7 +98,7 @@
   }
 
   .nav-links:hover {
-    background-color:  rgb(173, 217, 175);
+    background-color: rgb(173, 217, 175);
     border-radius: 0;
   }
 
