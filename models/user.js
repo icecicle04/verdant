@@ -18,6 +18,10 @@ const userSchema = new Schema({
     type: String,
     unique: true,
   },
+  bio: {
+    type: String,
+    unique: false,
+  },
   password: {
     type: String,
     trim: true,
