@@ -11,7 +11,6 @@ const Plant = () => {
         <div className="col-sm-3"/>
         <div className="col-sm-6 text-center">
           <h2 id="searchHeader">Search For a Plant</h2>
-          <hr/>
         </div>
       </div>
       <div className="row">
