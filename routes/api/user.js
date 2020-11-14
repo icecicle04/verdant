@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
-
+require("../../controllers/controller")
 // create application/json parser
 const jsonParser = bodyParser.json();
 
@@ -176,16 +176,16 @@ router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
     });
 });
 
-router.delete("api/Articles/:id", function (req, res) {
+router.delete("/api/Articles/:id", function (req, res) {
   console.log(req.params.id);
-  db.Article.destroy({
-    where: {
-        id: req.params.id
-      }
-  })
-  .then(function(dbArticle) {
-    res.json(dbArticle);
-  });
+  db.Article.findByIdAndDelete({ _id: req.params.id })
+    .then((deletedUser) => {
+      console.log("Deleted user");
+      console.log(deletedUser);
+    })
+    .catch((err) => {
+      if (err) throw err;
+    });
 });
 
 
@@ -226,6 +226,5 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
 
 
 
-router.delete("api/Articles/:id")
 
 module.exports = router;

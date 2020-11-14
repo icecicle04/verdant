@@ -69,7 +69,6 @@ const AccountPage = () => {
                       remaining essentially unchanged. It was popularised in the
                       1960s with the
                     </p>
-                    {/* <EditBtn /> */}
                   </div>
                 </div>
               </div>
