@@ -4,25 +4,33 @@ import AlertContext from "../../context/AlertContext";
 import EditBtn from "../EditBtn/index";
 import jwt from "jsonwebtoken";
 import userContext from "../../context/userContext";
+import API from "../../utils/API";
 
 const AccountPage = () => {
-  // const { setAlert } = useContext(AlertContext);
+  const { setAlert } = useContext(AlertContext);
   // const {setJwt} = useContext(userContext);
-//   const [jwt, setJwt] = useState("");
+  //   const [jwt, setJwt] = useState("");
 
   useEffect(() => {
-    // setAlert({message: `Welcome back ${res.data.user.firstName} !`, type: "success"})
-    // API.getUser().then(() =>{
-    //   console.log("GET USER ========")
-    //   console.log()
-    // })
     // grab jwt from local storage and decode the information
     const localJwt = localStorage.getItem("jwt");
     console.log(localJwt);
-
+    // use the token and set it against the secret key to unlock the payload
     const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
     console.log(decoded);
-   
+
+    setAlert({
+      message: `Welcome back ${decoded.firstName} !`,
+      type: "success",
+    });
+
+    API.getUser(decoded.id)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        if (err) throw err;
+      });
   }, []);
 
   return (

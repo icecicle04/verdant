@@ -7,24 +7,23 @@ const bcrypt = require("bcryptjs");
 // create application/json parser
 const jsonParser = bodyParser.json();
 
-// create a GET route for testing (getting all users)
-router.get("/api/users", (req, res) => {
-  console.log("Clicked to retrieve users");
-  db.User.find({})
-    .then((foundUser) => {
-      res.json(foundUser);
-    })
-    .catch((err) => {
-      if (err) throw err;
-    });
-});
-
-
+// // create a GET route for testing (getting all users)
+// router.get("/api/users", (req, res) => {
+//   console.log("Clicked to retrieve users");
+//   db.User.find({})
+//     .then((foundUser) => {
+//       res.json(foundUser);
+//     })
+//     .catch((err) => {
+//       if (err) throw err;
+//     });
+// });
 
 // find user by ID
-router.get("/api/account/:id", (req, res) => {
-  let userID = req.params.id;
-  console.log("THIS IS PARAMS", req.params);
+router.get("/api/account/:user", jsonParser, (req, res) => {
+  let userID = req.params.user;
+  console.log(userID);
+
   db.User.findById({ _id: userID })
     .then((foundUser) => {
       // console.log(foundUser);
