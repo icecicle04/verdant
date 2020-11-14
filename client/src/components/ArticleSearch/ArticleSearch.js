@@ -35,14 +35,15 @@ const ArticleSearch = () => {
   function handleFormSubmit(title, author) {
     console.log(author);
     console.log(title);
+
     setType({
       title: title,
       author: author,
     });
       API.saveArticle({
-      title: type.title,
-      author: type.author,
-    })
+      title: title,
+      author: author,
+      })
     }
 
 
