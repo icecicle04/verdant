@@ -14,9 +14,7 @@ const Plant = () => {
         </div>
       </div>
       <div className="row">
-        {/* <div className="col-sm-3" /> */}
         <PlantSearch/>
-        {/* <PlantCard /> */}
       </div>
     </div>
     </div>

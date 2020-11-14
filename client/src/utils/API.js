@@ -28,5 +28,14 @@ export default {
          console.log("USER", userId)      
         return axios.get("/api/account/" +  userId)
     },
+     
+    savePlant: function (savedPlant) {
+        console.log(savedPlant);
+        return axios.post("/api/plant/SavedPlant", savedPlant);
+    },
+
+    getPlant: function () {
+        return axios.get("/api/plant/SavedPlant");
+    },
    
 };
