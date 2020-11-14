@@ -6,7 +6,6 @@ import "./loginform.css";
 import API from "../../utils/API";
 
 const LoginForm = () => {
-  // const {setJwt} = useState("");
   const {setJwt} = useContext(userContext);
   const [formObject, setFormObject] = useState({});
   const { setAlert } = useContext(AlertContext);
