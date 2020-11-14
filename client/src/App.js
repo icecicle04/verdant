@@ -43,7 +43,7 @@ function App() {
       setAxiosDefaults(jwt);
       localStorage.setItem("jwt", jwt);
     }
-  }, [jwt]);
+  }, [jwt]); // anytime the jot changes I want to call something
   return (
     <Router>
       <userContext.Provider value={{ jwt, setJwt }}>

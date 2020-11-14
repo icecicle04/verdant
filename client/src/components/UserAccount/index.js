@@ -2,11 +2,13 @@ import React, { useEffect, useState, useContext } from "react";
 import TestImage from "../../Images/nickCage.jpg";
 import AlertContext from "../../context/AlertContext";
 import EditBtn from "../EditBtn/index";
+import jwt from "jsonwebtoken";
 import userContext from "../../context/userContext";
 
 const AccountPage = () => {
   // const { setAlert } = useContext(AlertContext);
   // const {setJwt} = useContext(userContext);
+//   const [jwt, setJwt] = useState("");
 
   useEffect(() => {
     // setAlert({message: `Welcome back ${res.data.user.firstName} !`, type: "success"})
@@ -14,8 +16,15 @@ const AccountPage = () => {
     //   console.log("GET USER ========")
     //   console.log()
     // })
+    // grab jwt from local storage and decode the information
+    const localJwt = localStorage.getItem("jwt");
+    console.log(localJwt);
+
+    const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+    console.log(decoded);
+   
   }, []);
-  
+
   return (
     <div className="container fluid">
       <div className="row">
