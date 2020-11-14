@@ -157,4 +157,30 @@ router.delete("/api/users/:id", (req, res) => {
     });
 });
 
+router.get("/api/Articles", (req, res) => {
+  console.log("Clicked to retrieve users");
+  db.Article.find({})
+    .then((foundArticle) => {
+      res.json(foundArticle);
+    })
+    .catch((err) => {
+      if (err) throw err;
+    });
+});
+
+router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
+  var { title, author } = req.body;
+  db.Article.create({ title, author })
+    .then((newArticle) => {
+      (title = newArticle.title), (author = newArticle.author);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to sign up",
+      });
+    });
+});
 module.exports = router;

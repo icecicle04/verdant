@@ -15,7 +15,8 @@ export default {
         return axios.get(CORS + SEARCHURL + APIKEY + "&q=" + query)
     },
     // create and register new user 
-    createUser: function(userData){
+    createUser: function (userData) {
+        console.log(userData);
         return axios.post("/api/users/register", userData);
     },
     // login existing user 
