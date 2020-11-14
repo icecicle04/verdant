@@ -7,17 +7,6 @@ const bcrypt = require("bcryptjs");
 // create application/json parser
 const jsonParser = bodyParser.json();
 
-// // create a GET route for testing (getting all users)
-// router.get("/api/users", (req, res) => {
-//   console.log("Clicked to retrieve users");
-//   db.User.find({})
-//     .then((foundUser) => {
-//       res.json(foundUser);
-//     })
-//     .catch((err) => {
-//       if (err) throw err;
-//     });
-// });
 
 // find user by ID
 router.get("/api/account/:user", jsonParser, (req, res) => {
@@ -64,6 +53,7 @@ router.post("/api/users/register", jsonParser, (req, res) => {
               res.json({
                 error: false,
                 data: token,
+                id: newUser._id,
                 firstName: newUser.first_name,
                 result: "complete",
                 message: "Successfully signed up new user",

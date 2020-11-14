@@ -8,38 +8,35 @@ import API from "../../utils/API";
 
 const AccountPage = () => {
   const { setAlert } = useContext(AlertContext);
-  // const {setJwt} = useContext(userContext);
+  const {setJwt} = useContext(userContext);
   //   const [jwt, setJwt] = useState("");
   const [user, setUser] = useState([]);
-
 
   useEffect(() => {
     // grab jwt from local storage and decode the information
     const localJwt = localStorage.getItem("jwt");
     console.log(localJwt);
-    // use the token and set it against the secret key to unlock the payload
-    const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
-    console.log(decoded);
+    if (localJwt) {
+      // use the token and set it against the secret key to unlock the payload
+      const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+      console.log(decoded);
 
-    setAlert({
-      message: `Welcome back ${decoded.firstName} !`,
-      type: "success",
-    });
-
-    API.getUser(decoded.id)
-      .then((response) => {
-        // get user information back and set it to state
-        console.log("THis is the returned user information", response);
-        setUser([response.data]);
-        
-      })
-      .catch((err) => {
-        if (err) throw err;
+      setAlert({
+        message: `Welcome ${decoded.firstName} !`,
+        type: "success",
       });
-  }, []);
 
-
-  console.log(user);
+      API.getUser(decoded.id)
+        .then((response) => {
+          // get user information back and set it to state
+          console.log("THis is the returned user information", response);
+          setUser([response.data]);
+        })
+        .catch((err) => {
+          if (err) throw err;
+        });
+    }
+  },[]);
 
   return (
     <>
@@ -60,7 +57,9 @@ const AccountPage = () => {
 
                   <div className="col-sm-6">
                     <h3>Green Thumb:</h3>
-          <h4>{account.first_name}{" "}{account.last_name}</h4>
+                    <h4>
+                      {account.first_name} {account.last_name}
+                    </h4>
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
