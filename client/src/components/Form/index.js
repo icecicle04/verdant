@@ -57,32 +57,40 @@ const Form = () => {
   return (
     <div>
       <div>
-        <form className="form text-center">
+        <form className="form text-center" id="registerForm">
+          <div className="registerInput">
           <input
             name="firstName"
             onChange={handleInputChange}
             type="text"
             placeholder="First Name"
           />
+          </div>
+          <div className="registerInput">
           <input
             name="lastName"
             onChange={handleInputChange}
             type="text"
             placeholder="Last Name"
           />
+          </div>
+          <div className="registerInput">
           <input
             name="email"
             onChange={handleInputChange}
             type="email"
             placeholder="Email"
           />
+          </div>
+          <div className="registerInput">
           <input
             name="password"
             onChange={handleInputChange}
             type="password"
             placeholder="Password"
           />
-          <button onClick={handleFormSubmit}>Submit</button>
+          </div>
+          <button id="registerBtn" onClick={handleFormSubmit}>Submit</button>
         </form>
       </div>
     </div>

@@ -4,7 +4,7 @@ import axios from "axios";
 import AlertContext from "./context/AlertContext";
 import userContext from "./context/userContext";
 import Landing from "./pages/Landing/Landing";
-import Register from "./pages/Register";
+import Register from "./pages/Register/Register";
 import Account from "./pages/UserAccount/userAccount";
 import Articles from "./pages/Articles/Articles";
 import Plant from "./pages/Plant/Plant";
