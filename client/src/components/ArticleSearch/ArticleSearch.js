@@ -1,6 +1,6 @@
 import API from "./searchApi";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
@@ -9,8 +9,6 @@ const ArticleSearch = () => {
     title: "",
     author: "",
   });
-
-
   useEffect(() => {
     API.search("Flowers")
       .then((response) => {
@@ -34,17 +32,17 @@ const ArticleSearch = () => {
       });
   }
 
-
-  function handleFormSubmit(event) {
-    event.preventDefault();
+  function handleFormSubmit(title, author) {
+    console.log(author);
+    console.log(title);
+    setType({
+      title: title,
+      author: author,
+    });
       API.saveArticle({
-        title: type.title,
-        author: type.author,
-      })
-        .then(() => setType({
-          title: "",
-          author: "",
-        }))
+      title: type.title,
+      author: type.author,
+    })
     }
 
 
@@ -59,31 +57,39 @@ const ArticleSearch = () => {
       />
       {search.map((type) => {
         return (
-          <div className ="container"> 
-          <div key={type.id} className="col-sm-12">
-              <div className="card" style={{
-                margin: "50px",
-              }}>
-                <div><h1> {type.title}</h1></div>
-                <div> <h3> Article By: {type.author}</h3></div>
+          <div className="container">
+            <div key={type.id} className="col-sm-12">
               <div
-                className="practice image"
+                className="card"
                 style={{
-                  backgroundImage: `url(${type.urlToImage})`,
-                  height: "350px",
-                  width: "100%",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
+                  margin: "50px",
                 }}
+              >
+                <div>
+                  <h1> {type.title}</h1>
+                </div>
+                <div>
+                  <h3> Article By: {type.author}</h3>
+                </div>
+                <div
+                  className="practice image"
+                  style={{
+                    backgroundImage: `url(${type.urlToImage})`,
+                    height: "350px",
+                    width: "100%",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
                 ></div>
-                <p> <Link to={type.url}>Read More Here:</Link></p>
-                <button 
-                  onClick={handleFormSubmit}
-                > Save this article to your Profile    
-              </button>
+                <p>
+                  <Link to={type.url}>Read More Here:</Link>
+                </p>
+                <button onClick={() => handleFormSubmit (type.title, type.author)}>
+                  Save this article to your Profile
+                </button>
+              </div>
             </div>
-          </div>
           </div>
         );
       })}
@@ -91,6 +97,4 @@ const ArticleSearch = () => {
   );
 };
 
-
-    
 export default ArticleSearch;

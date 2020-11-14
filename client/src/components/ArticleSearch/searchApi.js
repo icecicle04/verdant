@@ -8,10 +8,12 @@ export default {
         return axios.get(SEARCHURL + query + APIKEY)
     },
 
-    saveArticle: function(articleData) {
-        return axios.post("/api/savedArticles", articleData);
+    saveArticle: function(title, author) {
+        return axios.post("/api/Articles/savedArticles", {title,author} );
     },
-    getArticles: function() {
-        return axios.get("/api/savedArticles");
-      },
+    
+    getArticles: function () {
+        return axios.get("/api/Articles/savedArticles");
+    },
+
 };
