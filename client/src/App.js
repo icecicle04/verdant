@@ -43,7 +43,7 @@ function App() {
       setAxiosDefaults(jwt);
       localStorage.setItem("jwt", jwt);
     }
-  }, [jwt]);
+  }, [jwt]); // anytime the jot changes I want to call something
   return (
     <Router>
       <userContext.Provider value={{ jwt, setJwt }}>
@@ -61,7 +61,7 @@ function App() {
               <Route exact path={["/Login"]}>
                 <Login />
               </Route>
-              <Route exact path={["/account"]}>
+              <Route exact path={["/api/account/:id"]}>
                 <Account />
               </Route>
               <Route exact path={["/plant"]}>

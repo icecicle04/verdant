@@ -7,26 +7,26 @@ const bcrypt = require("bcryptjs");
 // create application/json parser
 const jsonParser = bodyParser.json();
 
-// create a GET route for testing (getting all users)
-router.get("/api/users", (req, res) => {
-  console.log("Clicked to retrieve users");
-  db.User.find({})
-    .then((foundUser) => {
-      res.json(foundUser);
-    })
-    .catch((err) => {
-      if (err) throw err;
-    });
-});
-
-// delete and find use this var, make sure to swap out when using dynamic data
-let userID = "5fa5e3246017de4309aa0ed8";
+// // create a GET route for testing (getting all users)
+// router.get("/api/users", (req, res) => {
+//   console.log("Clicked to retrieve users");
+//   db.User.find({})
+//     .then((foundUser) => {
+//       res.json(foundUser);
+//     })
+//     .catch((err) => {
+//       if (err) throw err;
+//     });
+// });
 
 // find user by ID
-router.get("/api/users/:id", (req, res) => {
-  console.log("Clicked to retrieve a single user by ID");
-  db.User.find({ _id: userID })
+router.get("/api/account/:user", jsonParser, (req, res) => {
+  let userID = req.params.user;
+  console.log(userID);
+
+  db.User.findById({ _id: userID })
     .then((foundUser) => {
+      // console.log(foundUser);
       res.json(foundUser);
     })
     .catch((err) => {
@@ -116,7 +116,7 @@ router.post("/api/users/login", jsonParser, (req, res) => {
 
             // send back an object with token and user information
             res.json({
-              token,
+              data: token,
               user: {
                 id: foundUser._id,
                 firstName: foundUser.first_name,
