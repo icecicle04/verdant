@@ -38,6 +38,6 @@ a:hover {
     text-decoration: underline;
 }
 
-#articleBtnRow {
+.buttonRow {
     justify-content: center;
 }

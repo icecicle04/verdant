@@ -42,10 +42,10 @@ const refreshPlant = () =>{
 
   return (
     <>
-      <div className="container fluid">
+      {/* <div className="container fluid">
         <div className="row">
-          <div className="col-sm-12">
-            <div className="row">
+          <div className="col-sm-12"> */}
+            <div className="row accountBackground">
               <div className="col-sm-3" />
               <div className="col-sm-6">
                 <h3>My Saved Plants:</h3>
@@ -74,9 +74,9 @@ const refreshPlant = () =>{
                 })}
               </div>
             </div>
-          </div>
+          {/* </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

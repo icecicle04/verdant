@@ -87,7 +87,7 @@ const ArticleSearch = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                 ></div>
-                <div className="row" id="articleBtnRow">
+                <div className="row buttonRow">
                   <button className="articlesBtn">
                     <a href={type.webUrl}>More Info</a>
                   </button>
