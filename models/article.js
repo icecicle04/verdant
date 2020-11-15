@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 // article schema for the mongoDB 
 const articleSchema = new Schema({
-    author: {
+    url: {
         type: String,
         trim: true,
         required: true,
@@ -21,10 +21,11 @@ const articleSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
       }],
-      article_image: {
+      imageUrl: {
         type: String,
-        data: Buffer
-      }
+        trim: true,
+        required: true,
+      },
 });
 
 const Article = mongoose.model("Article", articleSchema);
