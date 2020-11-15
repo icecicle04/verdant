@@ -70,7 +70,7 @@ function SavedPlants() {
                 <h5 className="card-title">
                   <b>{data.common_name}</b>
                 </h5>
-                <h />
+                <hr />
                 <p className="card-text">
                   Plant bibliography:{" "}
                   <a
