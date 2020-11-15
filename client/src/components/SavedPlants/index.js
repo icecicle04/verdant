@@ -3,6 +3,20 @@ import API from "../../utils/API";
 
 function SavedPlants() {
   const [plants, setPlants] = useState([]);
+  // const [value, setValue] = useState();
+
+  // delete button is clicked, page is reloaded and new db plants are set to state
+const refreshPlant = () =>{
+  API.getPlant()
+  .then((response) => {
+    // console.log("HIT REFRESH")
+    console.log(response.data);
+    setPlants(response.data);
+  })
+  .catch((err) => {
+    if (err) throw err;
+  });
+}
 
   useEffect(() => {
     API.getPlant()
@@ -22,6 +36,7 @@ function SavedPlants() {
     API.deletePlant(id).then((res) =>{
       console.log(res);
     })
+    refreshPlant();
   }
 
   return (
@@ -35,10 +50,9 @@ function SavedPlants() {
                 <h3>My Saved Plants:</h3>
                 {plants.map((data) => {
                   return (
-                    <div>
+                    <div key={data._id}>
                       <h4>{data.common_name}</h4>
                       <img
-                        key={data._id}
                         src={data.image_url}
                         alt={data.common_name}
                         style={{
