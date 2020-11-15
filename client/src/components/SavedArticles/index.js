@@ -14,12 +14,12 @@ const SavedArticles = () => {
         if (err) throw err;
       });
   }, []);
-    
-    
+
   function deleteArticle(id) {
     API.deleteArticles(id)
-      .then(res => API.getArticles())
-      .catch(err => console.log(err));
+      .then((res) => API.getArticles())
+      .catch((err) => console.log(err));
+    window.location.reload();
   }
 
   return (
@@ -38,7 +38,6 @@ const SavedArticles = () => {
                       <button onClick={() => deleteArticle(data._id)}>
                         Delete Article
                       </button>
-                    
                     </div>
                   );
                 })}

@@ -56,7 +56,7 @@ const AccountPage = () => {
 
                   <div className="col-sm-6">
                     <h3>Green Thumb:</h3>
-                    <h4>
+                    <h4 key={account.id}>
                       {account.first_name} {account.last_name}
                     </h4>
                     <p>

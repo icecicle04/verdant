@@ -191,8 +191,8 @@ router.delete("/api/Articles/:id", function (req, res) {
 
 //Routes for Plants 
 
-router.get("/api/plant", (req, res) => {
-  console.log("Clicked to retrieve users");
+router.get("/api/plant/SavedPlant", (req, res) => {
+  console.log("RETRIEVING PLANTS");
   db.Plant.find({})
     .then((foundPlant) => {
       res.json(foundPlant);
@@ -222,6 +222,21 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
       });
     });
 });
+
+router.delete("/api/plant/:id", jsonParser, (req, res) =>{
+  // console.log("PLANT ID TO DELETE", req.params);
+  let plantID = req.params.id;
+  db.Plant.findByIdAndDelete({_id: plantID}).then((response)=>{
+    console.log(response);
+  }).catch((err) =>{
+    console.log(err);
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "unable to delete plant",
+    });
+  })
+})
 
 
 

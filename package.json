@@ -33,6 +33,10 @@
     "newsapi": "^2.4.1",
     "nodemon": "^2.0.6",
     "path": "^0.12.7",
+<<<<<<< HEAD
+    "react-bootstrap": "^1.4.0",
+=======
+>>>>>>> 460f06a6a040f0fab20bacec6fee657a4fb9ce1e
     "react-router-dom": "^5.2.0",
     "socket.io": "^3.0.1"
   },
