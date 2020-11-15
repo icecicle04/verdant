@@ -16,11 +16,10 @@
 }
 
 .nav-menu {
-  display: grid;
+  display: inline-flex;
   grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
   list-style: none;
-  text-align: left;
+  text-align: center;
   width: 70vw;
   justify-content: center;
   margin-left: 5rem;
@@ -32,7 +31,7 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   font-family: "Raleway", sans-serif;
-  font-size: x-large;
+  font-size: 1.5rem;
 }
 
 .nav-links:hover {

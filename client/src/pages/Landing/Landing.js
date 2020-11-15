@@ -20,6 +20,7 @@ function Landing(props) {
             proident. Irure tempor in officia aute veniam deserunt dolor fugiat
             sint tempor irure nisi adipisicing
           </p>
+          {/* TODO: add a route */}
           <button id="landingBtn">Explore</button>
         </div>
       </div>
