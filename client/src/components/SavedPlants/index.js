@@ -37,6 +37,7 @@ function SavedPlants() {
   }, []);
 
   console.log(plants);
+  
   function deletePlant(id) {
     // add functionality to delete plants
     API.deletePlant(id).then((res) => {

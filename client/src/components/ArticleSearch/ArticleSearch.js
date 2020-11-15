@@ -1,19 +1,20 @@
 import API from "./searchApi";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
 
   const [type, setType] = useState({
     title: "",
-    author: "",
+    url: "",
+    imageUrl: "",
   });
+
   useEffect(() => {
     API.search("Flowers")
       .then((response) => {
         // console.log(response.data);
-        setSearch(response.data.articles);
+        setSearch(response.data.response.results);
       })
       .catch((err) => {
         if (err) throw err;
@@ -24,26 +25,28 @@ const ArticleSearch = () => {
     // e.preventDefault();
     API.search(e)
       .then((response) => {
-        console.log(response.data.articles);
-        setSearch(response.data.articles);
+        console.log(response.data.response);
+        setSearch(response.data.response.results);
       })
       .catch((err) => {
         if (err) throw err;
       });
   }
 
-  function handleFormSubmit(title, author) {
-    console.log(author);
+  function handleFormSubmit(title, url, image) {
     console.log(title);
 
     setType({
       title: title,
-      author: author,
+      url: url,
+      image: image,
     });
       API.saveArticle({
       title: title,
-      author: author,
+        url: url,
+      imageUrl: image,
       })
+    alert("Added Article to your Account")
     }
 
 
@@ -67,15 +70,15 @@ const ArticleSearch = () => {
                 }}
               >
                 <div>
-                  <h1> {type.title}</h1>
+                  <h1> {type.webTitle}</h1>
                 </div>
                 <div>
-                  <h3> Article By: {type.author}</h3>
+                  <h3> Article Type: {type.sectionName}</h3>
                 </div>
                 <div
                   className="practice image"
                   style={{
-                    backgroundImage: `url(${type.urlToImage})`,
+                    backgroundImage: `url(${type.fields.thumbnail})`,
                     height: "350px",
                     width: "100%",
                     backgroundPosition: "center",
@@ -83,10 +86,10 @@ const ArticleSearch = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                 ></div>
-                <p>
-                  <Link to={type.url}>Read More Here:</Link>
-                </p>
-                <button onClick={() => handleFormSubmit (type.title, type.author)}>
+                <h4>
+                  <a href={type.webUrl}>Read More Here:</a>
+                </h4>
+                <button onClick={() => handleFormSubmit (type.webTitle, type.webUrl, type.fields.thumbnail)}>
                   Save this article to your Profile
                 </button>
               </div>

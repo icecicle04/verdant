@@ -11,8 +11,7 @@ function Articles(props) {
           <h1> Trending Plant News Articles </h1>
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Name of Article Here</h5>
-              <ArticleContainer />
+              {/* <ArticleContainer /> */}
               <ArticleSearch />
             </div>
           </div>
