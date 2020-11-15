@@ -1,5 +1,6 @@
 import API from "./searchApi";
 import React, { useState, useEffect } from "react";
+import "./ArticleSearch.css";
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
@@ -41,21 +42,21 @@ const ArticleSearch = () => {
       url: url,
       image: image,
     });
-      API.saveArticle({
+    API.saveArticle({
       title: title,
-        url: url,
+      url: url,
       imageUrl: image,
-      })
-    alert("Added Article to your Account")
-    }
-
+    });
+    alert("Added Article to your Account");
+  }
 
   return (
     <>
       <input
         className="form-control nav-search"
+        id="articlesSearchBar"
         type="text"
-        placeholder="What articles are you looking for?"
+        placeholder="e.g. Gardening"
         name="search"
         onChange={(e) => handleSearch(e.target.value)}
       />
@@ -70,7 +71,7 @@ const ArticleSearch = () => {
                 }}
               >
                 <div>
-                  <h1> {type.webTitle}</h1>
+                  <h2> {type.webTitle}</h2>
                 </div>
                 <div>
                   <h3> Article Type: {type.sectionName}</h3>
@@ -86,12 +87,23 @@ const ArticleSearch = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                 ></div>
-                <h4>
-                  <a href={type.webUrl}>Read More Here:</a>
-                </h4>
-                <button onClick={() => handleFormSubmit (type.webTitle, type.webUrl, type.fields.thumbnail)}>
-                  Save this article to your Profile
-                </button>
+                <div className="row" id="articleBtnRow">
+                  <button className="articlesBtn">
+                    <a href={type.webUrl}>More Info</a>
+                  </button>
+                  <button
+                    className="articlesBtn"
+                    onClick={() =>
+                      handleFormSubmit(
+                        type.webTitle,
+                        type.webUrl,
+                        type.fields.thumbnail
+                      )
+                    }
+                  >
+                    Save Article
+                  </button>
+                </div>
               </div>
             </div>
           </div>

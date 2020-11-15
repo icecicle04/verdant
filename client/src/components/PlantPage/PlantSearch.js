@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import plantStyle from "../PlantPage/plantCard.css";
 import API from "../../utils/API";
+import "./PlantSearch.css";
 
 // a search page for the trefle.io API
 const PlantSearch = () => {
@@ -65,6 +66,7 @@ const PlantSearch = () => {
     <>
       <input
         className="form-control nav-search"
+        id="plantSearchBar"
         type="text"
         placeholder="e.g. Philodendron"
         name="search"

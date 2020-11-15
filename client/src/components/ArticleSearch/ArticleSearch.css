@@ -1,0 +1,38 @@
+a {
+    color: rgb(27, 66, 32) !important;
+}
+
+a:hover {
+    color: rgb(173, 217, 175);
+    text-decoration: underline;
+}
+
+#articlesSearchBar {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.articlesBtn {
+    background-color: whitesmoke;
+    font-family: "Raleway", sans-serif;
+    border-radius: 4px;
+    font-size: 20px;
+    border: whitesmoke;
+    width: 13%;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+}
+
+.articlesBtn:hover {
+    background-color: rgb(173, 217, 175);
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+    color: rgb(59, 56, 80);
+    text-decoration: underline;
+}
+
+#articleBtnRow {
+    justify-content: center;
+}
