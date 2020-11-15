@@ -47,7 +47,7 @@ const AccountPage = () => {
             return (
               <div className="row">
                 <div className="col-sm-12">
-                  <h2 key={account.id} id="accountHeader">Green Thumb: {account.first_name} {account.last_name}</h2>
+                  <h2 key={account.id} class="header">Green Thumb: {account.first_name} {account.last_name}</h2>
                   <div className="row">
                     <div className="col-sm-4">
                       <img

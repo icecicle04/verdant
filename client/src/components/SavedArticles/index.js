@@ -42,7 +42,7 @@ const SavedArticles = () => {
       <div className="row accountBackground">
         <div className="col-sm-3" />
         <div className="col-sm-6">
-          <h2>My Saved Articles:</h2>
+          <h2 className="header">My Saved Articles:</h2>
           {articles.map((data) => {
             return (
               <div key={data._id}>
