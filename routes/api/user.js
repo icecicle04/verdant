@@ -191,8 +191,8 @@ router.delete("/api/Articles/:id", function (req, res) {
 
 //Routes for Plants 
 
-router.get("/api/plant", (req, res) => {
-  console.log("Clicked to retrieve users");
+router.get("/api/plant/SavedPlant", (req, res) => {
+  console.log("RETRIEVING PLANTS");
   db.Plant.find({})
     .then((foundPlant) => {
       res.json(foundPlant);

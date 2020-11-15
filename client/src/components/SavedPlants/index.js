@@ -6,12 +6,15 @@ const [plants, setPlants] = useState([]);
 
 useEffect(() =>{
 API.getPlant().then((response)=>{
-  console.log(response);
+  console.log("GETTING PLANTS")
+  console.log(response.data);
+  setPlants([response.data]);
 }).catch((err) =>{
   if(err) throw err;
 })
 },[]);
 
+console.log(plants)
 function deletePlant(){
   // add functionality to delete plants
 }
@@ -28,7 +31,7 @@ function deletePlant(){
                 {plants.map((data) => {
                   return (
                     <div>
-                      <h4>{data.title}</h4>
+                      <h4>{data.common_name}</h4>
                       <button onClick={() => deletePlant(data._id)}>
                         Delete Plant
                       </button>
