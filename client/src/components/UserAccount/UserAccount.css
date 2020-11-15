@@ -1,0 +1,27 @@
+#accountHeader {
+    margin-top: 5vh;
+}
+
+.accountBackground {
+    background-image: linear-gradient( rgb(27, 66, 32), rgb(173, 217, 175), whitesmoke);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.accountImg {
+    height: 300px;
+    width: 300px;
+    float: left;
+}
+
+#accountBio {
+    color: whitesmoke;
+    font-family: "Raleway", sans-serif;
+    margin-top: 1rem;
+    font-size: large;
+}
+
+#handsImg {
+    float: right;
+    border-radius: 49%;
+}
