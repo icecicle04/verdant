@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import plantStyle from "../PlantPage/plantCard.css";
+import AlertContext from "../../context/AlertContext";
 import API from "../../utils/API";
 
 // a search page for the trefle.io API
 const PlantSearch = () => {
+  const { setAlert } = useContext(AlertContext);
+
+
   const [search, setSearch] = useState([]);
   const [plantType, setplantType] = useState({
     common_name:"",
@@ -58,7 +62,11 @@ const PlantSearch = () => {
         family: family,
         genus: genus,
         scientific_name: scientific_name,
+      }).then((response) =>{
+
       })
+      setAlert({message: "Saves a new plant to your account!", type: "success"})
+
   }
 
   return (
