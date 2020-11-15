@@ -1,0 +1,7 @@
+#articlesHeader {
+    padding-top: 5vh;
+}
+
+#articlesBackground {
+    background-image: linear-gradient( rgb(27, 66, 32), rgb(173, 217, 175), whitesmoke);
+}
