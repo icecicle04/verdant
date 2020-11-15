@@ -190,7 +190,6 @@ router.delete("/api/Articles/:id", function (req, res) {
 
 
 //Routes for Plants 
-
 router.get("/api/plant/SavedPlant", (req, res) => {
   console.log("RETRIEVING PLANTS");
   db.Plant.find({})
