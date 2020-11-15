@@ -4,6 +4,21 @@ import API from "../ArticleSearch/searchApi";
 const SavedArticles = () => {
   const [articles, setArticles] = useState([]);
 
+
+  const refreshArticle = () =>{
+    API.getArticles()
+    .then((response) => {
+      // console.log("HIT REFRESH")
+      console.log(response.data);
+      setArticles(response.data);
+    })
+    .catch((err) => {
+      if (err) throw err;
+    });
+  }
+
+
+
   useEffect(() => {
     API.getArticles()
       .then((response) => {
@@ -19,8 +34,8 @@ const SavedArticles = () => {
     API.deleteArticles(id)
       .then((res) => API.getArticles())
       .catch((err) => console.log(err));
-    window.location.reload();
-  }
+      refreshArticle();
+    }
 
   return (
     <>
@@ -33,7 +48,7 @@ const SavedArticles = () => {
                 <h3>My Saved Articles:</h3>
                 {articles.map((data) => {
                   return (
-                    <div>
+                    <div key ={data._id}>
                       <h4>{data.title}</h4>
                       <button onClick={() => deleteArticle(data._id)}>
                         Delete Article
