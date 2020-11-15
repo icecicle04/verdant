@@ -1,13 +1,14 @@
 import axios from "axios";
 
-const SEARCHURL = "https://newsapi.org/v2/everything?q=";
-const APIKEY = "&apiKey=2bdd9ba65e244c398dfcfe644ef1c1be";
-const CORS = "https://serene-badlands-79714.herokuapp.com/";
+// const SEARCHRL = "https://newsapi.org/v2/everything?q=";
+const SEARCHURL = "https://content.guardianapis.com/search?q="
+const APIKEY = "&show-fields=thumbnail&api-key=d3d603c5-e29e-41d6-abcd-b89ac28211e1";
+// const CORS = "https://serene-badlands-79714.herokuapp.com/";
 
 // eslint-disable-next-line
 export default {
     search: function(query) {
-        return axios.get(CORS + SEARCHURL + query + APIKEY)
+        return axios.get(SEARCHURL + query + APIKEY)
     },
 
     saveArticle: function (article) {

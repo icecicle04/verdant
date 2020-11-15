@@ -48,11 +48,28 @@ const SavedArticles = () => {
                 <h3>My Saved Articles:</h3>
                 {articles.map((data) => {
                   return (
-                    <div key ={data._id}>
+                    <div key={data._id}>
+                      <div className ="card">
                       <h4>{data.title}</h4>
+                      <img className ="col-sm-12"
+                        src={data.imageUrl}
+                        alt={data.title}
+                        style={{
+                          // backgroundImage: `url(${type.image_url})`,
+                          height: "200px",
+                          width: "100%",
+                          backgroundPosition: "center",
+                          backgroundSize: "cover",
+                          backgroundRepeat: "no-repeat",
+                        }}
+                      />
+                      <p>
+                        <a href={data.url}>Read More Here</a>
+                      </p>
                       <button onClick={() => deleteArticle(data._id)}>
-                        Delete Article
+                          Delete Article
                       </button>
+                        </div>
                     </div>
                   );
                 })}

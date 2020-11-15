@@ -161,10 +161,10 @@ router.get("/api/Articles", (req, res) => {
 });
 
 router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
-  var { title, author } = req.body;
-  db.Article.create({ title, author })
+  var { title, url, imageUrl } = req.body;
+  db.Article.create({ title, url, imageUrl })
     .then((newArticle) => {
-      (title = newArticle.title), (author = newArticle.author);
+      (title = newArticle.title), (url = newArticle.url), (imageUrl = newArticle.imageUrl);
     })
     .catch((err) => {
       console.log(err);
