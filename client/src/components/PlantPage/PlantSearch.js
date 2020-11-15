@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import plantStyle from "../PlantPage/plantCard.css";
+import AlertContext from "../../context/AlertContext";
 import API from "../../utils/API";
 import "./PlantSearch.css";
 
 // a search page for the trefle.io API
 const PlantSearch = () => {
+  const { setAlert } = useContext(AlertContext);
+
   const [search, setSearch] = useState([]);
   const [plantType, setplantType] = useState({
-    common_name:"",
-    image_url:"",
-    bibliography:"",
-    family:"",
-    genus:"",
-    scientific_name:"",
+    common_name: "",
+    image_url: "",
+    bibliography: "",
+    family: "",
+    genus: "",
+    scientific_name: "",
   });
   useEffect(() => {
     API.search("Philodendron")
@@ -40,10 +43,16 @@ const PlantSearch = () => {
       });
   }
 
-  function handleFormSubmit(common_name, image_url, bibliography, family, genus, scientific_name)
-    {
+  function handleFormSubmit(
+    common_name,
+    image_url,
+    bibliography,
+    family,
+    genus,
+    scientific_name
+  ) {
     console.log(common_name);
-    console.log(bibliography)
+    console.log(bibliography);
     setplantType({
       common_name: common_name,
       image_url: image_url,
@@ -52,14 +61,18 @@ const PlantSearch = () => {
       genus: genus,
       scientific_name: scientific_name,
     });
-      API.savePlant({
-        common_name: common_name,
-        image_url: image_url,
-        bibliography: bibliography,
-        family: family,
-        genus: genus,
-        scientific_name: scientific_name,
-      })
+    API.savePlant({
+      common_name: common_name,
+      image_url: image_url,
+      bibliography: bibliography,
+      family: family,
+      genus: genus,
+      scientific_name: scientific_name,
+    }).then((response) => {});
+    setAlert({
+      message: "Saves a new plant to your account!",
+      type: "success",
+    });
   }
 
   return (
@@ -109,7 +122,8 @@ const PlantSearch = () => {
                 </li>
               </ul>
               <div className="card-body">
-                <button className="articlesBtn"
+                <button
+                  className="articlesBtn"
                   onClick={() =>
                     handleFormSubmit(
                       type.common_name,
@@ -119,11 +133,10 @@ const PlantSearch = () => {
                       type.genus,
                       type.scientific_name
                     )
-                  }                >
+                  }
+                >
                   Save to My Account
                 </button>
-                {/* TODO: Decide if we need this link or not */}
-                {/* <a className="card-link">Another link</a> */}
               </div>
             </div>
           </div>
