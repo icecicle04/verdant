@@ -49,10 +49,11 @@ function SavedPlants() {
     <>
       
               <h3>My Saved Plants:</h3>
+              <hr/>
               {plants.map((data) => {
                 return (
                   <div  key={data._id} className="col-sm-6">
-                    <div className="card plant-card">
+                    <div className="card plant-card" style={{margin: "5px"}}>
                     <img
                       className="card-img-top"
                       alt="Card image cap"

@@ -7,19 +7,20 @@ import userContext from "../../context/userContext";
 import SavedArticles from "../../components/SavedArticles";
 import SavedPlants from "../../components/SavedPlants";
 
-
 const userAccount = () => {
-
   return (
-    <div className="container-fluid text-center">
-    <div className ="row text-center">
-      <div className ="col-md-12 text-center">
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-3" />
+        <div className="col-md-6 text-center">
           <AccountPage />
           <SavedArticles />
+          <div className="row">
           <SavedPlants />
+          </div>
+        </div>
       </div>
     </div>
-    </div>    
   );
 };
 

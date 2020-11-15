@@ -7,15 +7,14 @@ import API from "../../utils/API";
 const PlantSearch = () => {
   const { setAlert } = useContext(AlertContext);
 
-
   const [search, setSearch] = useState([]);
   const [plantType, setplantType] = useState({
-    common_name:"",
-    image_url:"",
-    bibliography:"",
-    family:"",
-    genus:"",
-    scientific_name:"",
+    common_name: "",
+    image_url: "",
+    bibliography: "",
+    family: "",
+    genus: "",
+    scientific_name: "",
   });
   useEffect(() => {
     API.search("Philodendron")
@@ -43,10 +42,16 @@ const PlantSearch = () => {
       });
   }
 
-  function handleFormSubmit(common_name, image_url, bibliography, family, genus, scientific_name)
-    {
+  function handleFormSubmit(
+    common_name,
+    image_url,
+    bibliography,
+    family,
+    genus,
+    scientific_name
+  ) {
     console.log(common_name);
-    console.log(bibliography)
+    console.log(bibliography);
     setplantType({
       common_name: common_name,
       image_url: image_url,
@@ -55,18 +60,18 @@ const PlantSearch = () => {
       genus: genus,
       scientific_name: scientific_name,
     });
-      API.savePlant({
-        common_name: common_name,
-        image_url: image_url,
-        bibliography: bibliography,
-        family: family,
-        genus: genus,
-        scientific_name: scientific_name,
-      }).then((response) =>{
-
-      })
-      setAlert({message: "Saves a new plant to your account!", type: "success"})
-
+    API.savePlant({
+      common_name: common_name,
+      image_url: image_url,
+      bibliography: bibliography,
+      family: family,
+      genus: genus,
+      scientific_name: scientific_name,
+    }).then((response) => {});
+    setAlert({
+      message: "Saves a new plant to your account!",
+      type: "success",
+    });
   }
 
   return (
@@ -115,22 +120,23 @@ const PlantSearch = () => {
                 </li>
               </ul>
               <div className="card-body">
-                <a
-                  onClick={() =>
-                    handleFormSubmit(
-                      type.common_name,
-                      type.image_url,
-                      type.bibliography,
-                      type.family,
-                      type.genus,
-                      type.scientific_name
-                    )
-                  }
-                  className="card-link"
-                >
-                  Save Plant
-                </a>
-                <a className="card-link">Another link</a>
+                <button>
+                  <a
+                    onClick={() =>
+                      handleFormSubmit(
+                        type.common_name,
+                        type.image_url,
+                        type.bibliography,
+                        type.family,
+                        type.genus,
+                        type.scientific_name
+                      )
+                    }
+                    className="card-link"
+                  >
+                    Save Plant
+                  </a>
+                </button>
               </div>
             </div>
           </div>
