@@ -122,7 +122,8 @@ const PlantSearch = () => {
                 </li>
               </ul>
               <div className="card-body">
-                <button className="articlesBtn"
+                <button
+                  className="articlesBtn"
                   onClick={() =>
                     handleFormSubmit(
                       type.common_name,
@@ -132,11 +133,10 @@ const PlantSearch = () => {
                       type.genus,
                       type.scientific_name
                     )
-                  }                >
+                  }
+                >
                   Save to My Account
                 </button>
-                {/* TODO: Decide if we need this link or not */}
-                {/* <a className="card-link">Another link</a> */}
               </div>
             </div>
           </div>
