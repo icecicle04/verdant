@@ -39,7 +39,7 @@ const SavedArticles = () => {
       {/* <div className="container fluid">
         <div className="row"> */}
       {/* <div className="accountBackground"> */}
-      <div className="row accountBackground">
+      <div className="row ">
         <div className="col-sm-3" />
         <div className="col-sm-6">
           <h2 className="header">My Saved Articles:</h2>

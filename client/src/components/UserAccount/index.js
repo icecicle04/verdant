@@ -41,7 +41,7 @@ const AccountPage = () => {
 
   return (
     <>
-      <div className="accountBackground">
+      <div >
         <div className="container fluid">
           {user.map((account) => {
             return (
