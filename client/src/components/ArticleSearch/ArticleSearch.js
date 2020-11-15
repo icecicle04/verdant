@@ -1,6 +1,5 @@
 import API from "./searchApi";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
@@ -44,6 +43,7 @@ const ArticleSearch = () => {
       title: title,
       author: author,
       })
+    alert("Added Article to your Account")
     }
 
 
@@ -84,7 +84,7 @@ const ArticleSearch = () => {
                   }}
                 ></div>
                 <p>
-                  <Link to={type.url}>Read More Here:</Link>
+                  <a href={type.url}>Read More Here:</a>
                 </p>
                 <button onClick={() => handleFormSubmit (type.title, type.author)}>
                   Save this article to your Profile
