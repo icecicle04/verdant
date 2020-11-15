@@ -17,10 +17,7 @@ function SavedPlants() {
         // console.log("HIT REFRESH")
         console.log(response.data);
         setPlants(response.data);
-<<<<<<< HEAD
         setAlert({ message: "Deleted plant", type: "success" });
-=======
->>>>>>> 8f690aac173a9ce6819d8fc92f407f766668e30e
       })
       .catch((err) => {
         if (err) throw err;
@@ -51,49 +48,6 @@ function SavedPlants() {
 
   return (
     <>
-<<<<<<< HEAD
-      <h3>My Saved Plants:</h3>
-      <hr />
-      {plants.map((data) => {
-        return (
-          <div key={data._id} className="col-sm-6">
-            <div className="card plant-card" style={{ margin: "5px" }}>
-              <img
-                className="card-img-top"
-                alt="Card image cap"
-                src={data.image_url}
-                style={{
-                  // backgroundImage: `url(${data.image_url})`,
-                  height: "200px",
-                  width: "250px",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
-              <div className="card-body">
-                <h5 className="card-title">
-                  <b>{data.common_name}</b>
-                </h5>
-                <hr />
-                <p className="card-text">
-                  Plant bibliography:{" "}
-                  <a
-                    target="_blank"
-                    href={`http://www.google.com/search?q=${data.bibliography}`}
-                  >
-                    {data.bibliography}
-                  </a>
-                </p>
-                <button onClick={() => deletePlant(data._id)}>
-                  Delete Plant
-                </button>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-=======
       {/* <div className="container fluid">
         <div className="row">
           <div className="col-sm-12"> */}
@@ -135,7 +89,6 @@ function SavedPlants() {
       {/* </div>
         </div>
       </div> */}
->>>>>>> 8f690aac173a9ce6819d8fc92f407f766668e30e
     </>
   );
 }

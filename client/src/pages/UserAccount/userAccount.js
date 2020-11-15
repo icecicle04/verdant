@@ -9,16 +9,9 @@ import SavedPlants from "../../components/SavedPlants";
 
 const userAccount = () => {
   return (
-<<<<<<< HEAD
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-sm-3" />
-        <div className="col-md-6 text-center">
-=======
     <div className="container-fluid text-center accountBackground">
     <div className ="row text-center">
       <div className ="col-md-12 text-center">
->>>>>>> 8f690aac173a9ce6819d8fc92f407f766668e30e
           <AccountPage />
           <SavedArticles />
           <div className="row">
