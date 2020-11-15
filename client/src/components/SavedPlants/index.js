@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import AlertContext from "../../context/AlertContext";
 
-import plantStyle from "../PlantPage/plantCard.css"
+import plantStyle from "../PlantPage/plantCard.css";
 import API from "../../utils/API";
 
 function SavedPlants() {
@@ -47,41 +47,47 @@ function SavedPlants() {
 
   return (
     <>
-      
-              <h3>My Saved Plants:</h3>
-              <hr/>
-              {plants.map((data) => {
-                return (
-                  <div  key={data._id} className="col-sm-6">
-                    <div className="card plant-card" style={{margin: "5px"}}>
-                    <img
-                      className="card-img-top"
-                      alt="Card image cap"
-                      src={data.image_url}
-                      style={{
-                        // backgroundImage: `url(${data.image_url})`,
-                        height: "200px",
-                        width: "250px",
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                      }}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">{data.common_name}</h5>
-                      <p className="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </p>
-                      <button onClick={() => deletePlant(data._id)}>
-                        Delete Plant
-                      </button>
-                    </div>
-                  </div>
-                  </div>
-                );
-              })}
-     
+      <h3>My Saved Plants:</h3>
+      <hr />
+      {plants.map((data) => {
+        return (
+          <div key={data._id} className="col-sm-6">
+            <div className="card plant-card" style={{ margin: "5px" }}>
+              <img
+                className="card-img-top"
+                alt="Card image cap"
+                src={data.image_url}
+                style={{
+                  // backgroundImage: `url(${data.image_url})`,
+                  height: "200px",
+                  width: "250px",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">
+                  <b>{data.common_name}</b>
+                </h5>
+                <h />
+                <p className="card-text">
+                  Plant bibliography:{" "}
+                  <a
+                    target="_blank"
+                    href={`http://www.google.com/search?q=${data.bibliography}`}
+                  >
+                    {data.bibliography}
+                  </a>
+                </p>
+                <button onClick={() => deletePlant(data._id)}>
+                  Delete Plant
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 }
