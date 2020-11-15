@@ -1,16 +1,21 @@
 a {
-    color: rgb(27, 66, 32) !important;
+    color: rgb(27, 66, 32);
 }
 
 a:hover {
-    color: rgb(173, 217, 175);
+    background-color: rgb(173, 217, 175);
+    color: rgb(59, 56, 80);
     text-decoration: underline;
 }
 
 #articlesSearchBar {
-  width: 30%;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
+}
+
+#articlesContainer {
+    width: 95%;
 }
 
 .articlesBtn {
@@ -19,9 +24,9 @@ a:hover {
     border-radius: 4px;
     font-size: 20px;
     border: whitesmoke;
-    width: 13%;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    width: auto;
+    margin-top: .8rem;
+    margin-bottom: .8rem;
     margin-right: 1rem;
 }
 

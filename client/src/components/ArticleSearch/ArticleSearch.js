@@ -47,22 +47,22 @@ const ArticleSearch = () => {
       url: url,
       imageUrl: image,
     });
-    alert("Added Article to your Account");
+    alert("Saved article to your account!");
   }
 
   return (
     <>
       <input
-        className="form-control nav-search"
+        className="form-control nav-search text-center"
         id="articlesSearchBar"
         type="text"
-        placeholder="e.g. Gardening"
+        placeholder="e.g. Houseplants"
         name="search"
         onChange={(e) => handleSearch(e.target.value)}
       />
       {search.map((type) => {
         return (
-          <div className="container">
+          <div className="container" id="articlesContainer">
             <div key={type.id} className="col-sm-12">
               <div
                 className="card"
@@ -74,7 +74,7 @@ const ArticleSearch = () => {
                   <h2> {type.webTitle}</h2>
                 </div>
                 <div>
-                  <h3> Article Type: {type.sectionName}</h3>
+                  {/* <h3> Article Type: {type.sectionName}</h3> */}
                 </div>
                 <div
                   className="practice image"
