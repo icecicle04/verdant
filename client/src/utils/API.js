@@ -28,14 +28,18 @@ export default {
          console.log("USER", userId)      
         return axios.get("/api/account/" +  userId)
     },
-     
+     // save plants
     savePlant: function (savedPlant) {
         console.log(savedPlant);
         return axios.post("/api/plant/SavedPlant", savedPlant);
     },
-
+    // get saved plants f
     getPlant: function () {
         return axios.get("/api/plant/SavedPlant");
+    },
+    // delete saved plants
+    deletePlant: function (id) {
+        return axios.delete("/api/plant/" + id);
     },
    
 };

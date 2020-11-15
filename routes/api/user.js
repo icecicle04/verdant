@@ -223,6 +223,21 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
     });
 });
 
+router.delete("/api/plant/:id", jsonParser, (req, res) =>{
+  // console.log("PLANT ID TO DELETE", req.params);
+  let plantID = req.params.id;
+  db.Plant.findByIdAndDelete({_id: plantID}).then((response)=>{
+    console.log(response);
+  }).catch((err) =>{
+    console.log(err);
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "unable to delete plant",
+    });
+  })
+})
+
 
 
 
