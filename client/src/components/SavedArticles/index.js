@@ -9,12 +9,9 @@ const SavedArticles = () => {
   const refreshArticle = () => {
     API.getArticles()
       .then((response) => {
-<<<<<<< HEAD
         // console.log("HIT REFRESH")
         setAlert({ message: "Deleted article", type: "success" });
         console.log(response.data);
-=======
->>>>>>> 320a90ebc1c8fb09ed62e6a01dc5f3c2cf2ce8f4
         setArticles(response.data);
       })
       .catch((err) => {
