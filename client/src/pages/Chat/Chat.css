@@ -3,8 +3,16 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 125.4vh;
+  height: 142.4vh;
   justify-self: center;
+}
+
+h1 {
+  font-family: "Poiret One", cursive;
+  font-weight: bolder;
+  font-size: 4rem;
+  color: whitesmoke;
+  text-align: center;
 }
 
 h2 {
@@ -16,14 +24,6 @@ h2 {
 
 h3 {
   text-align: left;
-}
-
-h1 {
-  font-family: "Poiret One", cursive;
-  font-weight: bolder;
-  font-size: 4rem;
-  color: whitesmoke;
-  text-align: center;
 }
 
 .TextField {
