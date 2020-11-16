@@ -10,8 +10,6 @@ const router = require("./routes/api");
 
 const PORT = process.env.PORT || 3001;
 
-
-
 // Add routes, both API and view
 app.use(routes);
 

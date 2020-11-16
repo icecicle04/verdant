@@ -237,8 +237,4 @@ router.delete("/api/plant/:id", jsonParser, (req, res) =>{
   })
 })
 
-
-
-
-
 module.exports = router;
