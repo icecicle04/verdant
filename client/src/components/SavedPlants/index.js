@@ -57,7 +57,7 @@ function SavedPlants() {
       {plants.map((data) => {
         return (
           <div key={data._id} className="container fluid col-sm-3">
-            <div className="card plant-card" style={{ margin: "5px" }}>
+            <div className="card plant-card" style={{ marginBottom: "3rem" }}>
               <div
                 className="practice image"
                 style={{
@@ -74,7 +74,7 @@ function SavedPlants() {
                   <b>{data.common_name}</b>
                 </h5>
                 <hr />
-                <p className="card-text">
+                {/* <p className="card-text">
                   Plant bibliography:{" "}
                   <a
                     target="_blank"
@@ -82,8 +82,8 @@ function SavedPlants() {
                   >
                     {data.bibliography}
                   </a>
-                </p>
-                <button onClick={() => deletePlant(data._id)}>
+                </p> */}
+                <button className="articlesBtn" onClick={() => deletePlant(data._id)}>
                   Delete Plant
                 </button>
               </div>

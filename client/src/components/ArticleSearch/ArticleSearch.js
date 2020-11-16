@@ -65,8 +65,9 @@ const ArticleSearch = () => {
         placeholder="e.g. Houseplants"
         name="search"
         onChange={(e) => changeState(e.target.value)}
+        style={{display: "inline-grid"}}
       />
-      <button onClick ={handleSearch}> Search Articles </button>
+      <button className="articlesBtn" onClick ={handleSearch}>Search</button>
       </form>
       {search.map((type) => {
         return (

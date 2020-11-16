@@ -14,11 +14,7 @@ function Landing(props) {
             className="card card-text align-items-center justify-content-center text-center mb-5"
             style={{ width: "55%" }}
           >
-            Adipisicing non pariatur tempor duis sint excepteur velit excepteur
-            eiusmod voluptate voluptate ea. Veniam est ea est magna ipsum ad ad
-            in aliquip. Eiusmod in voluptate deserunt incididunt nisi laboris
-            proident. Irure tempor in officia aute veniam deserunt dolor fugiat
-            sint tempor irure nisi adipisicing
+           Whether you've already got a green thumb or are still cultivating one, there's always room to grow.<br /> <br />Let Verdant help you bloom. 
           </p>
           {/* TODO: add a route */}
           <button id="landingBtn">Explore</button>

@@ -12,6 +12,7 @@ import Chat from "./pages/Chat/Chat";
 import Alert from "./components/Alert/Alert";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "../src/components/Nav";
+import Footer from "../src/components/Footer/Footer";
 import Login from "./pages/Login/Login";
 import { setAxiosDefaults } from "./utils/axiosDefaults";
 // import ReactDOM from "react-dom";
@@ -76,6 +77,7 @@ function App() {
               </Route>
             </Switch>
           </AlertContext.Provider>
+          <Footer />
         </div>
       </userContext.Provider>
     </Router>
