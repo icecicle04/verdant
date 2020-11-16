@@ -30,9 +30,13 @@ const LoginForm = () => {
       password: formObject.password,
     })
       .then((res) => {
-        console.log(res.data.user.id)
+        console.log(res.data.user)
         let userId = res.data.user.id;
         // setJwt("");
+        setAlert({
+          message: `Welcome ${res.data.user.firstName}!`,
+          type: "success",
+        });
         setJwt(res.data.data);
         history.push(`/api/account/` + userId);
       })

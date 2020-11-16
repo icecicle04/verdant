@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import AlertContext from "../../context/AlertContext";
+import "./Alert.css";
 
 const Alert = () => {
   const { message, type, setAlert } = useContext(AlertContext);
@@ -12,7 +13,7 @@ const Alert = () => {
     }
   },[message]) // this checks to see if there's a change in message [], then it runs the useEffect and setTimeout
   return (
-    <div className="container fixed-top">
+    <div className="container alert-fixed fixed-top">
       <div className="row">
         <div className="col-sm-12">
           {message && (
