@@ -8,7 +8,7 @@ import Register from "./pages/Register/Register";
 import Account from "./pages/UserAccount/userAccount";
 import Articles from "./pages/Articles/Articles";
 import Plant from "./pages/Plant/Plant";
-// import Chat from "./pages/Chat/Chat";
+import Chat from "./pages/Chat/Chat";
 import Alert from "./components/Alert/Alert";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "../src/components/Nav";
@@ -72,9 +72,9 @@ function App() {
               <Route exact path={["/Articles"]}>
                 <Articles />
               </Route>
-              {/* <Route exact path={["/Chat"]}>
+              <Route exact path={["/Chat"]}>
                 <Chat />
-              </Route> */}
+              </Route>
             </Switch>
           </AlertContext.Provider>
           <Footer />
