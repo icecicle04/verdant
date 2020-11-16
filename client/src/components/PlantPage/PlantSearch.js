@@ -83,10 +83,7 @@ const PlantSearch = () => {
         name="search"
         onChange={(e) => handleSearch(e.target.value)}
       />
-      <button className="articlesBtn" id="plant-search" onClick={handleSearch}>
-        Search
-      </button>
-
+      <button className="plant-search-btn">Search</button>
       {search.map((type) => {
         return (
           <div key={type.id} style={plantStyle} className="col-sm-6">
