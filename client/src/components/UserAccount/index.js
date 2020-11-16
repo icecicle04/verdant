@@ -21,11 +21,6 @@ const AccountPage = () => {
       const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
       console.log(decoded);
 
-      setAlert({
-        message: `Welcome ${decoded.firstName} !`,
-        type: "success",
-      });
-
       API.getUser(decoded.id)
         .then((response) => {
           // get user information back and set it to state
