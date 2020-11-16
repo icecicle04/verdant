@@ -5,14 +5,20 @@ import "./ArticleSearch.css";
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
 
+  const [userInput, setInput] = useState([]);
+
   const [type, setType] = useState({
     title: "",
     url: "",
     imageUrl: "",
   });
 
+  function changeState(e) {
+    setInput(e);
+  }
+
   useEffect(() => {
-    API.search("Flowers")
+    API.search("HousePlants")
       .then((response) => {
         // console.log(response.data);
         setSearch(response.data.response.results);
@@ -22,9 +28,9 @@ const ArticleSearch = () => {
       });
   }, []);
 
-  function handleSearch(e) {
-    // e.preventDefault();
-    API.search(e)
+  function handleSearch(event) {
+    event.preventDefault();
+    API.search(userInput)
       .then((response) => {
         console.log(response.data.response);
         setSearch(response.data.response.results);
@@ -47,19 +53,21 @@ const ArticleSearch = () => {
       url: url,
       imageUrl: image,
     });
-    alert("Saved article to your account!");
+    alert("Saved Article to your account!");
   }
 
   return (
-    <>
+    <><form>
       <input
         className="form-control nav-search text-center"
         id="articlesSearchBar"
         type="text"
         placeholder="e.g. Houseplants"
         name="search"
-        onChange={(e) => handleSearch(e.target.value)}
+        onChange={(e) => changeState(e.target.value)}
       />
+      <button onClick ={handleSearch}> Search Articles </button>
+      </form>
       {search.map((type) => {
         return (
           <div className="container" id="articlesContainer">
