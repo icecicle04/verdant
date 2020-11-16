@@ -36,7 +36,6 @@ const Form = () => {
         password: formObject.password,
       })
         .then((res) => {
-          // console.log("SIGNED UP INFO", res.data);
           if (res.data.result === "complete") {
             setAlert({
               message: `Successfully signed up! Welcome to Verdant, ${res.data.firstName}`,
@@ -48,9 +47,7 @@ const Form = () => {
               email: formObject.email,
               password: formObject.password,
             }).then((res) => {
-              console.log(res.data.user.id);
               let userId = res.data.user.id;
-              // setJwt("");
               setJwt(res.data.data);
               history.push(`/api/account/` + userId);
             });

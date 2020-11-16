@@ -1,5 +1,4 @@
 import React from "react";
-// import PlantCard from "../components/PlantPage/PlantCard";
 import PlantSearch from "../../components/PlantPage/PlantSearch";
 import "./Plant.css";
 

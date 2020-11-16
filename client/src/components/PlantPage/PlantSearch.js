@@ -20,7 +20,6 @@ const PlantSearch = () => {
   useEffect(() => {
     API.search("Philodendron")
       .then((response) => {
-        // console.log(response.data);
         setSearch(response.data.data);
       })
       .catch((err) => {
@@ -31,7 +30,6 @@ const PlantSearch = () => {
   function handleSearch(e) {
     API.search(e)
       .then((response) => {
-        // how to get this error working?
         if (response.data.data.length <= 0) {
           console.log("no results found");
         }

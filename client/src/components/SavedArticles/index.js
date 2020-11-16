@@ -7,8 +7,6 @@ const SavedArticles = () => {
   const refreshArticle = () => {
     API.getArticles()
       .then((response) => {
-        // console.log("HIT REFRESH")
-        console.log(response.data);
         setArticles(response.data);
       })
       .catch((err) => {
@@ -19,7 +17,6 @@ const SavedArticles = () => {
   useEffect(() => {
     API.getArticles()
       .then((response) => {
-        console.log(response.data);
         setArticles(response.data);
       })
       .catch((err) => {
