@@ -64,7 +64,7 @@ function Chat(props) {
                 forestry next.
               </div>
             </i>
-
+            <br></br>
             <button className="replyButton">Reply</button>
           </div>
         </div>
