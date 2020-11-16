@@ -41,13 +41,15 @@ const AccountPage = () => {
 
   return (
     <>
-      <div >
+      <div>
         <div className="container fluid">
           {user.map((account) => {
             return (
               <div className="row">
                 <div className="col-sm-12">
-                  <h2 key={account.id} class="header">Green Thumb: {account.first_name} {account.last_name}</h2>
+                  <h2 key={account.id} class="header">
+                    Green Thumb: {account.first_name} {account.last_name}
+                  </h2>
                   <div className="row">
                     <div className="col-sm-3">
                       <img
@@ -56,15 +58,18 @@ const AccountPage = () => {
                         className="accountImg"
                       />
                     </div>
-                    <div className="col-sm-6" style={{marginTop: "auto", marginBottom: "auto"}}>
-                    <p className= "text-center" id="accountBio">
-                      <ul>Favorite Plant: String of Pearls</ul>
-                       <ul>Watering Schedule: Whenever I remember!</ul> 
-                       <ul>Member Since: 2020</ul>
-                    </p>
-                      </div>
+                    <div
+                      className="col-sm-6"
+                      style={{ marginTop: "auto", marginBottom: "auto" }}
+                    >
+                      <p className="text-center" id="accountBio">
+                        <ul>Favorite Plant: String of Pearls</ul>
+                        <ul>Watering Schedule: Whenever I remember!</ul>
+                        <ul>Member Since: 2020</ul>
+                      </p>
+                    </div>
                     <div className="col-sm-3">
-                    <img
+                      <img
                         src={TestImage2}
                         alt="Sprouting Seeds"
                         className="accountImg"
@@ -72,26 +77,6 @@ const AccountPage = () => {
                       />
                     </div>
                   </div>
-                  {/* <div className="row">
-                    <div className="col-sm-3" />
-
-                    <div className="col-sm-6">
-                      <h3>Green Thumb:</h3>
-                      <h4 key={account.id}>
-                        {account.first_name} {account.last_name}
-                      </h4>
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into
-                        electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the
-                      </p>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             );
