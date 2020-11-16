@@ -2,3 +2,16 @@
     width: auto;
     margin-left: 39%;
 }
+
+#plant-search {
+    margin-top: 1.9rem;
+    margin-bottom: 1.9rem;
+    margin-left: 0;
+}
+
+@media screen and (max-width: 764px) {
+    #plantSearchBar {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }

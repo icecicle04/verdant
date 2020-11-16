@@ -7,7 +7,7 @@ function Articles(props) {
     <div id="articlesBackground">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-12 text-center">
+          <div className="col-md-12 text-center" id="articles-div">
             <h2 id="articlesHeader">Trending Articles</h2>
             <div className="card">
               <div className="card-body">

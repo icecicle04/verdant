@@ -68,7 +68,7 @@ const PlantSearch = () => {
       scientific_name: scientific_name,
     }).then((response) => {});
     setAlert({
-      message: "Saves a new plant to your account!",
+      message: "Saved a new plant to your account!",
       type: "success",
     });
   }
@@ -83,6 +83,9 @@ const PlantSearch = () => {
         name="search"
         onChange={(e) => handleSearch(e.target.value)}
       />
+      <button className="articlesBtn" id="plant-search" onClick={handleSearch}>
+        Search
+      </button>
 
       {search.map((type) => {
         return (
