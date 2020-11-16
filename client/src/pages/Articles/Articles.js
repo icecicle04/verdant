@@ -9,10 +9,9 @@ function Articles(props) {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-12 text-center">
-            <h2 id="articlesHeader">Search Trending Articles</h2>
+            <h2 id="articlesHeader">Trending Articles</h2>
             <div className="card">
               <div className="card-body">
-                {/* <ArticleContainer /> */}
                 <ArticleSearch />
               </div>
             </div>
