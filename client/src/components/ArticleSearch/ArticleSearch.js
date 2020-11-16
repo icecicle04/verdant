@@ -1,11 +1,13 @@
 import API from "./searchApi";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AlertContext from "../../context/AlertContext";
 import "./ArticleSearch.css";
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
-
   const [userInput, setInput] = useState([]);
+  const { setAlert } = useContext(AlertContext);
+
 
   const [type, setType] = useState({
     title: "",
@@ -53,7 +55,7 @@ const ArticleSearch = () => {
       url: url,
       imageUrl: image,
     });
-    alert("Saved Article to your account!");
+    setAlert({ message: "Saved article to your account", type: "success" });
   }
 
   return (

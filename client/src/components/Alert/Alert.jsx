@@ -12,7 +12,7 @@ const Alert = () => {
     }
   },[message]) // this checks to see if there's a change in message [], then it runs the useEffect and setTimeout
   return (
-    <div className="container">
+    <div className="container fixed-top">
       <div className="row">
         <div className="col-sm-12">
           {message && (

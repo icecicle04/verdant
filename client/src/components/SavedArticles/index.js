@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import AlertContext from "../../context/AlertContext";
 import API from "../ArticleSearch/searchApi";
 
 const SavedArticles = () => {
   const [articles, setArticles] = useState([]);
+  const { setAlert } = useContext(AlertContext);
 
   const refreshArticle = () => {
     API.getArticles()
       .then((response) => {
         // console.log("HIT REFRESH")
+        setAlert({ message: "Deleted article", type: "success" });
         console.log(response.data);
         setArticles(response.data);
       })
