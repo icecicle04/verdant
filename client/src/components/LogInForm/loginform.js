@@ -1,4 +1,4 @@
-import React, { Component, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import AlertContext from "../../context/AlertContext";
 import userContext from "../../context/userContext";
 import { useHistory } from "react-router-dom";
@@ -21,9 +21,7 @@ const LoginForm = () => {
   const handleFormSubmit = (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    // if (!this.state.email || !this.state.password) {
-    //   alert("Please enter your email and password!");
-    // }
+
 
     API.logInUser({
       email: formObject.email,
@@ -32,11 +30,14 @@ const LoginForm = () => {
       .then((res) => {
         console.log(res.data.user)
         let userId = res.data.user.id;
+<<<<<<< HEAD
         // setJwt("");
         setAlert({
           message: `Welcome ${res.data.user.firstName}!`,
           type: "success",
         });
+=======
+>>>>>>> 320a90ebc1c8fb09ed62e6a01dc5f3c2cf2ce8f4
         setJwt(res.data.data);
         history.push(`/api/account/` + userId);
       })

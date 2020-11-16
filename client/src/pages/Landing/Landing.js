@@ -1,8 +1,11 @@
 import React from "react";
 import "./Landing.css";
+<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
 
 // import Gardening from "../../Images/gardening.png";
+=======
+>>>>>>> 320a90ebc1c8fb09ed62e6a01dc5f3c2cf2ce8f4
 
 function Landing(props) {
 
@@ -20,8 +23,12 @@ function Landing(props) {
           >
            Whether you've already got a green thumb or are still cultivating one, there's always room to grow.<br /> <br />Let Verdant help you bloom. 
           </p>
+<<<<<<< HEAD
           {/* TODO: add a route */}
           <button id="landingBtn" onClick={() => history.push('/plant')}>Explore</button>
+=======
+          <button id="landingBtn">Explore</button>
+>>>>>>> 320a90ebc1c8fb09ed62e6a01dc5f3c2cf2ce8f4
         </div>
       </div>
     </div>

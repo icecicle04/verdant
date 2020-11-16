@@ -22,7 +22,6 @@ const ArticleSearch = () => {
   useEffect(() => {
     API.search("HousePlants")
       .then((response) => {
-        // console.log(response.data);
         setSearch(response.data.response.results);
       })
       .catch((err) => {
@@ -34,7 +33,6 @@ const ArticleSearch = () => {
     event.preventDefault();
     API.search(userInput)
       .then((response) => {
-        console.log(response.data.response);
         setSearch(response.data.response.results);
       })
       .catch((err) => {
@@ -83,9 +81,6 @@ const ArticleSearch = () => {
               >
                 <div>
                   <h2> {type.webTitle}</h2>
-                </div>
-                <div>
-                  {/* <h3> Article Type: {type.sectionName}</h3> */}
                 </div>
                 <div
                   className="practice image"
