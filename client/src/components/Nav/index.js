@@ -12,7 +12,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbarItems navbar navbar-expand-lg ">
+      <nav className="navbarItems navbar navbar-expand-lg fixed-top">
         <div className="navbar-logo"><strong>
           Verdant&nbsp;</strong><i class="fas fa-leaf"></i>
         </div>
