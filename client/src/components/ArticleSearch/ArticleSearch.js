@@ -1,11 +1,13 @@
 import API from "./searchApi";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AlertContext from "../../context/AlertContext";
 import "./ArticleSearch.css";
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
-
   const [userInput, setInput] = useState([]);
+  const { setAlert } = useContext(AlertContext);
+
 
   const [type, setType] = useState({
     title: "",
@@ -20,7 +22,6 @@ const ArticleSearch = () => {
   useEffect(() => {
     API.search("HousePlants")
       .then((response) => {
-        // console.log(response.data);
         setSearch(response.data.response.results);
       })
       .catch((err) => {
@@ -32,7 +33,6 @@ const ArticleSearch = () => {
     event.preventDefault();
     API.search(userInput)
       .then((response) => {
-        console.log(response.data.response);
         setSearch(response.data.response.results);
       })
       .catch((err) => {
@@ -53,7 +53,7 @@ const ArticleSearch = () => {
       url: url,
       imageUrl: image,
     });
-    alert("Saved Article to your account!");
+    setAlert({ message: "Saved article to your account", type: "success" });
   }
 
   return (
@@ -81,9 +81,6 @@ const ArticleSearch = () => {
               >
                 <div>
                   <h2> {type.webTitle}</h2>
-                </div>
-                <div>
-                  {/* <h3> Article Type: {type.sectionName}</h3> */}
                 </div>
                 <div
                   className="practice image"

@@ -35,9 +35,4 @@ export const menuItems = [
     cName: "nav-links",
   },
 
-  // {
-  //   title: "home",
-  //   url: "/",
-  //   cName: "nav-links-mobile",
-  // },
 ];
