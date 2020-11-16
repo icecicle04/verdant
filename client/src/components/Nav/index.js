@@ -1,3 +1,4 @@
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Component } from "react";
 import { menuItems } from "./menuItems";
@@ -13,9 +14,10 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbarItems navbar navbar-expand-lg fixed-top">
-        <div className="navbar-logo"><strong>
-          Verdant&nbsp;</strong><i class="fas fa-leaf"></i>
-        </div>
+        <button className="navbar-logo">
+          <strong>Verdant&nbsp;</strong>
+          <i class="fas fa-leaf"></i>
+        </button>
         <div className="menu-icon" onClick={this.handleClick}>
           <i
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
@@ -32,7 +34,6 @@ class Navbar extends Component {
             );
           })}
         </ul>
-        <div className="loginButton">{/* <Button>Login</Button> */}</div>
       </nav>
     );
   }

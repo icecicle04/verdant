@@ -5,3 +5,11 @@
 #articlesBackground {
     background-image: linear-gradient( rgb(27, 66, 32), rgb(119, 153, 121), rgb(173, 217, 175));
 }
+
+#articles-div {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}

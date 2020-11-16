@@ -34,30 +34,35 @@ const AccountPage = () => {
 
   return (
     <>
-      <div >
+      <div>
         <div className="container fluid">
           {user.map((account) => {
             return (
               <div className="row">
                 <div className="col-sm-12">
-                  <h2 key={account.id} class="header">Green Thumb: {account.first_name} {account.last_name}</h2>
+                  <h2 key={account.id} class="header">
+                    Green Thumb: {account.first_name} {account.last_name}
+                  </h2>
                   <div className="row">
-                    <div className="col-sm-4">
+                    <div className="col-sm-3">
                       <img
                         src={TestImage}
                         alt="Gardening Illustration"
                         className="accountImg"
                       />
                     </div>
-                    <div className="col-sm-4" style={{marginTop: "auto", marginBottom: "auto"}}>
-                    <p id="accountBio">
-                      <ul>Favorite Plant: String of Pearls</ul>
-                       <ul>Watering Schedule: Whenever I remember!</ul> 
-                       <ul>Member Since: 2020</ul>
-                    </p>
-                      </div>
-                    <div className="col-sm-4">
-                    <img
+                    <div
+                      className="col-sm-6"
+                      style={{ marginTop: "auto", marginBottom: "auto" }}
+                    >
+                      <p className="text-center" id="accountBio">
+                        <ul>Favorite Plant: String of Pearls</ul>
+                        <ul>Watering Schedule: Whenever I remember!</ul>
+                        <ul>Member Since: 2020</ul>
+                      </p>
+                    </div>
+                    <div className="col-sm-3">
+                      <img
                         src={TestImage2}
                         alt="Sprouting Seeds"
                         className="accountImg"
