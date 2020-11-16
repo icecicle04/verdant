@@ -74,7 +74,7 @@ function SavedPlants() {
                   <b>{data.common_name}</b>
                 </h5>
                 <hr />
-                <p className="card-text">
+                {/* <p className="card-text">
                   Plant bibliography:{" "}
                   <a
                     target="_blank"
@@ -82,7 +82,7 @@ function SavedPlants() {
                   >
                     {data.bibliography}
                   </a>
-                </p>
+                </p> */}
                 <button className="articlesBtn" onClick={() => deletePlant(data._id)}>
                   Delete Plant
                 </button>

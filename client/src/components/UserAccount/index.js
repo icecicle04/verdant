@@ -56,11 +56,12 @@ const AccountPage = () => {
                         className="accountImg"
                       />
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-4" style={{marginTop: "auto", marginBottom: "auto"}}>
                     <p id="accountBio">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. 
-                      </p>
+                      <ul>Favorite Plant: String of Pearls</ul>
+                       <ul>Watering Schedule: Whenever I remember!</ul> 
+                       <ul>Member Since: 2020</ul>
+                    </p>
                       </div>
                     <div className="col-sm-4">
                     <img
