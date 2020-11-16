@@ -77,9 +77,6 @@ const SavedArticles = () => {
           })}
         </div>
       </div>
-      {/* </div> */}
-      {/* </div>
-      </div> */}
     </>
   );
 };
