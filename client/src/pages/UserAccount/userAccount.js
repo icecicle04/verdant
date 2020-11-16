@@ -1,9 +1,5 @@
 import React from "react";
 import AccountPage from "../../components/UserAccount/index";
-import TestImage from "../../Images/nickCage.jpg";
-import AlertContext from "../../context/AlertContext";
-import EditBtn from "../../components/EditBtn/index";
-import userContext from "../../context/userContext";
 import SavedArticles from "../../components/SavedArticles";
 import SavedPlants from "../../components/SavedPlants";
 

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Landing.css";
-// import Gardening from "../../Images/gardening.png";
 
 function Landing(props) {
   return (
@@ -16,7 +15,6 @@ function Landing(props) {
           >
            Whether you've already got a green thumb or are still cultivating one, there's always room to grow.<br /> <br />Let Verdant help you bloom. 
           </p>
-          {/* TODO: add a route */}
           <button id="landingBtn">Explore</button>
         </div>
       </div>
