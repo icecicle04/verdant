@@ -13,6 +13,8 @@
   font-family: "Poiret One", cursive;
   font-size: xx-large;
   margin-top: 0;
+  border: none;
+  background: whitesmoke;
 }
 
 .nav-menu {
@@ -107,6 +109,8 @@
     top: 0;
     left: 0;
     transform: translate(5%, 10%);
+    border: none;
+    background: whitesmoke;
   }
 
   .menu-icon {
