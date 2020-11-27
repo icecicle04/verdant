@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import plantStyle from "../PlantPage/plantCard.css";
+import jwt from "jsonwebtoken";
 import AlertContext from "../../context/AlertContext";
 import API from "../../utils/API";
 import "./PlantSearch.css";
@@ -7,6 +8,12 @@ import "./PlantSearch.css";
 // a search page for the trefle.io API
 const PlantSearch = () => {
   const { setAlert } = useContext(AlertContext);
+
+  const localJwt = localStorage.getItem("jwt");
+  console.log(localJwt);
+  // use the token and set it against the secret key to unlock the payload
+  const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+  console.log(decoded);
 
   const [search, setSearch] = useState([]);
   const [plantType, setplantType] = useState({
@@ -66,6 +73,7 @@ const PlantSearch = () => {
       family: family,
       genus: genus,
       scientific_name: scientific_name,
+      user_id: decoded.id
     }).then((response) => {});
     setAlert({
       message: "Saved a new plant to your account!",

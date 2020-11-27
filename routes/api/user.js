@@ -3,10 +3,15 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
-require("../../controllers/controller")
+require("../../controllers/controller");
 // create application/json parser
 const jsonParser = bodyParser.json();
 
+router.get("/api/users", jsonParser, (req, res) => {
+  db.User.find({}).then((allUsers) => {
+    res.json(allUsers);
+  });
+});
 
 // find user by ID
 router.get("/api/account/:user", jsonParser, (req, res) => {
@@ -81,6 +86,7 @@ router.post("/api/users/login", jsonParser, (req, res) => {
   const { email, password } = req.body;
   // find user in database that matches the user input
   db.User.findOne({ email: email })
+    .populate("Plant")
     .then((foundUser) => {
       console.log("USER FOUND WITH:", foundUser);
       if (foundUser === null) {
@@ -147,7 +153,7 @@ router.delete("/api/users/:id", (req, res) => {
     });
 });
 
-//Routes for Articles 
+//Routes for Articles
 
 router.get("/api/Articles", (req, res) => {
   console.log("Clicked to retrieve users");
@@ -164,7 +170,9 @@ router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
   var { title, url, imageUrl } = req.body;
   db.Article.create({ title, url, imageUrl })
     .then((newArticle) => {
-      (title = newArticle.title), (url = newArticle.url), (imageUrl = newArticle.imageUrl);
+      (title = newArticle.title),
+        (url = newArticle.url),
+        (imageUrl = newArticle.imageUrl);
     })
     .catch((err) => {
       console.log(err);
@@ -188,8 +196,7 @@ router.delete("/api/Articles/:id", function (req, res) {
     });
 });
 
-
-//Routes for Plants 
+//Routes for Plants
 router.get("/api/plant/SavedPlant", (req, res) => {
   console.log("RETRIEVING PLANTS");
   db.Plant.find({})
@@ -202,15 +209,49 @@ router.get("/api/plant/SavedPlant", (req, res) => {
 });
 
 router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
-  var { common_name, image_url, bibliography, family, genus, scientific_name } = req.body;
-  db.Plant.create({ common_name, image_url, bibliography, family, genus, scientific_name })
+  var {
+    common_name,
+    image_url,
+    bibliography,
+    family,
+    genus,
+    scientific_name,
+    user_id,
+  } = req.body;
+  // console.log("THIS IS THE REQ", req.body)
+  db.Plant.create({
+    common_name,
+    image_url,
+    bibliography,
+    family,
+    genus,
+    scientific_name,
+  })
     .then((newPlant) => {
-      (common_name = newPlant.common_name),
-        (image_url = newPlant.image_url),
-        (bibliography = newPlant.bibliography),
-        (family = newPlant.family),
-        (genus = newPlant.genus),
-        (scientific_name = newPlant.scientific_name);
+      console.log(newPlant);
+      var {
+        common_name,
+        image_url,
+        bibliography,
+        family,
+        genus,
+        scientific_name,
+        _id,
+      } = newPlant;
+      // (common_name = newPlant.common_name),
+      //   (image_url = newPlant.image_url),
+      //   (bibliography = newPlant.bibliography),
+      //   (family = newPlant.family),
+      //   (genus = newPlant.genus),
+      //   (scientific_name = newPlant.scientific_name);
+      db.User.findByIdAndUpdate({ _id: user_id }, { plants: _id })
+        .then((userWithPlant) => {
+          console.log(userWithPlant);
+          console.log("PLANT ADDED TO USER INFO");
+        })
+        .catch((err) => {
+          if (err) throw err;
+        });
     })
     .catch((err) => {
       console.log(err);
@@ -222,19 +263,21 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
     });
 });
 
-router.delete("/api/plant/:id", jsonParser, (req, res) =>{
+router.delete("/api/plant/:id", jsonParser, (req, res) => {
   // console.log("PLANT ID TO DELETE", req.params);
   let plantID = req.params.id;
-  db.Plant.findByIdAndDelete({_id: plantID}).then((response)=>{
-    console.log(response);
-  }).catch((err) =>{
-    console.log(err);
-    res.status(500).json({
-      error: true,
-      data: null,
-      message: "unable to delete plant",
+  db.Plant.findByIdAndDelete({ _id: plantID })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to delete plant",
+      });
     });
-  })
-})
+});
 
 module.exports = router;

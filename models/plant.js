@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 
 // plant schema for the mongoDB
 const plantSchema = new Schema({
+  // _id: mongoose.SchemaTypes.ObjectId,
   common_name: {
     type: String,
     trim: true,
@@ -35,6 +36,10 @@ const plantSchema = new Schema({
     type: String,
     trim: true,
     required: false,
+  },
+  plant_owner: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "User"
   },
 });
 
