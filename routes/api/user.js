@@ -244,7 +244,11 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
       //   (family = newPlant.family),
       //   (genus = newPlant.genus),
       //   (scientific_name = newPlant.scientific_name);
-      db.User.findByIdAndUpdate({ _id: user_id }, { plants: _id })
+      db.User.findByIdAndUpdate(
+        { _id: user_id },
+        { $addToSet: { plants: _id } },
+        { new: true }
+      )
         .then((userWithPlant) => {
           console.log(userWithPlant);
           console.log("PLANT ADDED TO USER INFO");
