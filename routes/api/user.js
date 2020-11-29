@@ -16,9 +16,10 @@ router.get("/api/users", jsonParser, (req, res) => {
 // find user by ID
 router.get("/api/account/:user", jsonParser, (req, res) => {
   let userID = req.params.user;
-  console.log(userID);
+  // console.log(userID);
 
   db.User.findById({ _id: userID })
+    .populate("plants")
     .then((foundUser) => {
       // console.log(foundUser);
       res.json(foundUser);
@@ -86,7 +87,7 @@ router.post("/api/users/login", jsonParser, (req, res) => {
   const { email, password } = req.body;
   // find user in database that matches the user input
   db.User.findOne({ email: email })
-    .populate("Plant")
+    .populate("plants")
     .then((foundUser) => {
       console.log("USER FOUND WITH:", foundUser);
       if (foundUser === null) {
@@ -229,21 +230,8 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
   })
     .then((newPlant) => {
       console.log(newPlant);
-      var {
-        common_name,
-        image_url,
-        bibliography,
-        family,
-        genus,
-        scientific_name,
-        _id,
-      } = newPlant;
-      // (common_name = newPlant.common_name),
-      //   (image_url = newPlant.image_url),
-      //   (bibliography = newPlant.bibliography),
-      //   (family = newPlant.family),
-      //   (genus = newPlant.genus),
-      //   (scientific_name = newPlant.scientific_name);
+      var { _id } = newPlant;
+      // grab the new plant ID and add it to the user plant array
       db.User.findByIdAndUpdate(
         { _id: user_id },
         { $addToSet: { plants: _id } },
