@@ -168,12 +168,23 @@ router.get("/api/Articles", (req, res) => {
 });
 
 router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
-  var { title, url, imageUrl } = req.body;
+  var { title, url, imageUrl, user_id } = req.body;
   db.Article.create({ title, url, imageUrl })
     .then((newArticle) => {
-      (title = newArticle.title),
-        (url = newArticle.url),
-        (imageUrl = newArticle.imageUrl);
+      // (title = newArticle.title),
+      //   (url = newArticle.url),
+      //   (imageUrl = newArticle.imageUrl);
+      console.log("NEW ARTICLE", newArticle);
+      let { _id } = newArticle;
+      console.log(user_id);
+      db.User.findByIdAndUpdate(
+        { _id: user_id },
+        { $addToSet: { article: _id } },
+        { new: true }
+      );
+    })
+    .then((userWithPlant) => {
+      console.log(userWithPlant);
     })
     .catch((err) => {
       console.log(err);

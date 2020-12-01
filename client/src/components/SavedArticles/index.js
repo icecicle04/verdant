@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import AlertContext from "../../context/AlertContext";
+import jwt from "jsonwebtoken";
 import API from "../ArticleSearch/searchApi";
 
 
 const SavedArticles = () => {
   const [articles, setArticles] = useState([]);
   const { setAlert } = useContext(AlertContext);
+  const localJwt = localStorage.getItem("jwt");
+
 
   const refreshArticle = () => {
     API.getArticles()

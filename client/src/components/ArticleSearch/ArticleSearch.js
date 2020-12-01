@@ -1,12 +1,19 @@
 import API from "./searchApi";
 import React, { useState, useEffect, useContext } from "react";
 import AlertContext from "../../context/AlertContext";
+import jwt from "jsonwebtoken";
 import "./ArticleSearch.css";
 
 const ArticleSearch = () => {
   const [search, setSearch] = useState([]);
   const [userInput, setInput] = useState([]);
   const { setAlert } = useContext(AlertContext);
+
+  const localJwt = localStorage.getItem("jwt");
+  console.log(localJwt);
+  // use the token and set it against the secret key to unlock the payload
+  const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+  console.log(decoded);
 
 
   const [type, setType] = useState({
@@ -52,6 +59,7 @@ const ArticleSearch = () => {
       title: title,
       url: url,
       imageUrl: image,
+      user_id: decoded.id,
     });
     setAlert({ message: "Saved article to your account", type: "success" });
   }
