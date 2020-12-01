@@ -171,27 +171,28 @@ router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
   var { title, url, imageUrl, user_id } = req.body;
   db.Article.create({ title, url, imageUrl })
     .then((newArticle) => {
-      // (title = newArticle.title),
-      //   (url = newArticle.url),
-      //   (imageUrl = newArticle.imageUrl);
+      // update the user with the new article
       console.log("NEW ARTICLE", newArticle);
       let { _id } = newArticle;
       console.log(user_id);
-      db.User.findByIdAndUpdate(
+      db.User.findOneAndUpdate(
         { _id: user_id },
-        { $addToSet: { article: _id } },
+        { $push: { article: _id } },
         { new: true }
-      );
-    })
-    .then((userWithPlant) => {
-      console.log(userWithPlant);
+      )
+        .then((newUser) => {
+          console.log(newUser);
+        })
+        .catch((err) => {
+          if (err) throw err;
+        });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json({
         error: true,
         data: null,
-        message: "unable to sign up",
+        message: "unable to save article",
       });
     });
 });
@@ -200,7 +201,7 @@ router.delete("/api/Articles/:id", function (req, res) {
   console.log(req.params.id);
   db.Article.findByIdAndDelete({ _id: req.params.id })
     .then((deletedUser) => {
-      console.log("Deleted user");
+      console.log("Deleted article");
       console.log(deletedUser);
     })
     .catch((err) => {
