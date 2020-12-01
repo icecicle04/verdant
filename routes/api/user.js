@@ -230,7 +230,7 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
   })
     .then((newPlant) => {
       console.log(newPlant);
-      var { _id } = newPlant;
+      let { _id } = newPlant;
       // grab the new plant ID and add it to the user plant array
       db.User.findByIdAndUpdate(
         { _id: user_id },
@@ -255,10 +255,11 @@ router.post("/api/plant/SavedPlant", jsonParser, (req, res) => {
     });
 });
 
-router.delete("/api/plant/:id", jsonParser, (req, res) => {
-  // console.log("PLANT ID TO DELETE", req.params);
-  let plantID = req.params.id;
-  db.Plant.findByIdAndDelete({ _id: plantID })
+// update user and delete plant from plants array
+router.put("/api/plant/SavedPlant", jsonParser, (req, res) => {
+  console.log("INCOMING REQ BOD", req.body);
+  let { PlantId, UserId } = req.body;
+  db.User.findByIdAndUpdate({ _id: UserId }, { $pull: { plants: PlantId } })
     .then((response) => {
       console.log(response);
     })

@@ -40,7 +40,7 @@ const PlantSearch = () => {
         if (response.data.data.length <= 0) {
           console.log("no results found");
         }
-        console.log(response.data);
+        // console.log(response.data);
         setSearch(response.data.data);
       })
       .catch((err) => {
@@ -56,8 +56,8 @@ const PlantSearch = () => {
     genus,
     scientific_name
   ) {
-    console.log(common_name);
-    console.log(bibliography);
+    // console.log(common_name);
+    // console.log(bibliography);
     setplantType({
       common_name: common_name,
       image_url: image_url,

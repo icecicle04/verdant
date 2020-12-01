@@ -6,44 +6,59 @@ import API from "../../utils/API";
 function SavedPlants() {
   const [plants, setPlants] = useState([]);
   const { setAlert } = useContext(AlertContext);
+  const localJwt = localStorage.getItem("jwt");
+
 
   // delete button is clicked, page is reloaded and new db plants are set to state
   const refreshPlant = () => {
-    API.getPlant()
-      .then((response) => {
-        setPlants(response.data);
-        setAlert({ message: "Deleted plant", type: "success" });
-      })
-      .catch((err) => {
-        if (err) throw err;
-      });
-  };
-
-  useEffect(() => {
-    const localJwt = localStorage.getItem("jwt");
     if (localJwt) {
       const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
-      console.log("DECODED ON PLANT PAGE", decoded.id);
+      // console.log("DECODED ON PLANT PAGE", decoded.id);
 
       API.getUser(decoded.id)
         .then((foundUser) => {
-          console.log("FOUND ME", foundUser.data.plants);
+          // console.log("FOUND ME", foundUser.data.plants);
           setPlants(foundUser.data.plants);
         })
         .catch((err) => {
           if (err) throw err;
         });
     }
+  };
+
+  useEffect(() => {
+    if (localJwt) {
+      const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+      // console.log("DECODED ON PLANT PAGE", decoded.id);
+
+      API.getUser(decoded.id)
+        .then((foundUser) => {
+          // console.log("FOUND ME", foundUser.data.plants);
+          setPlants(foundUser.data.plants);
+        })
+        .catch((err) => {
+          if (err) throw err;
+        });
+    } else {
+      alert("no plants found");
+    }
   }, []);
 
   console.log(plants);
 
-  function deletePlant(id) {
-    // add functionality to delete plants
-    API.deletePlant(id).then((res) => {
-      console.log(res);
+  function deletePlant(PlantId, UserId) {
+    const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+    console.log(decoded)
+    UserId = decoded.id;
+
+    API.deletePlant({PlantId, UserId}).then((res) => {
+      console.log("RESPONSE",res);
     });
     refreshPlant();
+    setAlert({
+      message: "Successfully removed plant from account",
+      type: "success",
+    });
   }
 
   return (

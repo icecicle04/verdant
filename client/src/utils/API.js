@@ -37,8 +37,9 @@ export default {
         return axios.get("/api/plant/SavedPlant");
     },
     // delete saved plants
-    deletePlant: function (id) {
-        return axios.delete("/api/plant/" + id);
+    deletePlant: function (deletePlant) {
+        console.log("DELETE PLANT INFO", deletePlant);
+        return axios.put("/api/plant/SavedPlant", deletePlant);
     },
    
 };
