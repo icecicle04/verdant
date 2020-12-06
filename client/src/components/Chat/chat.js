@@ -1,21 +1,19 @@
-import React from "react";
-// import "./chat.css";
+import React, {useState, useEffect} from 'react';
+import queryString from 'query-string';
+import io from 'socket.io-client';
 
-class MessageList extends React.Component {
-  render() {
-    return (
-      <ul className="message-list">
-        {this.props.messages.map((message) => {
-          return (
-            <li key={message.id}>
-              <div>{message.senderId}</div>
-              <div>{message.text}</div>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-}
+const Chat = ({location}) => {
+  useEffect(() => {
+    const data = queryString.parse(location.search)
 
-export default MessageList;
+    console.log(data)
+    console.log(location.search)
+  })
+  return (
+    <div>
+      <h1>Chat</h1>
+    </div>
+  );
+};
+
+export default Chat;

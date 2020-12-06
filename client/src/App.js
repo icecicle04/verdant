@@ -8,7 +8,9 @@ import Register from "./pages/Register/Register";
 import Account from "./pages/UserAccount/userAccount";
 import Articles from "./pages/Articles/Articles";
 import Plant from "./pages/Plant/Plant";
-import Chat from "./pages/Chat/Chat";
+// import Chat from "./pages/Chat/Chat";
+import Join from "./components/Join/Join"
+import Chat from "./components/Chat/chat"
 import Alert from "./components/Alert/Alert";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "../src/components/Nav";
@@ -71,6 +73,9 @@ function App() {
                 <Articles />
               </Route>
               <Route exact path={["/Chat"]}>
+                <Join />
+              </Route>
+              <Route exact path={["/chat"]}>
                 <Chat />
               </Route>
             </Switch>

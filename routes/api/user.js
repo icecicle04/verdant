@@ -198,7 +198,6 @@ router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
 });
 
 router.put("/api/Articles/savedArticles", jsonParser, function (req, res) {
-  console.log("ARTICLE REQ", req.body);
   let {UserId, ArticleId} = req.body;
   db.User.findByIdAndUpdate({ _id: UserId }, { $pull: { article: ArticleId } })
     .then((response) => {

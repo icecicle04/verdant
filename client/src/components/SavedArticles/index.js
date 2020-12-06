@@ -26,7 +26,7 @@ const SavedArticles = () => {
       const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
 
       API2.getUser(decoded.id).then((foundUser) => {
-        console.log("FOUND USER", foundUser.data.article);
+        // console.log("FOUND USER", foundUser.data.article);
         setArticles(foundUser.data.article);
       });
     }
@@ -35,7 +35,6 @@ const SavedArticles = () => {
   function deleteArticle(ArticleId, UserId) {
 
     const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
-    console.log(decoded)
     UserId = decoded.id;
 
     API.deleteArticles({ArticleId, UserId})
