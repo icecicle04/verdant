@@ -2,10 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const socketio = require("socket.io");
-const http = require("http");
-const server = http.createServer(app);
-const io = socketio(server);
+// const socketio = require("socket.io");
+// const http = require("http");
+// const server = http.createServer(app);
+// const io = socketio(server);
 
 // const io = require("socket.io")(server, {
 //   cors: {
@@ -19,7 +19,7 @@ const path = require("path");
 
 const router = require("./routes/api");
 
-const { addUser, removeUser, getUser, getUsersInRoom } = require("./helper");
+// const { addUser, removeUser, getUser, getUsersInRoom } = require("./helper");
 
 const PORT = process.env.PORT || 3001;
 
@@ -32,34 +32,34 @@ app.use(express.static("client/build"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // work with socket.io
-server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+// server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
-io.on("connection", (socket) => {
-  socket.on("join", ({ name, room }, callback) => {
-    const {error, user} = addUser({id: socket.id, name, room});
+// io.on("connection", (socket) => {
+//   socket.on("join", ({ name, room }, callback) => {
+//     const {error, user} = addUser({id: socket.id, name, room});
 
-    if(error) return callback(error);
+//     if(error) return callback(error);
 
-    socket.emit('message', {user: 'admin', text: `${user.name}, Welcome to the room ${user.room}`});
-    socket.broadcast.to(user.room).emit('message', {user: 'admin', text: `${user.name}, has joined`})
+//     socket.emit('message', {user: 'admin', text: `${user.name}, Welcome to the room ${user.room}`});
+//     socket.broadcast.to(user.room).emit('message', {user: 'admin', text: `${user.name}, has joined`})
 
-    socket.join(user.room)
+//     socket.join(user.room)
 
-    callback();
-  });
+//     callback();
+//   });
 
-  socket.on('sendMessage', (message, callback) => {
-    const user = getUser(socket.id);
+//   socket.on('sendMessage', (message, callback) => {
+//     const user = getUser(socket.id);
 
-    io.to(user.room).emit('message', {user: user.name, text: message})
+//     io.to(user.room).emit('message', {user: user.name, text: message})
 
-    callback();
-  })
+//     callback();
+//   })
 
-  socket.on("disconnection", () => {
-    console.log("User has left!!!");
-  });
-});
+//   socket.on("disconnection", () => {
+//     console.log("User has left!!!");
+//   });
+// });
 
 mongoose.connect(
   process.env.MONGODB_CONNECTION_STRING || "mongodb://localhost/verdant",
@@ -93,6 +93,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// app.listen(PORT, () => {
-//   console.log(`App is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${PORT}`);
+});
