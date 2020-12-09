@@ -26,7 +26,7 @@ export const menuItems = [
   },
   {
     title: "Chat",
-    url: "/chat",
+    url: "/join",
     cName: "nav-links",
   },
   {

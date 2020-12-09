@@ -17,10 +17,10 @@ const articleSchema = new Schema({
       content: {
           type: String,
       },
-      users: [{
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      }],
+      article_owner: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "User"
+      },
       imageUrl: {
         type: String,
         trim: true,

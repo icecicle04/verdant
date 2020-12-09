@@ -1,0 +1,99 @@
+#chatContainer {
+    background-image: url("../../Images/chat-background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 142.4vh; 
+    justify-self: center; */
+
+}
+  
+  /* h1 {
+    font-family: "Poiret One", cursive;
+    font-weight: bolder;
+    font-size: 4rem;
+    color: whitesmoke;
+    text-align: center;
+  }
+  
+  h2 {
+    font-family: "Poiret One", cursive;
+    font-size: 12rem;
+    color: whitesmoke;
+    text-align: center;
+  }
+  
+  h3 {
+    text-align: left;
+  }
+  
+  .TextField {
+    font-family: "Poiret One", cursive;
+    font-weight: bolder;
+    font-size: 4rem;
+    color: whitesmoke;
+    text-align: center;
+  }
+  
+  p {
+    font-family: "Poiret One", cursive;
+    font-weight: bolder;
+    font-size: 2rem;
+    color: whitesmoke;
+    text-align: left;
+  }
+  
+   .card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    background: rgba(26, 29, 27, 0.6);
+    color: white;
+    border: none;
+    justify-items: center;
+  } */
+  
+  .message {
+    font-family: "Poiret One", cursive;
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .headingMessage {
+    font-family: "Raleway", sans-serif;
+    font-size: 2.5rem;
+    color: whitesmoke;
+    text-align: center;
+    margin-right: 50px;
+  }
+  
+  .headingMessage {
+    font-size: 1.2rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
+  
+  .forum-header {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+  
+  #chat-card {
+    width: 80%;
+  }
+  
+  #send-post {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #reply-btn {
+   margin-top: -100px; 
+   margin-bottom: 100px
+  }
+  

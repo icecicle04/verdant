@@ -69,7 +69,7 @@ function SavedPlants() {
         <hr />
       </div>
       <div className="row">
-        {plants.map((data) => {
+        {plants ? plants.map((data) => {
           return (
             <div key={data._id} className="container fluid col-sm-3">
               <div className="card plant-card" style={{ marginBottom: "3rem" }}>
@@ -98,8 +98,8 @@ function SavedPlants() {
                 </div>
               </div>
             </div>
-          );
-        })}
+          )
+        }) : <h3>No Saved Plants yet</h3>}
       </div>
     </>
   );

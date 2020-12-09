@@ -34,6 +34,12 @@ const userSchema = new Schema({
       ref: "Plant",
     },
   ],
+  article: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Article",
+    },
+  ],
   // using imageData as a placeholder for the image url
   user_image: {
     type: String,

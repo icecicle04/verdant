@@ -17,8 +17,9 @@ export default {
     getArticles: function () {
         return axios.get("/api/Articles");
     },
-    deleteArticles: function(id) {
-        return axios.delete("/api/Articles/" + id);
+    deleteArticles: function(deleteArticle) {
+        console.log("PAYLOAD", deleteArticle)
+        return axios.put("/api/Articles/savedArticles", deleteArticle);
       },
 
 };

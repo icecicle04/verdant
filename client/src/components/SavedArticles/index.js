@@ -1,38 +1,46 @@
 import React, { useEffect, useState, useContext } from "react";
 import AlertContext from "../../context/AlertContext";
+import jwt from "jsonwebtoken";
 import API from "../ArticleSearch/searchApi";
+import API2 from "../../utils/API";
 
 
 const SavedArticles = () => {
   const [articles, setArticles] = useState([]);
   const { setAlert } = useContext(AlertContext);
+  const localJwt = localStorage.getItem("jwt");
 
   const refreshArticle = () => {
-    API.getArticles()
-      .then((response) => {
-        // console.log("HIT REFRESH")
-        setAlert({ message: "Deleted article", type: "success" });
-        console.log(response.data);
-        setArticles(response.data);
-      })
-      .catch((err) => {
-        if (err) throw err;
+    if (localJwt) {
+      const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+
+      API2.getUser(decoded.id).then((foundUser) => {
+      
+        setArticles(foundUser.data.article);
       });
+    }
   };
 
   useEffect(() => {
-    API.getArticles()
-      .then((response) => {
-        setArticles(response.data);
-      })
-      .catch((err) => {
-        if (err) throw err;
+    if (localJwt) {
+      const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+
+      API2.getUser(decoded.id).then((foundUser) => {
+        // console.log("FOUND USER", foundUser.data.article);
+        setArticles(foundUser.data.article);
       });
+    }
   }, []);
 
-  function deleteArticle(id) {
-    API.deleteArticles(id)
-      .then((res) => API.getArticles())
+  function deleteArticle(ArticleId, UserId) {
+
+    const decoded = jwt.decode(localJwt, process.env.JWT_SECRET);
+    UserId = decoded.id;
+
+    API.deleteArticles({ArticleId, UserId})
+      .then((res) => {
+        console.log(res);
+      })
       .catch((err) => console.log(err));
     refreshArticle();
   }
@@ -46,9 +54,12 @@ const SavedArticles = () => {
           {articles.map((data) => {
             return (
               <div key={data._id}>
-                <div className="card card-body" style={{
-                  margin: "20px"
-                }}>
+                <div
+                  className="card card-body"
+                  style={{
+                    margin: "20px",
+                  }}
+                >
                   <h4>{data.title}</h4>
                   <img
                     className="col-sm-12"

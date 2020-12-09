@@ -19,7 +19,7 @@ router.get("/api/account/:user", jsonParser, (req, res) => {
   // console.log(userID);
 
   db.User.findById({ _id: userID })
-    .populate("plants")
+    .populate("plants").populate('article')
     .then((foundUser) => {
       // console.log(foundUser);
       res.json(foundUser);
@@ -168,32 +168,48 @@ router.get("/api/Articles", (req, res) => {
 });
 
 router.post("/api/Articles/savedArticles", jsonParser, (req, res) => {
-  var { title, url, imageUrl } = req.body;
+  var { title, url, imageUrl, user_id } = req.body;
   db.Article.create({ title, url, imageUrl })
     .then((newArticle) => {
-      (title = newArticle.title),
-        (url = newArticle.url),
-        (imageUrl = newArticle.imageUrl);
+      // update the user with the new article
+      console.log("NEW ARTICLE", newArticle);
+      let { _id } = newArticle;
+      console.log(user_id);
+      db.User.findOneAndUpdate(
+        { _id: user_id },
+        { $push: { article: _id } },
+        { new: true }
+      )
+        .then((newUser) => {
+          console.log(newUser);
+        })
+        .catch((err) => {
+          if (err) throw err;
+        });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json({
         error: true,
         data: null,
-        message: "unable to sign up",
+        message: "unable to save article",
       });
     });
 });
 
-router.delete("/api/Articles/:id", function (req, res) {
-  console.log(req.params.id);
-  db.Article.findByIdAndDelete({ _id: req.params.id })
-    .then((deletedUser) => {
-      console.log("Deleted user");
-      console.log(deletedUser);
+router.put("/api/Articles/savedArticles", jsonParser, function (req, res) {
+  let {UserId, ArticleId} = req.body;
+  db.User.findByIdAndUpdate({ _id: UserId }, { $pull: { article: ArticleId } })
+    .then((response) => {
+      console.log(response);
     })
     .catch((err) => {
-      if (err) throw err;
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "unable to delete article",
+      });
     });
 });
 
