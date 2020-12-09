@@ -72,10 +72,10 @@ function App() {
               <Route exact path={["/Articles"]}>
                 <Articles />
               </Route>
-              <Route exact path={["/Chat"]}>
+              <Route exact path={["/join"]}>
                 <Join />
               </Route>
-              <Route exact path={["/chat"]}>
+              <Route path={["/chat"]}>
                 <Chat />
               </Route>
             </Switch>

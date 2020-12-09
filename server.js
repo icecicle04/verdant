@@ -2,15 +2,24 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const socketio = require("socket.io")
+const socketio = require("socket.io");
 const http = require("http");
 const server = http.createServer(app);
 const io = socketio(server);
+
+// const io = require("socket.io")(server, {
+//   cors: {
+//     origin: process.env.PORT || 3001,
+//     methods: ["GET", "POST"]
+//   }
+// });
 
 const routes = require("./routes/api/user");
 const path = require("path");
 
 const router = require("./routes/api");
+
+const { addUser, removeUser, getUser, getUsersInRoom } = require("./helper");
 
 const PORT = process.env.PORT || 3001;
 
@@ -22,16 +31,35 @@ app.use(express.json());
 app.use(express.static("client/build"));
 app.use(express.static(path.join(__dirname, "public")));
 
-
 // work with socket.io
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
-io.on('connection', (socket)=> {
-  console.log("We have a new conneciton!!!!");
-  socket.on('disconnect', ()=> {
-    console.log("User has left!!!");
+io.on("connection", (socket) => {
+  socket.on("join", ({ name, room }, callback) => {
+    const {error, user} = addUser({id: socket.id, name, room});
+
+    if(error) return callback(error);
+
+    socket.emit('message', {user: 'admin', text: `${user.name}, Welcome to the room ${user.room}`});
+    socket.broadcast.to(user.room).emit('message', {user: 'admin', text: `${user.name}, has joined`})
+
+    socket.join(user.room)
+
+    callback();
+  });
+
+  socket.on('sendMessage', (message, callback) => {
+    const user = getUser(socket.id);
+
+    io.to(user.room).emit('message', {user: user.name, text: message})
+
+    callback();
   })
-})
+
+  socket.on("disconnection", () => {
+    console.log("User has left!!!");
+  });
+});
 
 mongoose.connect(
   process.env.MONGODB_CONNECTION_STRING || "mongodb://localhost/verdant",
